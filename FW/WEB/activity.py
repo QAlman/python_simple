@@ -28,7 +28,7 @@ class Activity(AnyPage):
         # Переходим на целевую страницу теста
         self.goto_page(Locator.verme_url)
         time.sleep(3)
-        return self.manager.web_ecom
+        return self.manager.web_verme
 
 
 
