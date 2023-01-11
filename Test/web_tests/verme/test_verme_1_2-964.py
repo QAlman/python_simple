@@ -20,6 +20,7 @@ class TestVerme_1(WebBase):
 
         verme = self.APP.web_activity.button_to_verme()
         time.sleep(222222)
+        self.APP.web_steps.step_test_1()
         self.APP.web_any_page.close_citypiker()
         self.APP.web_any_page.close_cookie()
         verme.send_range_left()
