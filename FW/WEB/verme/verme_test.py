@@ -7,23 +7,265 @@ from FW.WEB.AnyPage import AnyPage
 
 
 class Locator:
+    file = "01.jpg"
+    sms_url = "https://outsourcing-dev.verme.ru/admin/notifications/notifyitem/"
     verme_url = "https://outsourcing-dev.verme.ru/auth/login/"
+    shifts_dev_url = "https://shifts-dev.verme.ru/auth"
+
+    login_verme = (By.XPATH, "//input[@type='text']")
+    password_verme = (By.XPATH, "//input[@type='password']")
+    login_signin = (By.XPATH, "//*[contains(@class ,'btn-primary')]")
+    login_button_verme  = (By.XPATH, "//*[contains(@href ,'/saml/begin?idp=vermelogin&next=')]")
+    login_field_verme = (By.XPATH, "//input[@id='userNameInput']")
+    password_field_verme = (By.XPATH, "//input[@id='passwordInput']")
+    login_button_signin = (By.XPATH, "//span[@id='submitButton']")
+
+    shifts_next = (By.XPATH, "//*[contains(@data-test ,'next-button')]")
+    shifts_done = (By.XPATH, "//*[contains(@data-test ,'done-button')]")
+    shifts_phone = (By.XPATH, "//*[contains(@class ,'v-text-field__slot')][contains(.,'Номер телефона')]")
+    shifts_phone_send = (By.XPATH, "(//*[contains(@id ,'input-')])[1]")
+    shifts_call_phone = (By.XPATH, "//*[contains(@class ,'v-input__append-outer')]")
+    celery_button_signin = (By.XPATH, "//input[@type='submit']")
+
+    shifts_registration_calendar = (By.XPATH, "//*[contains(@class ,'vi-calendar')]")
+    shifts_registration_next = (By.XPATH, "//*[contains(@class ,'vi-calendar')]")
+    shifts_registration_approve = (By.XPATH, "//*[contains(@data-test ,'license-agreement-button')]")
 
 
 class verme_create(AnyPage):
 
-    @allure.step('Закрываем ситипикер')
-    def close_citypicker(self):
-        self.click_element_my(Locator.citypicker_close)
+    @allure.step('Передаем   Login')
+    def send_login(self, txt):
+        self.send_keys_slow(Locator.login_verme, txt, 100)
         self.allure_screenshot()
 
         return self
-    #
-    # @allure.step('Забираем текст')
-    # def get_text(self):
-    #     txt = self.get_tag_text(Locator.page_title)
-    #
-    #     return txt
+
+    @allure.step('Передаем   Password')
+    def send_password(self, txt):
+        self.send_keys_slow(Locator.password_verme, txt, 100)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликаем Войти')
+    def click_signin(self):
+        self.click_element_my(Locator.login_signin)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликаем войти с помощью Verme Login')
+    def click_vermelogin(self):
+        self.click_element_my(Locator.login_button_verme)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Передаем  Verme Login')
+    def send_vermelogin(self, txt):
+        self.send_keys_slow(Locator.login_field_verme, txt, 100)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Передаем  Verme Password')
+    def send_vermepassword(self, txt):
+        self.send_keys_slow(Locator.password_field_verme, txt, 100)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликаем Sign in')
+    def click_vermesignin(self):
+        self.click_element_my(Locator.login_button_signin)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликаем Далее')
+    def click_shifts_next(self):
+        self.click_element_my(Locator.shifts_next)
+        time.sleep(1)
+        self.click_element_my(Locator.shifts_next)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликаем Приступим')
+    def click_shifts_done(self):
+        self.click_element_my(Locator.shifts_done)
+        self.allure_screenshot()
+
+        return self
+
+
+    @allure.step('Кликаем поле-  телефон')
+    def click_shifts_phone(self):
+        self.click_element_my(Locator.shifts_phone)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Передаем телефон  {txt}')
+    def send_shifts_phone(self, txt):
+        #self.send_keys_slow(Locator.shifts_phone_send, str(9) + txt, 100)
+        self.send_keys(Locator.shifts_phone_send, str(9) + txt)
+        self.allure_screenshot()
+
+        return self
+
+
+    @allure.step('Кликаем  - вызов')
+    def click_shifts_call(self):
+        self.click_element_my(Locator.shifts_call_phone)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Отправляем 4 значения кода смс')
+    def send_sms_code_phone_4(self, txt):
+        phone_code_1 = (By.XPATH, "(//*[@type='tel'])[1]")
+        phone_code_2 = (By.XPATH, "(//*[@type='tel'])[2]")
+        phone_code_3 = (By.XPATH, "(//*[@type='tel'])[3]")
+        phone_code_4 = (By.XPATH, "(//*[@type='tel'])[4]")
+
+        self.send_keys(phone_code_1, txt[1:2])
+        self.send_keys(phone_code_2, txt[2:3])
+        self.send_keys(phone_code_3, txt[3:4])
+        self.send_keys(phone_code_4, txt[4:5])
+        self.allure_screenshot()
+        return self
+
+    @allure.step('Переходим в celery ')
+    def goto_celery_page(self):
+        time.sleep(1)
+        self.open_new_tab(Locator.sms_url)
+        self.switch_to_tab()
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликаем Войти')
+    def click_signin_celery(self):
+        self.click_element_my(Locator.celery_button_signin)
+        self.allure_screenshot()
+
+        return self
+    @allure.step('Кликаем номер телефона {txt}')
+    def click_phone_celery(self, txt):
+        el = (By.XPATH, f"//*[contains(@href ,'change/?_changelist_filters=q%3D{txt}')]")
+        self.click_element_my(el)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Забираем текст SMS')
+    def get_text_sms(self):
+        time.sleep(3)
+        el = (By.XPATH, "(//span[contains(@class ,'ace_string')])[2]")
+        txt = self.get_tag_text(el)
+
+        return txt
+
+    @allure.step('Возврат в shifts ')
+    def return_shifts_page(self):
+        time.sleep(1)
+        self.return_to_tab()
+        self.allure_screenshot()
+
+        return self
+
+
+    @allure.step('Отправляем {txt} - {txt_1}  на регистрацию')
+    def send_shifts_registration_txt(self, txt, txt_1, txt_2):
+        time.sleep(1)
+        el = (By.XPATH, f"//*[contains(@class ,'v-input__slot')][contains(.,'{txt}')]")
+        self.click_element_my(el)
+        el_2 = (By.XPATH, f"//*[contains(@id,'input-{txt_2}')]")
+        self.send_keys(el_2, txt_1)
+
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Выбираем  {txt} при регистрации')
+    def click_shifts_registration_btn(self, txt):
+        el = (By.XPATH, f"//*[contains(@class ,'v-btn__content')][contains(.,'{txt}')]")
+        self.click_element_my(el)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Выбираем дату рождения -  {txt}, {txt_1}, {txt_2} при регистрации')
+    def click_shifts_registration_data(self, txt, txt_1, txt_2):
+        self.click_element_my(Locator.shifts_registration_calendar)
+        el = (By.XPATH, f"//*[contains(@class ,'v-date-picker-years')]//*[contains(.,'{txt}')]")
+        self.click_element_my(el)
+        el_1 = (By.XPATH, f"//*[contains(@class ,'v-btn__content')][contains(.,'{txt_1}')]")
+        self.click_element_my(el_1)
+        el_2 = (By.XPATH, f"//*[contains(@class ,'v-btn__content')][contains(.,'{txt_2}')]")
+        self.click_element_my(el_2)
+
+        self.allure_screenshot()
+
+        return self
+
+
+    @allure.step('Выбираем гражданство -  {txt} при регистрации')
+    def click_shifts_registration_country(self, txt, txt_1):
+
+        el = (By.XPATH, f"//*[contains(@class ,'v-select__slot')][contains(.,'{txt}')]")
+        self.click_element_my(el)
+        el_1 = (By.XPATH, f"//*[contains(@class ,'text-body')][contains(.,'{txt_1}')]")
+        self.click_element_my(el_1)
+
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Выбираем местонахождение -  {txt_2} при регистрации')
+    def click_shifts_registration_slot(self, txt, txt_1, txt_2):
+
+        el = (By.XPATH, f"//*[contains(@class ,'v-select__slot')][contains(.,'{txt}')]")
+        self.click_element_my(el)
+        el_1 = (By.XPATH, f"//*[contains(@id ,'input-{txt_1}')]")
+        self.send_keys(el_1, txt_2)
+        el_3 = (By.XPATH, f"//*[contains(@class ,'py-1 text-body')][contains(. ,'{txt_2}')]")
+        self.click_element_my(el_3)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Выбираем регион -  {txt_1} при регистрации')
+    def click_shifts_registration_region(self, txt, txt_1):
+
+        el = (By.XPATH, f"//*[contains(@class ,'v-select__slot')][contains(.,'{txt}')]")
+        self.click_element_my(el)
+        el_1 = (By.XPATH, f"//*[contains(@class ,'v-list-item__title')][contains(.,'{txt_1}')]")
+        self.click_element_my(el_1)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Загрузить фото при регистрации')
+    def send_photo_shifts(self):
+        el = (By.XPATH, "//*[contains(@type ,'file')][contains(@accept,'image/*')]")
+        self.send_keys(el, "E:\\pvp-at\\01.jpg")
+        time.sleep(3)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликнуть согласие при регистрации')
+    def click_shifts_approve(self):
+        time.sleep(3)
+        self.click_element_my(Locator.shifts_registration_approve)
+        self.allure_screenshot()
+
+        return self
+
+
     #
     # @allure.step(' Проверяем диапазон цен >=100')
     # def compare_all(self):

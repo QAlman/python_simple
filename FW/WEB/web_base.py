@@ -279,6 +279,22 @@ class WebBase(FWBase):
 
          self.GetDriver().switch_to.window(self.GetDriver().window_handles[1])
 
+    @allure.step('Возврат  на предыдущую вкладку')
+    def return_to_tab(self):
+
+         self.GetDriver().switch_to.window(self.GetDriver().window_handles[0])
+
+    @allure.step('Открытие новой вкладки')
+    def open_new_tab(self,txt):
+
+         self.GetDriver().execute_script(f"window.open('{txt}')")
+
+    @allure.step("Переход через страницу")
+    def go_to_next_tab(self):
+        actions = ActionChains(self.GetDriver())
+        element = self.send_keys(Keys.CONTROL + Keys.TAB)
+        actions.move_to_element(element)
+        actions.perform()
 
 
     @allure.step('Send keys')

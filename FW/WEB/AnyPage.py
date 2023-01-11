@@ -80,9 +80,6 @@ class AnyPage(WebBase):
     string_letters = generate_random_string_letters()
 
 
-
-
-
     @allure.step('Отправляем 4 значения кода смс')
     def send_sms_code_phone_4(self, *args):
         self.send_keys(Locator.phone_code_1, *args)
