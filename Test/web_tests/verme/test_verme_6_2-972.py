@@ -6,17 +6,17 @@ from Test.web_tests.WebBase import WebBase
 
 
 @allure.feature('Web - Verme')
-@allure.story('Test 1  Регистрации')
-class test_verme_1(WebBase):
+@allure.story('Test 6  Регистрации')
+class TestVerme_6(WebBase):
 
-    @allure.title('1:  Регистрации')
+    @allure.title('6:  Регистрации')
     @allure.severity(allure.severity_level.CRITICAL)
-    @allure.link(name="2-964 : Регистрации на Shifts-dev - Version 1", url="https://testlink.verme.ru/index.php?caller=login&viewer=")
+    @allure.link(name="2-972 : Регистрации на Shifts-dev - Version 1", url="https://testlink.verme.ru/index.php?caller=login&viewer=")
 
-    @allure.description("Позитивный тест 2-964 : Регистрации на Shifts-dev - Version 1")
+    @allure.description("Позитивный тест 2-972 : Регистрации на Shifts-dev - Version 1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
-    def test_verme_1(self):
+    def test_verme_6(self):
 
         verme = self.APP.web_activity.button_to_verme()
         time.sleep(222222)
