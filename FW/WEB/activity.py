@@ -12,6 +12,7 @@ class Locator:
     sandwich = (By.XPATH, "//*[@class='sandwich']") # --- my
 
     verme_url = "https://outsourcing-dev.verme.ru/"
+    shifts_dev_url = "https://shifts-dev.verme.ru/auth"
 
 
 
@@ -26,8 +27,17 @@ class Activity(AnyPage):
     @allure.step('Работа c URL VERME')
     def button_to_verme(self):
         # Переходим на целевую страницу теста
-        self.goto_page(Locator.verme_url)
-        time.sleep(3)
+        #self.goto_page(Locator.verme_url)
+        self.goto_page(Locator.shifts_dev_url)
+        time.sleep(1)
+        return self.manager.web_verme
+
+    @allure.step('Работа c URL Shifts')
+    def button_to_shifts(self):
+        # Переходим на целевую страницу теста
+        #self.goto_page(Locator.verme_url)
+        self.goto_page(Locator.shifts_dev_url)
+        time.sleep(1)
         return self.manager.web_verme
 
 
