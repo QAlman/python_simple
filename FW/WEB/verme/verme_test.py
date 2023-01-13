@@ -30,9 +30,31 @@ class Locator:
     shifts_registration_calendar = (By.XPATH, "//*[contains(@class ,'vi-calendar')]")
     shifts_registration_next = (By.XPATH, "//*[contains(@class ,'vi-calendar')]")
     shifts_registration_approve = (By.XPATH, "//*[contains(@data-test ,'license-agreement-button')]")
+    shifts_registration_after_approve = (By.XPATH, "//*[contains(@data-test ,'disallow-button')]")
+    shifts_registration_move_to_doc = (By.XPATH, "//*[contains(@href ,'/documents')]")
+    shifts_registration_andes = (By.XPATH, "//*[contains(@class ,'v-btn__content')]")
+    shifts_registration_andes_next = (By.XPATH, "(//*[contains(@class ,'v-btn__content')])[2]")
+    shifts_registration_type_numder = (By.XPATH, "//*[contains(@type ,'number')]")
+    shifts_registration_type_text = (By.XPATH, "//input[contains(@type ,'text')]")
+    shifts_registration_type_button = (By.XPATH, "//input[contains(@type ,'text')]")
+    shifts_registration_button_after_reg = (By.XPATH, "//button[contains(@class ,'v-step__button')]")
+    shifts_filter = (By.XPATH, "//*[contains(@data-test ,'filter-button')]")
+    shifts_filter_next = (By.XPATH, "//*[contains(@data-test ,'next-button')]")
+    shifts_filter_prev = (By.XPATH, "//*[contains(@data-test ,'prev-button')]")
+    shifts_filter_apply = (By.XPATH, "//*[contains(@data-test ,'apply')]")
 
 
 class verme_create(AnyPage):
+
+    def small_time(self):
+        time.sleep(2)
+        return self
+    def big_time(self):
+        time.sleep(4)
+        return self
+    def moo_time(self):
+        time.sleep(30)
+        return self
 
     @allure.step('Передаем   Login')
     def send_login(self, txt):
@@ -197,14 +219,15 @@ class verme_create(AnyPage):
 
         return self
 
-    @allure.step('Выбираем дату рождения -  {txt}, {txt_1}, {txt_2} при регистрации')
-    def click_shifts_registration_data(self, txt, txt_1, txt_2):
-        self.click_element_my(Locator.shifts_registration_calendar)
-        el = (By.XPATH, f"//*[contains(@class ,'v-date-picker-years')]//*[contains(.,'{txt}')]")
+    @allure.step('Выбираем дату рождения -  {data}, {month}, {day} при регистрации')
+    def click_shifts_registration_data(self, data, month, day, nm):
+        first = (By.XPATH, f"(//*[contains(@class ,'vi-calendar')])[{nm}]")
+        self.click_element_my(first)
+        el = (By.XPATH, f"//*[contains(@class ,'v-date-picker-years')]//*[contains(.,'{data}')]")
         self.click_element_my(el)
-        el_1 = (By.XPATH, f"//*[contains(@class ,'v-btn__content')][contains(.,'{txt_1}')]")
+        el_1 = (By.XPATH, f"//*[contains(@class ,'v-btn__content')][contains(.,'{month}')]")
         self.click_element_my(el_1)
-        el_2 = (By.XPATH, f"//*[contains(@class ,'v-btn__content')][contains(.,'{txt_2}')]")
+        el_2 = (By.XPATH, f"//*[contains(@class ,'v-btn__content')][contains(.,'{day}')]")
         self.click_element_my(el_2)
 
         self.allure_screenshot()
@@ -264,6 +287,165 @@ class verme_create(AnyPage):
         self.allure_screenshot()
 
         return self
+
+    @allure.step('Кликнуть модальное окно')
+    def click_shifts_after_approve(self):
+        time.sleep(1)
+        self.click_element_my(Locator.shifts_registration_after_approve)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликнуть модальное окно - документы')
+    def click_shifts_move_to_documents(self):
+        self.click_element_my(Locator.shifts_registration_move_to_doc)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликнуть кнопку на модальном окне')
+    def click_shifts_andes(self):
+        self.click_element_my(Locator.shifts_registration_andes)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликнуть кнопку - добавить документ')
+    def click_shifts_add_doc(self, txt):
+        el = (By.XPATH, f"(//*[contains(@data-test ,'new-document-button')])[{txt}]")
+        self.click_element_my(el)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликнуть кнопку - добавить банк')
+    def click_shifts_add_bank(self, txt_1, txt_3):
+        el = (By.XPATH, "//*[contains(@role ,'combobox')]")
+        self.click_element_my(el)
+        el_1 = (By.XPATH, "//*[contains(@type ,'number')]")
+        self.send_keys(el_1, txt_1)
+        time.sleep(3)
+        el_2 = (By.XPATH, "//*[contains(@class ,'v-list--dense theme--light')]")
+        self.click_element_my(el_2)
+        el_3 = (By.XPATH, "(//*[contains(@type ,'number')])[2]")
+        self.send_keys(el_3, txt_3)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликнуть кнопку - добавить ИНН')
+    def click_shifts_add_inn(self, txt):
+
+        self.click_element_my(Locator.shifts_registration_type_numder)
+        self.send_keys(Locator.shifts_registration_type_numder, txt)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликнуть кнопку - добавить медицинскую книжку')
+    def click_shifts_add_med(self, txt):
+
+        self.click_element_my(Locator.shifts_registration_type_numder)
+        self.send_keys(Locator.shifts_registration_type_numder, txt)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Выбираем период действия  медкнижки при регистрации')
+    def click_shifts_registration_med_data(self,  day, nm, nm_2):
+        first = (By.XPATH, f"(//*[contains(@class ,'vi-calendar')])[{nm}]")
+        self.click_element_my(first)
+        el_2 = (By.XPATH, f"//*[contains(@class ,'v-btn__content')][contains(.,'{day}')]")
+        self.click_element_my(el_2)
+        second = (By.XPATH, f"(//*[contains(@class ,'vi-calendar')])[{nm_2}]")
+        self.click_element_my(second)
+        el_3 = (By.XPATH, "//*[contains(@class ,'v-btn__content')]//*[contains(@class ,'vi-angle-right')]")
+        self.click_element_my(el_3)
+        self.click_element_my(el_3)
+        self.click_element_my(el_3)
+        time.sleep(2)
+        el_4 = (By.XPATH, f"//*[contains(@class ,'v-btn__content')][contains(.,'{day}')]")
+        self.click_element_my(el_4)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликнуть кнопку на модальном окне')
+    def click_shifts_andes_all(self, txt):
+        self.click_element_my(Locator.shifts_registration_andes_next)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликнуть кнопку - добавить паспорт')
+    def click_shifts_add_passport(self, txt):
+
+        self.click_element_my(Locator.shifts_registration_type_text)
+        self.send_keys(Locator.shifts_registration_type_text, txt)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликнуть кнопку - добавить терапевта')
+    def click_shifts_add_therapist(self):
+        first = (By.XPATH, "//button[contains(@class ,'vi-calendar')]")
+        self.click_element_my(first)
+        el = (By.XPATH, "//*[contains(@class ,'theme--light primary--text')]")
+        self.click_element_my(el)
+
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('После регистрации кликнуть кнопку - понятно')
+    def click_shifts_after_reg(self):
+        self.click_element_my(Locator.shifts_registration_button_after_reg)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликнуть кнопку смена - фильтр')
+    def click_shifts_filter(self):
+        self.click_element_my(Locator.shifts_filter)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликнуть кнопку смена - фильтр следующий месяц')
+    def click_shifts_filter_next(self):
+        self.click_element_my(Locator.shifts_filter_next)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликнуть кнопку смена - фильтр предыдущий месяц')
+    def click_shifts_filter_prev(self):
+        self.click_element_my(Locator.shifts_filter_prev)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Работа с фильтром ')
+    def send_shifts_filter_data(self, txt):
+        el = (By.XPATH, f"(//*[contains(@role ,'combobox')])[{txt}]")
+        self.click_element_my(el)
+        el_1 = (By.XPATH, "(//*[contains(@class ,'d-flex flex-column py-1')])[1]")
+        self.click_element_my(el_1)
+        self.allure_screenshot()
+
+        return self
+
+
+
+    @allure.step('Кликнуть кнопку apply')
+    def click_shifts_filter_apply(self):
+        self.click_element_my(Locator.shifts_filter_apply)
+        self.allure_screenshot()
+
+        return self
+
+
+
 
 
     #

@@ -18,10 +18,11 @@ class DriverInstance:
             options.add_argument('--headless')
             options.add_argument('--no-sandbox')
             # options.add_argument('--window-size=1920,1080')
-            options.add_argument('--window-size=1920,1200')
+            options.add_argument('--window-size=640,1136')
             options.add_argument('--disable-gpu')
         else:
             options.headless = False
+            #options.add_argument('--window-size=640,1136')
 
         capabilities = DesiredCapabilities.CHROME
         capabilities['goog:loggingPrefs'] = {'browser': 'ALL',
@@ -39,7 +40,8 @@ class DriverInstance:
             self.driver = webdriver.Chrome(options=options, desired_capabilities=capabilities)
 
         if self.settings.Browser['headless'] is False:
-            self.driver.maximize_window()
+            options.add_argument('--window-size=640,1136')
+            #self.driver.maximize_window()
         return self.driver
 
     def stop_driver(self):

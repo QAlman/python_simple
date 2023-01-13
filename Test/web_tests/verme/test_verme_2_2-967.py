@@ -16,7 +16,7 @@ class TestVerme_2(WebBase):
     @allure.description("Позитивный тест 2-967 : Регистрации на Shifts-dev - Version 1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
-    @pytest.mark.skip
+    #@pytest.mark.skip
     def test_verme_2(self):
         verme = self.APP.web_activity.button_to_shifts()
         self.APP.web_steps.step_test_1()
@@ -60,7 +60,8 @@ class TestVerme_2(WebBase):
         data = "1990"
         month = "янв."
         day = "31"
-        verme.click_shifts_registration_data(data, month, day)
+        fm = "1"
+        verme.click_shifts_registration_data(data, month, day, fm)
 
         s = "Гражданство"
         country = "Россия"
@@ -85,16 +86,54 @@ class TestVerme_2(WebBase):
         verme.click_shifts_registration_btn(vote)
         verme.click_shifts_registration_btn(next)
 
-        # #z = "d.abramkin@verme.ru"
-        # z = "asdsadsfdvg@asdsffrgt.com"
-        # verme.send_login(z)
-        # #o = "3SSTUkQ1VTct"
-        # o = "freftTRHTRH!@#13564"
-        # verme.send_password(o)
-        # verme.click_signin()
-        #
-        #
-        # self.APP.web_any_page.close_cookie()
-        # verme.send_range_left()
-        # verme.send_range_right()
-        # verme.compare_all()
+        verme.click_shifts_after_approve()
+        verme.click_shifts_move_to_documents()
+        verme.click_shifts_andes()
+        m = "1"
+        verme.click_shifts_add_doc(m)
+
+        bik = "044525202"
+        account = "40817810630082478612"
+        verme.click_shifts_add_bank(bik, account)
+        verme. click_shifts_andes()
+        verme.small_time()
+        verme.click_shifts_andes()
+        m = "2"
+        verme.click_shifts_add_doc(m)
+        inn = "526317984689"
+        verme.click_shifts_add_inn(inn)
+        verme.click_shifts_andes()
+        verme.small_time()
+        verme.click_shifts_andes()
+        m = "3"
+        verme.click_shifts_add_doc(m)
+        med = "23452332"
+        verme.click_shifts_add_med(med)
+
+        data = None
+        month = None
+        day = "1"
+        nm = "2"
+        nm_2 = "3"
+        verme.click_shifts_registration_med_data(day, nm, nm_2)
+        verme.send_photo_shifts()
+        verme.click_shifts_andes_all(nm)
+        verme.small_time()
+        verme.click_shifts_andes()
+        m = "4"
+        verme.click_shifts_add_doc(m)
+        passp = "3314542316"
+        verme.click_shifts_add_passport(passp)
+        verme.send_photo_shifts()
+        verme.click_shifts_andes_all(nm)
+        verme.small_time()
+        verme.click_shifts_andes()
+        m = "5"
+        verme.click_shifts_add_doc(m)
+
+        verme.click_shifts_add_therapist()
+        verme.send_photo_shifts()
+        verme.click_shifts_andes_all(nm)
+        verme.small_time()
+        verme.click_shifts_andes()
+
