@@ -9,7 +9,7 @@ from Test.web_tests.WebBase import WebBase
 @allure.story('Test 2  Регистрации')
 class TestVerme_2(WebBase):
 
-    @allure.title('2:  Регистрации')
+    @allure.title('2: 2-967 : Страница Документы загрузка документов ')
     @allure.severity(allure.severity_level.CRITICAL)
     @allure.link(name="2-967 : Регистрации на Shifts-dev - Version 1", url="https://testlink.verme.ru/index.php?caller=login&viewer=")
 
@@ -40,6 +40,7 @@ class TestVerme_2(WebBase):
         x = verme.get_text_sms()
         verme.return_shifts_page()
         verme.send_sms_code_phone_4(x)
+        verme.small_time()
 
         f = "Фамилия"
         f_1 = self.APP.web_any_page.string_letters
@@ -87,8 +88,17 @@ class TestVerme_2(WebBase):
         verme.click_shifts_registration_btn(next)
 
         verme.click_shifts_after_approve()
-        verme.click_shifts_move_to_documents()
-        verme.click_shifts_andes()
+        verme.small_time()
+        co = " Перейти в раздел"
+        verme.click_shifts_btn_content(co)
+        co = "Понятно"
+        verme.click_shifts_btn_content(co)
+
+        verme.small_time()
+        #verme.click_shifts_after_reg()
+        # ti = " Документы "
+        # verme.click_shifts_title(ti)
+
         m = "1"
         verme.click_shifts_add_doc(m)
 
@@ -117,23 +127,28 @@ class TestVerme_2(WebBase):
         nm_2 = "3"
         verme.click_shifts_registration_med_data(day, nm, nm_2)
         verme.send_photo_shifts()
-        verme.click_shifts_andes_all(nm)
+        co = " На рассмотрение "
+        verme.click_shifts_btn_content(co)
         verme.small_time()
-        verme.click_shifts_andes()
+        co = "Понятно"
+        verme.click_shifts_btn_content(co)
         m = "4"
         verme.click_shifts_add_doc(m)
         passp = "3314542316"
         verme.click_shifts_add_passport(passp)
         verme.send_photo_shifts()
-        verme.click_shifts_andes_all(nm)
+        co = " На рассмотрение "
+        verme.click_shifts_btn_content(co)
         verme.small_time()
-        verme.click_shifts_andes()
+        co = "Понятно"
+        verme.click_shifts_btn_content(co)
         m = "5"
         verme.click_shifts_add_doc(m)
-
         verme.click_shifts_add_therapist()
         verme.send_photo_shifts()
-        verme.click_shifts_andes_all(nm)
+        co = " На рассмотрение "
+        verme.click_shifts_btn_content(co)
         verme.small_time()
-        verme.click_shifts_andes()
+        co = "Понятно"
+        verme.click_shifts_btn_content(co)
 

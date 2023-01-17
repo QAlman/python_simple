@@ -9,7 +9,7 @@ from Test.web_tests.WebBase import WebBase
 @allure.story('Test 3  Регистрации')
 class TestVerme_3(WebBase):
 
-    @allure.title('3:  Регистрации')
+    @allure.title('3: 2-968 : Фильтры смен')
     @allure.severity(allure.severity_level.CRITICAL)
     @allure.link(name="2-968 : Регистрации на Shifts-dev - Version 1", url="https://testlink.verme.ru/index.php?caller=login&viewer=")
 
@@ -22,12 +22,8 @@ class TestVerme_3(WebBase):
         self.APP.web_steps.step_test_1()
         verme.click_shifts_next()
         verme.click_shifts_done()
-        # z = self.APP.web_any_page.string_d
-        # o = z[5:10]
-        # print(z)
-
         verme.click_shifts_phone()
-        z = "430385054"
+        z = "456473784"
         verme.send_shifts_phone(str(z))
         verme.click_shifts_call()
         verme.goto_celery_page()
@@ -43,11 +39,10 @@ class TestVerme_3(WebBase):
         verme.return_shifts_page()
         verme.send_sms_code_phone_4(x)
         verme.small_time()
+
         verme.click_shifts_after_approve()
         verme.click_shifts_after_reg()
 
-        verme.click_shifts_filter_next()
-        verme.click_shifts_filter_next()
         verme.click_shifts_filter()
         fl = "1"
         verme.send_shifts_filter_data(fl)
@@ -57,110 +52,11 @@ class TestVerme_3(WebBase):
         verme.send_shifts_filter_data(fl)
         fl = "4"
         verme.send_shifts_filter_data(fl)
-        fl = "5"
-        verme.send_shifts_filter_data(fl)
+        # fl = "5"
+        # verme.send_shifts_filter_data(fl) # метро
         fl = "6"
         verme.send_shifts_filter_data(fl)
 
         verme.click_shifts_filter_apply()
 
 
-        # time.sleep(22222)
-        #
-        # f = "Фамилия"
-        # f_1 = self.APP.web_any_page.string_letters
-        # f_2 = "84"
-        # verme.send_shifts_registration_txt(f, f_1, f_2)
-        #
-        # f = "Имя"
-        # f_2 = "88"
-        # verme.send_shifts_registration_txt(f, f_1, f_2)
-        #
-        # f = "Отчество"
-        # f_2 = "92"
-        # verme.send_shifts_registration_txt(f, f_1, f_2)
-        #
-        # g = "мужской"
-        # verme.click_shifts_registration_btn(g)
-        #
-        # data = "1990"
-        # month = "янв."
-        # day = "31"
-        # fm = "1"
-        # verme.click_shifts_registration_data(data, month, day, fm)
-        #
-        # s = "Гражданство"
-        # country = "Россия"
-        # verme.click_shifts_registration_country(s, country)
-        #
-        # next = "Продолжить"
-        # verme.click_shifts_registration_btn(next)
-        #
-        # s = "Фактическое место проживания"
-        # p = "г Москва, пр-кт Мира, д 111, кв 3"
-        # r = "115"
-        # verme.click_shifts_registration_slot(s, r, p)
-        #
-        # s = "Регионы подработки"
-        # p = "Москва"
-        # verme.click_shifts_registration_region(s, p)
-        #
-        # verme.click_shifts_registration_btn(next)
-        # verme.send_photo_shifts()
-        # verme.click_shifts_approve()
-        # vote = " Я принимаю "
-        # verme.click_shifts_registration_btn(vote)
-        # verme.click_shifts_registration_btn(next)
-        #
-        # verme.click_shifts_after_approve()
-        # verme.click_shifts_move_to_documents()
-        # verme.click_shifts_andes()
-        # m = "1"
-        # verme.click_shifts_add_doc(m)
-        #
-        # bik = "044525202"
-        # account = "40817810630082478612"
-        # verme.click_shifts_add_bank(bik, account)
-        # verme.click_shifts_andes()
-        # verme.small_time()
-        # verme.click_shifts_andes()
-        # m = "2"
-        # verme.click_shifts_add_doc(m)
-        # inn = "526317984689"
-        # verme.click_shifts_add_inn(inn)
-        # verme.click_shifts_andes()
-        # verme.small_time()
-        # verme.click_shifts_andes()
-        # m = "3"
-        # verme.click_shifts_add_doc(m)
-        # med = "23452332"
-        # verme.click_shifts_add_med(med)
-        #
-        # data = None
-        # month = None
-        # day = "1"
-        # nm = "2"
-        # nm_2 = "3"
-        # verme.click_shifts_registration_med_data(day, nm, nm_2)
-        # verme.send_photo_shifts()
-        # verme.click_shifts_andes_all(nm)
-        # verme.small_time()
-        # verme.click_shifts_andes()
-        # m = "4"
-        # verme.click_shifts_add_doc(m)
-        # passp = "3314542316"
-        # verme.click_shifts_add_passport(passp)
-        # verme.send_photo_shifts()
-        # verme.click_shifts_andes_all(nm)
-        # verme.small_time()
-        # verme.click_shifts_andes()
-        # m = "5"
-        # verme.click_shifts_add_doc(m)
-        #
-        # verme.click_shifts_add_therapist()
-        # verme.send_photo_shifts()
-        # verme.click_shifts_andes_all(nm)
-        # verme.small_time()
-        # verme.click_shifts_andes()
-        #
-        #

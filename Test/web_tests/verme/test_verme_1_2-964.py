@@ -9,7 +9,7 @@ from Test.web_tests.WebBase import WebBase
 @allure.story('Test 1  Регистрации')
 class TestVerme_1(WebBase):
 
-    @allure.title('1:  Регистрации')
+    @allure.title('1: 2-964 : Регистрации на Shifts-dev ')
     @allure.severity(allure.severity_level.CRITICAL)
     @allure.link(name="2-964 : Регистрации на Shifts-dev - Version 1", url="https://testlink.verme.ru/index.php?caller=login&viewer=")
 
@@ -40,6 +40,7 @@ class TestVerme_1(WebBase):
         x = verme.get_text_sms()
         verme.return_shifts_page()
         verme.send_sms_code_phone_4(x)
+        verme.small_time()
 
         f = "Фамилия"
         f_1 = self.APP.web_any_page.string_letters
@@ -60,7 +61,8 @@ class TestVerme_1(WebBase):
         data = "1990"
         month = "янв."
         day = "31"
-        verme.click_shifts_registration_data(data, month, day)
+        fm = "1"
+        verme.click_shifts_registration_data(data, month, day, fm)
 
         s = "Гражданство"
         country = "Россия"

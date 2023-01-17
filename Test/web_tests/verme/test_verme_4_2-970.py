@@ -9,7 +9,7 @@ from Test.web_tests.WebBase import WebBase
 @allure.story('Test 4  Регистрации')
 class TestVerme_4(WebBase):
 
-    @allure.title('4:  Регистрации')
+    @allure.title('4:  2-970 : Страница Смены модуль "График смен" в режиме месяц')
     @allure.severity(allure.severity_level.CRITICAL)
     @allure.link(name="2-970 : Регистрации на Shifts-dev - Version 1", url="https://testlink.verme.ru/index.php?caller=login&viewer=")
 
@@ -22,12 +22,8 @@ class TestVerme_4(WebBase):
         self.APP.web_steps.step_test_1()
         verme.click_shifts_next()
         verme.click_shifts_done()
-        # z = self.APP.web_any_page.string_d
-        # o = z[5:10]
-        # print(z)
-
         verme.click_shifts_phone()
-        z = "430385054"
+        z = "456473784"
         verme.send_shifts_phone(str(z))
         verme.click_shifts_call()
         verme.goto_celery_page()
@@ -50,4 +46,4 @@ class TestVerme_4(WebBase):
         verme.click_shifts_filter_next()
         verme.click_shifts_filter_prev()
         verme.click_shifts_filter_prev()
-        #verme.click_shifts_filter()
+

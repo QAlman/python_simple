@@ -34,6 +34,7 @@ class Locator:
     shifts_registration_move_to_doc = (By.XPATH, "//*[contains(@href ,'/documents')]")
     shifts_registration_andes = (By.XPATH, "//*[contains(@class ,'v-btn__content')]")
     shifts_registration_andes_next = (By.XPATH, "(//*[contains(@class ,'v-btn__content')])[2]")
+    shifts_registration_btn_close = (By.XPATH, "//*[contains(@data-test,'message-close')]")
     shifts_registration_type_numder = (By.XPATH, "//*[contains(@type ,'number')]")
     shifts_registration_type_text = (By.XPATH, "//input[contains(@type ,'text')]")
     shifts_registration_type_button = (By.XPATH, "//input[contains(@type ,'text')]")
@@ -42,6 +43,11 @@ class Locator:
     shifts_filter_next = (By.XPATH, "//*[contains(@data-test ,'next-button')]")
     shifts_filter_prev = (By.XPATH, "//*[contains(@data-test ,'prev-button')]")
     shifts_filter_apply = (By.XPATH, "//*[contains(@data-test ,'apply')]")
+    shifts_filter_day_present = (By.XPATH, "//*[contains(@class ,'v-calendar-weekly__day v-present')]")
+    shifts_filter_day_work = (By.XPATH, "(//*[contains(@class ,'v-calendar-weekly__day-label')]//following-sibling::div)[1]")
+    shifts_filter_get = (By.XPATH, "//*[contains(@class,'cursor-pointer px-3 pt-3')]")
+    shifts_filter_close_first = (By.XPATH, "//*[contains(@data-test,'close-button')]")
+    shifts_filter_open_first = (By.XPATH, "//*[contains(@data-test,'ok-button')]")
 
 
 class verme_create(AnyPage):
@@ -274,7 +280,7 @@ class verme_create(AnyPage):
     @allure.step('Загрузить фото при регистрации')
     def send_photo_shifts(self):
         el = (By.XPATH, "//*[contains(@type ,'file')][contains(@accept,'image/*')]")
-        self.send_keys(el, "E:\\pvp-at\\01.jpg")
+        self.send_keys(el, "E:\\pvp-at\\02.jpg")
         time.sleep(3)
         self.allure_screenshot()
 
@@ -306,6 +312,21 @@ class verme_create(AnyPage):
     @allure.step('Кликнуть кнопку на модальном окне')
     def click_shifts_andes(self):
         self.click_element_my(Locator.shifts_registration_andes)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликнуть кнопку - {txt}')
+    def click_shifts_btn_content(self, txt):
+        el = (By.XPATH, f"//*[contains(@class ,'v-btn__content')][contains(.,'{txt}')]")
+        self.click_element_my(el)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Закрыть сообщение')
+    def click_shifts_btn_close(self):
+        self.click_element_my(Locator.shifts_registration_btn_close)
         self.allure_screenshot()
 
         return self
@@ -444,7 +465,49 @@ class verme_create(AnyPage):
 
         return self
 
+    @allure.step('Кликнуть сегодняшний день')
+    def click_shifts_day_present(self):
+        self.click_element_my(Locator.shifts_filter_day_present)
+        self.allure_screenshot()
 
+        return self
+
+    @allure.step('Кликнуть смену')
+    def click_shifts_day_work(self) -> str:
+        el = self.get_tag_attribute(Locator.shifts_filter_day_work , "data-date")
+        d = el[8:10]
+        self.allure_screenshot()
+
+        return d
+
+    @allure.step('Кликнуть - {txt}')
+    def click_shifts_title(self, txt):
+        el = (By.XPATH, f"//*[contains(@class,'text-description')][contains(.,'{txt}')]")
+        self.click_element_my(el)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Выбрать смену')
+    def get_shifts_first(self):
+        self.click_element_my(Locator.shifts_filter_get)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Выбрать -  закрыть смену')
+    def get_shifts_first_close(self):
+        self.click_element_my(Locator.shifts_filter_close_first)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Выбрать - принять смену')
+    def get_shifts_first_open(self):
+        self.click_element_my(Locator.shifts_filter_open_first)
+        self.allure_screenshot()
+
+        return self
 
 
 
