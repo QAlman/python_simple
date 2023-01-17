@@ -48,6 +48,12 @@ class Locator:
     shifts_filter_get = (By.XPATH, "//*[contains(@class,'cursor-pointer px-3 pt-3')]")
     shifts_filter_close_first = (By.XPATH, "//*[contains(@data-test,'close-button')]")
     shifts_filter_open_first = (By.XPATH, "//*[contains(@data-test,'ok-button')]")
+    shifts_filter_open_first_chip = (By.XPATH, "//*[@class='app-chip__text'][contains(.,'Моя смена')]")
+    shifts_filter_avatar = (By.XPATH, "//*[@data-test='user']")
+    shifts_admin_quee = (By.XPATH, "//*[@href='/admin/notifications/notifyitem/']")
+
+
+
 
 
 class verme_create(AnyPage):
@@ -58,7 +64,7 @@ class verme_create(AnyPage):
     def big_time(self):
         time.sleep(4)
         return self
-    def moo_time(self):
+    def more_time(self):
         time.sleep(30)
         return self
 
@@ -173,6 +179,7 @@ class verme_create(AnyPage):
         self.allure_screenshot()
 
         return self
+
 
     @allure.step('Кликаем Войти')
     def click_signin_celery(self):
@@ -509,9 +516,59 @@ class verme_create(AnyPage):
 
         return self
 
+    @allure.step('Выбрать - {txt} ')
+    def get_shifts_first_open_chip(self, txt, txt_1):
+        el = (By.XPATH, f"//*[@class='app-chip__text'][contains(.,'{txt}')]")
+        self.click_element_my(el)
+        time.sleep(3)
+        el_1 = (By.XPATH, f"//*[@class='app-chip__text'][contains(.,'{txt_1}')]")
+        fin = self.get_text_my(el_1)
+        print(fin)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Выбрать - {txt} ')
+    def get_shifts_click_field(self, txt):
+        el = (By.XPATH, f"//*[@role='tab'][contains(.,'{txt}')]")
+        self.click_element_my(el)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Проверяем - {txt} ')
+    def get_shifts_phone_compare(self, txt):
+        el = (By.XPATH, "//*[@class='text--base']")
+        fin = self.get_text_my(el)
+        time.sleep(1)
+        assert txt == fin, 'Телефон не корректен'
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликаем аватар')
+    def shifts_click_avatar(self):
+        self.click_element_my(Locator.shifts_filter_avatar)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликаем - очередь оповещений')
+    def shifts_click_quee(self):
+        self.click_element_my(Locator.shifts_admin_quee)
+        self.allure_screenshot()
+
+        return self
 
 
-    #
+
+
+
+
+
+
+
+    #//*[@role='tab'][contains(.,'График')]
     # @allure.step(' Проверяем диапазон цен >=100')
     # def compare_all(self):
     #     el_l = self.get_count_elements_my(Locator.compare_left)
@@ -525,134 +582,7 @@ class verme_create(AnyPage):
     #
     #     return self
     #
-    # @allure.step('Перемещаемся к выбору производителя')
-    # def move_to_enterprise(self):
-    #     self.move_to_element(Locator.enterprise_field)
-    #     self.allure_screenshot()
-    #
-    #     return self
-    #
-    # @allure.step('Выбираем бренд {txt}')
-    # def select_brand_all(self, txt):
-    #     el = (By.XPATH, f"//span[@class='checkbox-field__label'][contains(.,'{txt}')]")
-    #     self.click_element_my(el)
-    #     self.allure_screenshot()
-    #
-    #     return self
-    #
-    # @allure.step('Проверяем текст бренда {txt} на странице товара')
-    # def check_select_brand_all(self, txt):
-    #     el = (By.XPATH, f"//h1[@class='catalog-view__title'][contains(.,'{txt}')]")
-    #     # k = txt_brand.casefold()[:-1]
-    #     txt_cart = self.get_text_my(el)
-    #     # r = txt_cart.casefold()
-    #     assert txt in txt_cart, "Текст бренда на странице товара не найден"
-    #     self.allure_screenshot()
-    #
-    #     return self
-    #
-    # @allure.step('Выбираем {txt}')
-    # def select_actions(self, txt):
-    #     ur = (By.XPATH, f"//*[@ga-event-label='{txt}']")
-    #     self.click_element_my(ur)
-    #     self.allure_screenshot()
-    #
-    #     return self
-    #
-    # @allure.step('Выбрать доставку {address_market} в {city}')
-    # def select_address_delivery_any(self, address_market, city, txt):
-    #     self.click_element_my(Locator.select_delivery)
-    #     time.sleep(2)
-    #     self.click_element_my(Locator.select_city)
-    #     select_city_sample = (By.XPATH, f"//span[@class='cities-list-item__name'][contains(.,'{city}')]")
-    #     self.click_element_my(select_city_sample)
-    #     time.sleep(2)
-    #     self.click_element_my(Locator.select_delivery_only)
-    #     # time.sleep(1)
-    #     switch_select_market_2 = (By.XPATH, f"(//*[@class='input-field__control input-field__control--native'])[{txt}]")
-    #     self.click_element_my(switch_select_market_2)
-    #     # time.sleep(1)
-    #     self.send_keys_slow(switch_select_market_2, "zov", 100)
-    #     # time.sleep(1)
-    #     self.send_keys_backspase(switch_select_market_2)
-    #     # time.sleep(1)
-    #     self.send_keys_backspase(switch_select_market_2)
-    #     # time.sleep(1)
-    #     self.send_keys_delete(switch_select_market_2)
-    #     # time.sleep(1)
-    #     self.click_element_my(switch_select_market_2)
-    #     self.send_keys_slow(switch_select_market_2, address_market, 100)
-    #     self.allure_screenshot()
-    #     select_address_sample = (By.XPATH, f"//li[@class='auto-suggest-field__suggestion'][text()='{address_market}']")
-    #     # time.sleep(2)
-    #     self.click_element_my(select_address_sample)
-    #     time.sleep(2)
-    #     self.click_element_my(Locator.select_market_final_2)
-    #     # time.sleep(7)
-    #     self.allure_screenshot()
-    #
-    #     return self
-    #
-    # @allure.step('Забираем данные из карточки')
-    # def get_items_one(self, txt):
-    #     el = self.get_text_my(Locator.get_items_cart_one)
-    #     print(el)
-    #     assert txt == el, "Сортировка не верная"
-    #     self.allure_screenshot()
-    #
-    #     return self
-    #
-    # @allure.step('Заполнить блок личных даных')
-    # def send_family(self, txt, txt_n):
-    #     # self.click_element_my(Locator.family_field)
-    #     # self.send_keys_slow(Locator.family_field_last_name, txt, 100)
-    #     self.send_keys_slow(Locator.family_field_first_name, txt, 100)
-    #     # self.send_keys_slow(Locator.family_field_patronymic_name, txt, 100)
-    #     # self.click_element_my(Locator.family_field_mail)
-    #     # self.send_keys_slow(Locator.family_field_mail, txt_n + "@asd.tr", 100)
-    #     # self.click_element_my(Locator.family_field_gender)
-    #     # self.click_element_my(Locator.family_field_gender_f)
-    #     self.click_element_my(Locator.family_field_data)
-    #     self.send_keys(Locator.family_field_data, Locator.blank + Locator.blank)
-    #     self.send_keys_slow(Locator.family_field_data, "17 11 2000", 100)
-    #     self.send_keys_enter(Locator.family_field_data)
-    #     self.click_element_my(Locator.family_field_mail)
-    #     self.send_keys_slow(Locator.family_field_mail, txt_n + "@asd.tr", 100)
-    #     self.allure_screenshot()
-    #
-    #     return self
-    #
-    # @allure.step('Добавить товары в корзину 101869 1шт ,084250 1кг')
-    # def add_basket(self):
-    #     self.goto_page(Locator.ecom_url_34)
-    #     time.sleep(3)
-    #     self.click_element_my(Locator.add_basket_big)
-    #     time.sleep(5)
-    #     self.allure_screenshot()
-    #     self.goto_page(Locator.ecom_url_34_1)
-    #     time.sleep(3)
-    #     self.click_element_my(Locator.add_basket_big)
-    #     time.sleep(5)
-    #     self.allure_screenshot()
-    #     self.click_element_my(Locator.rise_item)
-    #     self.send_keys(Locator.rise_item, Locator.blank)
-    #     time.sleep(1)
-    #     self.send_keys(Locator.rise_item, "1")
-    #     time.sleep(1)
-    #     self.send_keys_enter(Locator.rise_item)
-    #     time.sleep(2)
-    #     self.click_element_my(Locator.move_to_basket)
-    #     self.allure_screenshot()
-    #
-    #     return self
-    #
-    # @allure.step('Ввести промокод vp97picq (вы получили скидку 40%)')
-    # def add_promocode(self, promo):
-    #     self.click_element_my(Locator.field_promo)
-    #     self.send_keys_slow(Locator.field_promo, promo, 100)
-    #     self.allure_screenshot()
-    #
-    #     return self
+
     #
     # @allure.step('В блоке итогов на чекауте цена соответствует цене на корзине')
     # def check_price_40(self, txt):
@@ -686,13 +616,7 @@ class verme_create(AnyPage):
     #     self.allure_screenshot()
     #
     #     return self
-    #
-    # def check_price_basket(self, txt):
-    #     el = self.get_text_my(Locator.promo_get_price_final)
-    #     assert el == txt, "Цена не соответствует цене на корзине"
-    #     self.allure_screenshot()
-    #
-    #     return self
+
     #
     # @allure.step('Кликаем - ингредиенты')
     # def click_receipt_cart_ingredients(self, txt1, txt2):
@@ -710,13 +634,6 @@ class verme_create(AnyPage):
     #
     #     return self
     #
-    # @allure.step('Удаляем {txt}')
-    # def click_button_delete(self, txt):
-    #     el = (By.XPATH, f"(//*[contains(@class ,'custom-sku-in-favourites__button-text')])[{txt}]")
-    #     self.click_element_my(el)
-    #     self.allure_screenshot()
-    #
-    #     return self
 
 
 

@@ -24,7 +24,7 @@ class TestVerme_6(WebBase):
         verme.click_shifts_next()
         verme.click_shifts_done()
         verme.click_shifts_phone()
-        z = "456473784"
+        z = "920918147"
         verme.send_shifts_phone(str(z))
         verme.click_shifts_call()
         verme.goto_celery_page()
@@ -40,8 +40,10 @@ class TestVerme_6(WebBase):
         verme.return_shifts_page()
         verme.send_sms_code_phone_4(x)
         verme.small_time()
+
         verme.click_shifts_after_approve()
         verme.click_shifts_after_reg()
+
         d = "11"
         verme.click_shifts_btn_content(d)
         verme.small_time()
@@ -49,11 +51,24 @@ class TestVerme_6(WebBase):
         verme.click_shifts_title(t)
         t = " Смены "
         verme.click_shifts_title(t)
+
         s = verme.click_shifts_day_work()
         verme.click_shifts_btn_content(s)
         verme.big_time()
         verme.get_shifts_first()
-        verme.get_shifts_first_close()
+        #verme.get_shifts_first_close()
+        verme.get_shifts_first_open()
+
+        d = " Да "
+        verme.click_shifts_btn_content(d)
+        ch = "Моя смена"
+        ch_1 = "Назначена"
+        verme.get_shifts_first_open_chip(ch, ch_1)
+        d = " Отказаться "
+        verme.click_shifts_btn_content(d)
+
+
+
 
 
 

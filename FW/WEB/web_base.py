@@ -296,6 +296,14 @@ class WebBase(FWBase):
         actions.move_to_element(element)
         actions.perform()
 
+    @allure.step("Закрыть вкладку")
+    def close_tab(self):
+        actions = ActionChains(self.GetDriver())
+        #actions.key_down(Keys.CONTROL + 'w').send_keys('w').key_up(Keys.CONTROL).perform()
+        actions.send_keys(Keys.LEFT_CONTROL + "w")
+        actions.perform()
+
+
 
     @allure.step('Send keys')
     def send_keys_slow(self, locator, text, delay):
