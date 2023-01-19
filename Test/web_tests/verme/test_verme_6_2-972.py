@@ -42,6 +42,8 @@ class TestVerme_6(WebBase):
         verme.small_time()
 
         verme.click_shifts_after_approve()
+        fl = " График "
+        verme.get_shifts_click_field(fl)
         verme.click_shifts_after_reg()
 
         d = "11"
@@ -51,6 +53,7 @@ class TestVerme_6(WebBase):
         verme.click_shifts_title(t)
         t = " Смены "
         verme.click_shifts_title(t)
+        verme.get_shifts_click_field(fl)
 
         s = verme.click_shifts_day_work()
         verme.click_shifts_btn_content(s)
@@ -61,12 +64,16 @@ class TestVerme_6(WebBase):
 
         d = " Да "
         verme.click_shifts_btn_content(d)
+        #time.sleep(22222)
         ch = "Моя смена"
         ch_1 = "Назначена"
         verme.get_shifts_first_open_chip(ch, ch_1)
         d = " Отказаться "
         verme.click_shifts_btn_content(d)
-
+        verme.small_time()
+        d = " Да "
+        verme.click_shifts_btn_content(d)
+        verme.big_time()
 
 
 
