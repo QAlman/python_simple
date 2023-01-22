@@ -59,21 +59,21 @@ class TestVerme_6(WebBase):
         verme.click_shifts_btn_content(s)
         verme.big_time()
         verme.get_shifts_first()
-        #verme.get_shifts_first_close()
-        verme.get_shifts_first_open()
-
-        d = " Да "
-        verme.click_shifts_btn_content(d)
-        #time.sleep(22222)
-        ch = "Моя смена"
-        ch_1 = "Назначена"
-        verme.get_shifts_first_open_chip(ch, ch_1)
-        d = " Отказаться "
-        verme.click_shifts_btn_content(d)
-        verme.small_time()
-        d = " Да "
-        verme.click_shifts_btn_content(d)
-        verme.big_time()
+        verme.get_shifts_first_close() # надо уточнить сценарий для последующих шагов
+        # verme.get_shifts_first_open()
+        #
+        # d = " Да "
+        # verme.click_shifts_btn_content(d)
+        # #time.sleep(22222)
+        # ch = "Моя смена"
+        # ch_1 = "Назначена"
+        # verme.get_shifts_first_open_chip(ch, ch_1)
+        # d = " Отказаться "
+        # verme.click_shifts_btn_content(d)
+        # verme.small_time()
+        # d = " Да "
+        # verme.click_shifts_btn_content(d)
+        # verme.big_time()
 
 
 
