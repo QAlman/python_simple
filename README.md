@@ -2,4 +2,4 @@
 
 Папка с тестами 
 
-\pvp-at\Test\web_tests\verme
+\pvp-at\Test\web_tests\outsourcing
