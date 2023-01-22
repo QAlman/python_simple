@@ -44,7 +44,7 @@ class Activity(AnyPage):
     def button_to_outsourcing(self):
         # Переходим на целевую страницу теста
         #self.goto_page(Locator.verme_url)
-        self.goto_page(Locator.verme_urll)
+        self.goto_page(Locator.verme_url)
         time.sleep(1)
         return self.manager.web_outsourcing
 
