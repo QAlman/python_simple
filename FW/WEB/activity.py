@@ -13,6 +13,7 @@ class Locator:
 
     verme_url = "https://outsourcing-dev.verme.ru/"
     shifts_dev_url = "https://shifts-dev.verme.ru/auth"
+    ousourcing_auto = "https://outsourcing-auto.verme.ru/"
 
 
 
@@ -44,7 +45,7 @@ class Activity(AnyPage):
     def button_to_outsourcing(self):
         # Переходим на целевую страницу теста
         #self.goto_page(Locator.verme_url)
-        self.goto_page(Locator.verme_url)
+        self.goto_page(Locator.ousourcing_auto)
         time.sleep(1)
         return self.manager.web_outsourcing
 

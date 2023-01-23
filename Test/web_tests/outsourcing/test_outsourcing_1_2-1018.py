@@ -25,7 +25,7 @@ class TestOutsourcing_1(WebBase):
         v = "freftTRHTRH!@#13564"
         outsourcing.send_password(v)
         outsourcing.click_signin()
-        ur = "https://outsourcing-dev.verme.ru/agency-employees-list/"
+        ur = "https://outsourcing-auto.verme.ru/agency-employees-list/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
 
@@ -37,28 +37,28 @@ class TestOutsourcing_1(WebBase):
         c = "9"
         outsourcing.outsourcing_click_cell(c)
         outsourcing.small_time()
-        ur = "https://outsourcing-dev.verme.ru/agency-employees-list/"
+        ur = "https://outsourcing-auto.verme.ru/agency-employees-list/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
         outsourcing.outsourcing_check_pagination_value(e, z)
 
-        ur = "https://outsourcing-dev.verme.ru/employees/supervisors/agency/"
+        ur = "https://outsourcing-auto.verme.ru/employees/supervisors/agency/"
         outsourcing.goto_employees_all_page(ur)
         z = "20"
         e = "супервайзеры"
         outsourcing.outsourcing_click_pagination_value(z)
         z = "2"
         outsourcing.outsourcing_check_pagination_value(e, z)
-        ur = "https://outsourcing-dev.verme.ru/agency-requests-list/"
+        ur = "https://outsourcing-auto.verme.ru/agency-requests-list/"
         outsourcing.goto_employees_all_page(ur)
-        ur = "https://outsourcing-dev.verme.ru/shifts-list/"
+        ur = "https://outsourcing-auto.verme.ru/shifts-list/"
         outsourcing.goto_employees_all_page(ur)
-        ur = "https://outsourcing-dev.verme.ru/agency-claims-list/"
+        ur = "https://outsourcing-auto.verme.ru/agency-claims-list/"
         outsourcing.goto_employees_all_page(ur)
-        ur = "https://outsourcing-dev.verme.ru/outsource-reports/"
+        ur = "https://outsourcing-auto.verme.ru/outsource-reports/"
         outsourcing.goto_employees_all_page(ur)
 
-        ur = "https://outsourcing-dev.verme.ru/outsource/orglinks/client/"
+        ur = "https://outsourcing-auto.verme.ru/outsource/orglinks/client/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.outsourcing_click_pagination()
         z = "20"
@@ -68,12 +68,12 @@ class TestOutsourcing_1(WebBase):
         c = "9"
         outsourcing.outsourcing_click_cell(c)
         outsourcing.small_time()
-        ur = "https://outsourcing-dev.verme.ru/outsource/orglinks/client/"
+        ur = "https://outsourcing-auto.verme.ru/outsource/orglinks/client/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
         outsourcing.outsourcing_check_pagination_value(e, z)
 
-        ur = "https://outsourcing-dev.verme.ru/client-employees-list/"
+        ur = "https://outsourcing-auto.verme.ru/client-employees-list/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.outsourcing_click_pagination()
         z = "20"
@@ -84,15 +84,15 @@ class TestOutsourcing_1(WebBase):
         c = "9"
         outsourcing.outsourcing_click_cell(c)
         outsourcing.small_time()
-        ur = "https://outsourcing-dev.verme.ru/client-employees-list/"
+        ur = "https://outsourcing-auto.verme.ru/client-employees-list/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
         outsourcing.outsourcing_check_pagination_value(e, z)
 
-        ur = "https://outsourcing-dev.verme.ru/employees/supervisors/hq/"
+        ur = "https://outsourcing-auto.verme.ru/employees/supervisors/hq/"
         outsourcing.goto_employees_all_page(ur)
 
-        ur = "https://outsourcing-dev.verme.ru/client-reports/"
+        ur = "https://outsourcing-auto.verme.ru/client-reports/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.outsourcing_click_pagination()
         z = "20"
@@ -103,12 +103,12 @@ class TestOutsourcing_1(WebBase):
         c = "9"
         outsourcing.outsourcing_click_cell(c)
         outsourcing.small_time()
-        ur = "https://outsourcing-dev.verme.ru/client-reports/"
+        ur = "https://outsourcing-auto.verme.ru/client-reports/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
         outsourcing.outsourcing_check_pagination_value(e, z)
 
-        ur = "https://outsourcing-dev.verme.ru/promo-employees-list/"
+        ur = "https://outsourcing-auto.verme.ru/promo-employees-list/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.outsourcing_click_pagination()
         z = "20"
@@ -119,12 +119,12 @@ class TestOutsourcing_1(WebBase):
         c = "9"
         outsourcing.outsourcing_click_cell(c)
         outsourcing.small_time()
-        ur = "https://outsourcing-dev.verme.ru/promo-employees-list/"
+        ur = "https://outsourcing-auto.verme.ru/promo-employees-list/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
         outsourcing.outsourcing_check_pagination_value(e, z)
 
-        ur = "https://outsourcing-dev.verme.ru/promo-reports/"
+        ur = "https://outsourcing-auto.verme.ru/promo-reports/"
         outsourcing.goto_employees_all_page(ur)
 
 
