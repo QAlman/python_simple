@@ -145,6 +145,34 @@ class outsourcing_create(AnyPage):
 
         return self
 
+    @allure.step('Кликаем сортировку')
+    def click_sort_all(self, txt, txt_1):
+        el = (By.XPATH, f"(//*[contains(@aria-colindex,'{txt}')])[{txt_1}]")
+        self.click_element_my(el)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Проверяем сортировку для {txt_1}')
+    def check_sort_fio(self, txt, txt_1) -> Type[str]:
+
+        el = (By.XPATH, f"(//*[contains(@class,'text-wrap')])[{txt}]")
+        fin = self.get_text_my(el)
+        assert fin[:1] == txt_1
+        self.allure_screenshot()
+
+        return fin
+
+    @allure.step('Проверяем сортировку')
+    def check_sort_all(self, txt) -> Type[str]:
+
+        el = (By.XPATH, f"(//*[contains(@aria-sort,'none')])[{txt}]")
+        fin = self.get_text_my(el)
+        #assert fin[:1] == txt_1
+        self.allure_screenshot()
+
+        return fin
+
 
 
 

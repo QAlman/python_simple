@@ -28,106 +28,47 @@ class TestOutsourcing_2(WebBase):
         # ur = "https://outsourcing-auto.verme.ru/agency-employees-list/"
         # outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
+        dx = "2"
+        dt = "1"
+        outsourcing.click_sort_all(dx, dt)
+        #outsourcing.click_sort_fio()
+        outsourcing.small_time()
+        ur = "https://outsourcing-auto.verme.ru/employees/supervisors/agency/"
+        outsourcing.goto_employees_all_page(ur)
+        outsourcing.small_time()
+        outsourcing.click_sort_all(dx, dt)
 
-        outsourcing.click_sort_fio()
-        time.sleep(22222)
-        # outsourcing.outsourcing_click_pagination()
-        # z = "20"
-        # e = "сотрудники"
-        # outsourcing.outsourcing_click_pagination_value(z)
-        # outsourcing.outsourcing_check_pagination_value(e, z)
-        # c = "9"
-        # outsourcing.outsourcing_click_cell(c)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/agency-employees-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # outsourcing.outsourcing_check_pagination_value(e, z)
-        #
-        # ur = "https://outsourcing-auto.verme.ru/employees/supervisors/agency/"
-        # outsourcing.goto_employees_all_page(ur)
-        # z = "20"
-        # e = "супервайзеры"
-        # outsourcing.outsourcing_click_pagination_value(z)
-        # z = "2"
-        # outsourcing.outsourcing_check_pagination_value(e, z)
-        # ur = "https://outsourcing-auto.verme.ru/agency-requests-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # ur = "https://outsourcing-auto.verme.ru/shifts-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # ur = "https://outsourcing-auto.verme.ru/agency-claims-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # ur = "https://outsourcing-auto.verme.ru/outsource-reports/"
-        # outsourcing.goto_employees_all_page(ur)
-        #
-        # ur = "https://outsourcing-auto.verme.ru/outsource/orglinks/client/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.outsourcing_click_pagination()
-        # z = "20"
-        # e = "связи"
-        # outsourcing.outsourcing_click_pagination_value(z)
-        # outsourcing.outsourcing_check_pagination_value(e, z)
-        # c = "9"
-        # outsourcing.outsourcing_click_cell(c)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/outsource/orglinks/client/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # outsourcing.outsourcing_check_pagination_value(e, z)
-        #
-        # ur = "https://outsourcing-auto.verme.ru/client-employees-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.outsourcing_click_pagination()
-        # z = "20"
-        # e = "сотрудники"
-        # outsourcing.outsourcing_click_pagination_value(z)
-        # z = "16"
-        # outsourcing.outsourcing_check_pagination_value(e, z)
-        # c = "9"
-        # outsourcing.outsourcing_click_cell(c)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-employees-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # outsourcing.outsourcing_check_pagination_value(e, z)
-        #
-        # ur = "https://outsourcing-auto.verme.ru/employees/supervisors/hq/"
-        # outsourcing.goto_employees_all_page(ur)
-        #
-        # ur = "https://outsourcing-auto.verme.ru/client-reports/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.outsourcing_click_pagination()
-        # z = "20"
-        # e = "отчёты"
-        # outsourcing.outsourcing_click_pagination_value(z)
-        # z = "3"
-        # outsourcing.outsourcing_check_pagination_value(e, z)
-        # c = "9"
-        # outsourcing.outsourcing_click_cell(c)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-reports/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # outsourcing.outsourcing_check_pagination_value(e, z)
-        #
-        # ur = "https://outsourcing-auto.verme.ru/promo-employees-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.outsourcing_click_pagination()
-        # z = "20"
-        # e = "сотрудники"
-        # outsourcing.outsourcing_click_pagination_value(z)
-        # z = "9"
-        # outsourcing.outsourcing_check_pagination_value(e, z)
-        # c = "9"
-        # outsourcing.outsourcing_click_cell(c)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/promo-employees-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # outsourcing.outsourcing_check_pagination_value(e, z)
-        #
-        # ur = "https://outsourcing-auto.verme.ru/promo-reports/"
-        # outsourcing.goto_employees_all_page(ur)
+        outsourcing.small_time()
+        ur = "https://outsourcing-auto.verme.ru/client-employees-list/"
+        outsourcing.goto_employees_all_page(ur)
+        outsourcing.small_time()
+        outsourcing.click_sort_all(dx, dt)
+
+        outsourcing.small_time()
+        ur = "https://outsourcing-auto.verme.ru/client-shifts-list/"
+        outsourcing.goto_employees_all_page(ur)
+        outsourcing.small_time()
+        dx = "5"
+        outsourcing.click_sort_all(dx, dt)
+
+        outsourcing.small_time()
+        ur = "https://outsourcing-auto.verme.ru/client-reports/"
+        outsourcing.goto_employees_all_page(ur)
+        outsourcing.small_time()
+        dx = "2"
+        outsourcing.click_sort_all(dx, dt)
+
+        outsourcing.small_time()
+        ur = "https://outsourcing-auto.verme.ru/promo-employees-list/"
+        outsourcing.goto_employees_all_page(ur)
+        outsourcing.small_time()
+        outsourcing.click_sort_all(dx, dt)
+
+        outsourcing.small_time()
+        ur = "https://outsourcing-auto.verme.ru/promo-reports/"
+        outsourcing.goto_employees_all_page(ur)
+        outsourcing.small_time()
+        outsourcing.click_sort_all(dx, dt)
 
 
 

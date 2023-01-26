@@ -25,8 +25,8 @@ class TestOutsourcing_1(WebBase):
         v = "freftTRHTRH!@#13564"
         outsourcing.send_password(v)
         outsourcing.click_signin()
-        ur = "https://outsourcing-auto.verme.ru/agency-employees-list/"
-        outsourcing.goto_employees_all_page(ur)
+        # ur = "https://outsourcing-auto.verme.ru/agency-employees-list/"
+        # outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
 
         outsourcing.outsourcing_click_pagination()
