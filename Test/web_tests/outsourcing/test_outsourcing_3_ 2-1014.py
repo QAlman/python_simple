@@ -16,7 +16,7 @@ class TestOutsourcing_3(WebBase):
     @allure.description("Позитивный тест 2-1014 :  Снятие со смен (Аутсорсинг и Агенства) - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
-    @pytest.mark.skip
+    #@pytest.mark.skip
     def test_outsourcing_3(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
@@ -28,9 +28,24 @@ class TestOutsourcing_3(WebBase):
         outsourcing.small_time()
         ur = "https://outsourcing-auto.verme.ru/promo-schedule/"
         outsourcing.goto_employees_all_page(ur)
-        outsourcing.small_time()
+
+        ch = "Computers_Acer"
+        nb = "1"
+        outsourcing.click_field_agency(ch, nb)
+
+        nb = "21"
+        st = ' Не назначен '
+        outsourcing.get_shifts_agency(nb, st)
+
+        # mu = ' Изменить '
+        # outsourcing.click_mutation(mu)
+
+        outsourcing.check_mutation()
+
+
         """
-        Необходимо добавить смены
+        Необходимо добавить востановление  назначения на смену
+        после теста
         
         """
 

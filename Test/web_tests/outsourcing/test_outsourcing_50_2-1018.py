@@ -16,9 +16,9 @@ class TestOutsourcing_3(WebBase):
     @allure.description("Позитивный тест 2-1014 :  Снятие со смен (Аутсорсинг и Агенства) - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
-    @pytest.mark.skip
+    #@pytest.mark.skip
     def test_outsourcing_3(self):
-        outsourcing = self.APP.web_activity.button_to_outsourcing()
+        outsourcing = self.APP.web_activity.button_to_outsourcing_dev()
 
         v = "test_outsourcing_2023"
         outsourcing.send_login(v)
@@ -26,14 +26,14 @@ class TestOutsourcing_3(WebBase):
         outsourcing.send_password(v)
         outsourcing.click_signin()
         outsourcing.small_time()
-        ur = "https://outsourcing-auto.verme.ru/promo-schedule/"
+        ur = "https://outsourcing-dev.verme.ru/promo-schedule/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
         """
         Необходимо добавить смены
 
         """
-
+        time.sleep(22222)
         # c = "9"
         # outsourcing.outsourcing_click_cell(c)
 

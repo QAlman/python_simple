@@ -49,6 +49,14 @@ class Activity(AnyPage):
         time.sleep(1)
         return self.manager.web_outsourcing
 
+    @allure.step('Работа c URL outsourcing_dev')
+    def button_to_outsourcing_dev(self):
+        # Переходим на целевую страницу теста
+        #self.goto_page(Locator.verme_url)
+        self.goto_page(Locator.verme_url)
+        time.sleep(1)
+        return self.manager.web_outsourcing
+
 
 
 

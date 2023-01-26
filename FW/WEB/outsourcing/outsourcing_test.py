@@ -155,7 +155,6 @@ class outsourcing_create(AnyPage):
 
     @allure.step('Проверяем сортировку для {txt_1}')
     def check_sort_fio(self, txt, txt_1) -> Type[str]:
-
         el = (By.XPATH, f"(//*[contains(@class,'text-wrap')])[{txt}]")
         fin = self.get_text_my(el)
         assert fin[:1] == txt_1
@@ -165,7 +164,6 @@ class outsourcing_create(AnyPage):
 
     @allure.step('Проверяем сортировку')
     def check_sort_all(self, txt) -> Type[str]:
-
         el = (By.XPATH, f"(//*[contains(@aria-sort,'none')])[{txt}]")
         fin = self.get_text_my(el)
         #assert fin[:1] == txt_1
@@ -173,7 +171,64 @@ class outsourcing_create(AnyPage):
 
         return fin
 
+    @allure.step('Выбираем  {txt}')
+    def click_field_agency(self, txt, txt_1) -> Type[str]:
+        el = (By.XPATH, "//input[contains(@class,'vue-treeselect__input')]")
+        self.click_element_my(el)
+        self.send_keys(el, txt)
+        el_1 = (By.XPATH, f"(//*[contains(@class,'vue-treeselect__label')][contains(.,'Computers_Acer')])[{txt_1}]")
+        self.click_element_my(el_1)
+        self.allure_screenshot()
 
+        return self
+
+    @allure.step('Выбираем смену в {txt}')
+    def get_shifts_agency(self, txt, txt_1) -> Type[str]:
+
+        el = (By.XPATH, f"(//*[contains(@class,'schedule__event')])[{txt}]")
+        self.click_element_my(el)
+        el_1 = (By.XPATH, "//*[contains(@class,'input-icon input-icon-right')]")
+        self.click_element_my(el_1)
+        time.sleep(1)
+        el_2 = (By.XPATH, f"//*[contains(@class,'d-flex flex-column mb-1')][contains(.,'{txt_1}')]")
+        self.click_element_my(el_2)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликаем - {txt}')
+    def click_mutation(self, txt):
+        el = (By.XPATH, f"//*[contains(@class,'ml-auto btn btn-sm btn-primary')][contains(.,'{txt}')]")
+        self.click_element_my(el)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Проверяем изменения ')
+    def check_mutation(self):
+        el = (By.XPATH, "//*[contains(@class,'input-icon input-icon-right')]")
+        fin = self.get_text_my(el)
+        #print("fin =" + str(fin))
+        time.sleep(1)
+        el_1 = (By.XPATH, "//*[contains(@class,'input-icon input-icon-right')]")
+        self.click_element_my(el_1)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Добавляем смену ')
+    def add_shifts_in_agency(self, txt, txt_1) -> Type[str]:
+
+        el = (By.XPATH, f"(//*[contains(@data-zone,'work-area')])[{txt}]")
+        self.click_element_my(el)
+        el_1 = (By.XPATH, "//*[contains(@class,'input-icon input-icon-right')]")
+        self.click_element_my(el_1)
+        time.sleep(4)
+        el_2 = (By.XPATH, f"//*[contains(@class,'d-flex flex-column mb-1')][contains(.,'{txt_1}')]")
+        self.click_element_my(el_2)
+        self.allure_screenshot()
+
+        return self
 
 
 

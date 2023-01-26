@@ -16,7 +16,7 @@ class TestOutsourcing_8(WebBase):
     @allure.description("Позитивный тест 2-1008 :   Статус уволен у сотрудника с прошедшей, текущей и будущей датой увольнения - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
-    @pytest.mark.skip
+    #@pytest.mark.skip
     def test_outsourcing_8(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
@@ -26,19 +26,16 @@ class TestOutsourcing_8(WebBase):
         outsourcing.send_password(v)
         outsourcing.click_signin()
         outsourcing.small_time()
-        ur = "https://outsourcing-auto.verme.ru/promo-schedule/"
-        outsourcing.goto_employees_all_page(ur)
-        outsourcing.small_time()
+        # ur = "https://outsourcing-auto.verme.ru/agency-employees-list/"
+        # outsourcing.goto_employees_all_page(ur)
+        # outsourcing.small_time()
 
-        ur = "https://outsourcing-dev.verme.ru/admin/shifts/promoshift/"
-        outsourcing.goto_employees_all_page(ur)
-        outsourcing.small_time()
+        # ur = "https://outsourcing-dev.verme.ru/admin/shifts/promoshift/"
+        # outsourcing.goto_employees_all_page(ur)
+        # outsourcing.small_time()
 
-        """
-        Необходимо добавить смены 
 
-        """
-        #time.sleep(22222)
+        time.sleep(22222)
         # c = "9"
         # outsourcing.outsourcing_click_cell(c)
 
