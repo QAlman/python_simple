@@ -17,9 +17,6 @@ from FW.WEB.tickets_list import TicketsList
 from FW.WEB.web_base import WebBase
 from FW.work_with_time import work_with_time
 
-from FW.WEB.ecom.ecom_test import ecom_create
-from FW.WEB.ecom.ecom_steps import ecom_steps
-
 from FW.WEB.verme.verme_test import verme_create
 from FW.WEB.verme.verme_steps import verme_steps
 
@@ -43,7 +40,7 @@ class ApplicationManager:
         # self.web_main_page = MainPage(self)
         # self.web_login = Login(self)
         self.web_activity = Activity(self)
-        self.web_ecom = ecom_create(self)
+        #self.web_ecom = ecom_create(self)
         self.web_steps = verme_steps(self)
         self.web_verme = verme_create(self)
 
