@@ -423,9 +423,9 @@ class WebBase(FWBase):
     def find_elements(self, locator):
         return WebDriverWait(self.GetDriver(), self.manager.settings.time_element_Wait).until(EC.presence_of_all_elements_located(locator))
 
-    def find_elements_my(self, locator):
-        return self.GetDriver().find_elements()
-
+    # def find_elements_my(self, locator):
+    #     return self.GetDriver().find_elements()
+    #
 
 
     @allure.step("send_keys")
@@ -449,6 +449,19 @@ class WebBase(FWBase):
     def click_element_my(self, locator):
         try:
             web_element = self.find_element_my(locator)
+            web_element.click()
+
+        except ElementNotVisibleException as e:
+            self.allure_ElementNotVisibleException(e)
+        except NoSuchElementException as e:
+            self.allure_NoSuchElementException(e)
+        except StaleElementReferenceException as e:
+            self.allure_StaleElementReferenceException(e)
+
+    @allure.step('click my dp')
+    def click_element_my_dp(self, locator):
+        try:
+            web_element = self.GetDriver().find_element(By.XPATH, locator)
             web_element.click()
 
         except ElementNotVisibleException as e:

@@ -33,18 +33,42 @@ class TestOutsourcing_4(WebBase):
         nb = "1"
         outsourcing.click_field_agency(ch, nb)
 
+        yr = "2023"
+        nb = "2" # март
+        mn = "1"
+        wk = "3"
+        outsourcing.click_datapicker(yr, nb, mn, wk)
+
+
         nb = "3"
-        nm = " Гал Алек Витал "
+        ev = " Удалить смену "
+        outsourcing.check_mutation(nb, ev)
+
+        time.sleep(43333)
+
+        nm = " К Де Валер " # К Де Валер Гал Алек Витал
         outsourcing.add_shifts_in_agency(nb, nm)
-
-        time.sleep(22222)
-
-        nb = "21"
-        st = ' Не назначен '
-        outsourcing.get_shifts_agency(nb, st)
-
-        # mu = ' Изменить '
+        time.sleep(4)
+        mu = ' Добавить '
+        outsourcing.click_mutation(mu)
+        #
+        time.sleep(43333)
+        #
+        # nb = "3"
+        # nm = " К Де Валер "  # К Де Валер Гал Алек Витал
+        # outsourcing.add_shifts_in_agency(nb, nm)
+        #
+        # mu = ' Добавить '
         # outsourcing.click_mutation(mu)
-
-        outsourcing.check_mutation()
-
+        #
+        # time.sleep(22222)
+        #
+        # nb = "21"
+        # st = ' Не назначен '
+        # outsourcing.get_shifts_agency(nb, st)
+        #
+        # # mu = ' Изменить '
+        # # outsourcing.click_mutation(mu)
+        #
+        # outsourcing.check_mutation()
+        #

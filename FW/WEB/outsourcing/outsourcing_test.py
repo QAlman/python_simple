@@ -216,9 +216,8 @@ class outsourcing_create(AnyPage):
 
         return self
 
-    @allure.step('Добавляем смену ')
+    @allure.step(' Добавляем смену ')
     def add_shifts_in_agency(self, txt, txt_1) -> Type[str]:
-
         el = (By.XPATH, f"(//*[contains(@data-zone,'work-area')])[{txt}]")
         self.click_element_my(el)
         el_1 = (By.XPATH, "//*[contains(@class,'input-icon input-icon-right')]")
@@ -226,11 +225,72 @@ class outsourcing_create(AnyPage):
         time.sleep(4)
         el_2 = (By.XPATH, f"//*[contains(@class,'d-flex flex-column mb-1')][contains(.,'{txt_1}')]")
         self.click_element_my(el_2)
+
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step(' Выбираем дату ')
+    def click_datapicker(self, txt, txt_1, txt_2, txt_3):
+        dp = (By.XPATH, "//*[contains(@class,'dropdown b-dropdown btn-group')]")
+        self.click_element_my(dp)
+        dp_1 = (By.XPATH, "//*[contains(@class,'datepicker-btn-current-year')]")
+        self.click_element_my(dp_1)
+        dp_2 = (By.XPATH, f"//*[contains(@data-year,'{txt}')]")
+        self.click_element_my(dp_2)
+        dp_3 = (By.XPATH, f"(//*[contains(@data-month,'{txt_1}')])[{txt_2}]")
+        self.click_element_my(dp_3)
+        dp_4 = (By.XPATH, f"(//*[contains(@class,'datepicker-week-number')])[{txt_3}]")
+        self.click_element_my(dp_4)
         self.allure_screenshot()
 
         return self
 
 
+    @allure.step('Проверяем и выполняем - {txt_1}')
+    def check_mutation(self, txt, txt_1):
+        #el = (By.XPATH, f"(//*[contains(@data-zone,'work-area')])[{txt}]")
+        el = "//*[contains(@class,'schedule__event-wrap')]"
+
+        el_1 = f"//*[contains(@class,'btn btn-sm btn-danger')][contains(.,'{txt_1}')]"
+
+        fin = self.get_count_elements_my(el)
+        dp = fin + 1
+        print(fin)
+        #el_2 = (By.XPATH, "(//*[contains(@aria-label,'Закрыть')])[2]")
+        time.sleep(1)
+        for x in range(-dp, -1):
+            fv = x + 1
+            self.click_element_my_dp(f"(//*[contains(@class,'schedule__event-wrap')])[{fv * -1}]")
+            time.sleep(1)
+            self.click_element_my_dp(el_1)
+            time.sleep(1)
+            # self.GetDriver().refresh()
+            # time.sleep(1)
+            # if x == fin:
+            #     break
+
+
+
+
+
+        # while fin >= 1:
+        #     self.click_element_my_dp(f"(//*[contains(@class,'schedule__event-wrap')])[{fin}]")
+        #     self.click_element_my_dp(el_1)
+        #
+        #     if fin == 0:
+        #         break
+        #     fin -= 1
+        # if fin >= 1:
+        #     self.click_element_my_dp(el_1)
+        #
+        # else:
+        #     # self.click_element_my(el_2)
+        #     self.GetDriver().refresh()
+
+        self.allure_screenshot()
+
+        return self
 
     #//*[@role='tab'][contains(.,'График')]
     # @allure.step(' Проверяем диапазон цен >=100')
