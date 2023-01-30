@@ -37,7 +37,7 @@ class TestOutsourcing_4(WebBase):
         nm = " Гал Алек Витал "
         outsourcing.add_shifts_in_agency(nb, nm)
 
-        #time.sleep(22222)
+        time.sleep(22222)
 
         nb = "21"
         st = ' Не назначен '
