@@ -44,15 +44,15 @@ class TestOutsourcing_4(WebBase):
         ev = " Удалить смену "
         outsourcing.check_mutation(nb, ev)
 
-        time.sleep(43333)
 
         nm = " К Де Валер " # К Де Валер Гал Алек Витал
         outsourcing.add_shifts_in_agency(nb, nm)
-        time.sleep(4)
+
+
         mu = ' Добавить '
         outsourcing.click_mutation(mu)
-        #
-        time.sleep(43333)
+
+        #time.sleep(22222)
         #
         # nb = "3"
         # nm = " К Де Валер "  # К Де Валер Гал Алек Витал

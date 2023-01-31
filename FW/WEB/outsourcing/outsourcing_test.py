@@ -16,6 +16,7 @@ class Locator:
 
     outsourcing_employees = "https://outsourcing-dev.verme.ru/agency-employees-list/"
     outsourcing_supervisors = "https://outsourcing-dev.verme.ru/employees/supervisors/agency/"
+    outsourcing_outsource_schedule = "https://outsourcing-dev.verme.ru/outsource-schedule/"
 
     login_verme = (By.XPATH, "//input[@type='text']")
     password_verme = (By.XPATH, "//input[@type='password']")
@@ -27,6 +28,7 @@ class Locator:
     outsourcing_pagination = (By.XPATH, "//*[@class='pagination__select custom-select']")
     outsourcing_pagination_value = (By.XPATH, "//option[contains(@value,'20')]")
     outsourcing_sort_fio = (By.XPATH, "//*[contains(@aria-colindex,'2')][contains(@class,'b-table-sort-icon-lef')]")
+
 
 
 
@@ -124,7 +126,7 @@ class outsourcing_create(AnyPage):
     @allure.step('Переходим на - {txt}')
     def goto_employees_all_page(self, txt):
         self.goto_page(txt)
-        time.sleep(2)
+        time.sleep(1)
         self.allure_screenshot()
 
         return self
@@ -176,7 +178,8 @@ class outsourcing_create(AnyPage):
         el = (By.XPATH, "//input[contains(@class,'vue-treeselect__input')]")
         self.click_element_my(el)
         self.send_keys(el, txt)
-        el_1 = (By.XPATH, f"(//*[contains(@class,'vue-treeselect__label')][contains(.,'Computers_Acer')])[{txt_1}]")
+        time.sleep(1)
+        el_1 = (By.XPATH, f"(//*[contains(@class,'vue-treeselect__label')][contains(.,'{txt}')])[{txt_1}]")
         self.click_element_my(el_1)
         self.allure_screenshot()
 
@@ -249,15 +252,12 @@ class outsourcing_create(AnyPage):
 
     @allure.step('Проверяем и выполняем - {txt_1}')
     def check_mutation(self, txt, txt_1):
-        #el = (By.XPATH, f"(//*[contains(@data-zone,'work-area')])[{txt}]")
         el = "//*[contains(@class,'schedule__event-wrap')]"
-
         el_1 = f"//*[contains(@class,'btn btn-sm btn-danger')][contains(.,'{txt_1}')]"
 
         fin = self.get_count_elements_my(el)
         dp = fin + 1
-        print(fin)
-        #el_2 = (By.XPATH, "(//*[contains(@aria-label,'Закрыть')])[2]")
+
         time.sleep(1)
         for x in range(-dp, -1):
             fv = x + 1
@@ -267,11 +267,38 @@ class outsourcing_create(AnyPage):
             time.sleep(1)
             # self.GetDriver().refresh()
             # time.sleep(1)
-            # if x == fin:
+            # if x == 0:
             #     break
+        self.allure_screenshot()
 
+        return self
 
+    @allure.step(' Кликаем  смену ')
+    def click_shifts_in_agency(self, txt) -> Type[object]:
+        el = (By.XPATH, f"(//*[contains(@data-zone,'work-area')])[{txt}]")
+        self.click_element_my(el)
 
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step(' Кликаем  смену где {txt}')
+    def click_shifts_in_shedule(self, txt) -> Type[object]:
+        el = (By.XPATH, f"(//*[contains(@title,'{txt}')])[1]")
+        self.click_element_my(el)
+
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step(' Кликаем  фильтр')
+    def click_shifts_filtr(self) -> Type[object]:
+        el = (By.XPATH, "//*[contains(@class,'btn-text-dark-50')]")
+        self.click_element_my(el)
+
+        self.allure_screenshot()
+
+        return self
 
 
         # while fin >= 1:
