@@ -26,45 +26,37 @@ class TestOutsourcing_8(WebBase):
         outsourcing.send_password(v)
         outsourcing.click_signin()
         outsourcing.small_time()
-        ur = "https://outsourcing-auto.verme.ru/agency-employees-list/"
-        outsourcing.goto_employees_all_page(ur)
-        #time.sleep(222222)
-        ch = "Директ Кредит_РГКП24"
-        nb = "1"
-        outsourcing.click_field_agency(ch, nb)
-        outsourcing.small_time()
-        # wr = "Сотрудник не назначен"
-        # outsourcing.click_shifts_in_shedule(wr)
+        # ur = "https://outsourcing-auto.verme.ru/agency-employees-list/"
+        # outsourcing.goto_employees_all_page(ur)
+        nb = "2"
+        outsourcing.outsourcing_click_cell(nb)
 
-        # outsourcing.click_shifts_filter()
+        outsourcing.click_shifts_toolbar()
 
-        nb = "3"
-        ev = " Удалить смену "
-        outsourcing.check_mutation(nb, ev)
+        fd = "Выберите дату увольнения..."
+        outsourcing.click_textarea(fd)
 
-        nm = " К Де Валер "  # К Де Валер Гал Алек Витал
-        outsourcing.add_shifts_row_agency(nb, nm)
+        outsourcing.send_bcs_textarea(fd)
 
-        mu = ' Добавить '
-        outsourcing.click_mutation(mu)
+        fdd = "08.02.2024"
+        outsourcing.send_textarea(fd, fdd)
 
-        # time.sleep(22222)
+        ap = " Сохранить изменения "
+        outsourcing.click_button(ap)
 
-        # yr = "2023"
-        # nb = "2"  # март
-        # mn = "1"
-        # wk = "3"
-        # outsourcing.click_datapicker(yr, nb, mn, wk)
+        outsourcing.click_shifts_toolbar()
+        fd = "Выберите дату увольнения..."
+        outsourcing.click_textarea(fd)
+        outsourcing.send_bcs_textarea(fd)
+        fdd = "31.01.2023"
+        outsourcing.send_textarea(fd, fdd)
+        ap = " Сохранить изменения "
+        outsourcing.click_button(ap)
+        al = "Дата увольнения не может быть ранее сегодняшней даты"
+        outsourcing.check_alert(al)
 
-        # nb = "3"
-        # ev = " Удалить смену "
-        # outsourcing.check_mutation(nb, ev)
-        #
-        # nm = " К Де Валер "  # К Де Валер Гал Алек Витал
-        # outsourcing.add_shifts_in_agency(nb, nm)
-        #
-        # mu = ' Добавить '
-        # outsourcing.click_mutation(mu)
+
+
 
 
 

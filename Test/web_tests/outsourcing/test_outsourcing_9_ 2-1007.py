@@ -16,7 +16,7 @@ class TestOutsourcing_9(WebBase):
     @allure.description("Позитивный тест 2-1007 :   Назначение сотрудников на смены - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
-    @pytest.mark.skip
+    #@pytest.mark.skip
     def test_outsourcing_9(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
@@ -26,62 +26,25 @@ class TestOutsourcing_9(WebBase):
         outsourcing.send_password(v)
         outsourcing.click_signin()
         outsourcing.small_time()
-        ur = "https://outsourcing-auto.verme.ru/promo-schedule/"
+        ur = "https://outsourcing-auto.verme.ru/shifts-list"
         outsourcing.goto_employees_all_page(ur)
-        outsourcing.small_time()
 
-        ur = "https://outsourcing-dev.verme.ru/admin/shifts/promoshift/"
-        outsourcing.goto_employees_all_page(ur)
-        outsourcing.small_time()
+        ch = "Аркадия"
+        nb = "1"
+        outsourcing.click_field_agency(ch, nb)
 
-        """
-        Необходимо добавить смены 
+        # yr = "2023"
+        # nb = "2"  # март
+        # mn = "1"
+        # wk = "3"
+        # outsourcing.click_datapicker(yr, nb, mn, wk)
 
-        """
-        #time.sleep(22222)
-        # c = "9"
-        # outsourcing.outsourcing_click_cell(c)
+        st = "не назначен"
+        outsourcing.click_list_status(st)
 
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # #outsourcing.click_sort_fio()
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/employees/supervisors/agency/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-employees-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-shifts-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-reports/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/promo-employees-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/promo-reports/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-
-
-
-
+        fd = "Выберите сотрудника..."
+        outsourcing.click_textarea(fd)
+        wr = " Абдуал Хур Ам "
+        outsourcing.select_list_status(wr)
+        ap = "Назначить"
+        outsourcing.click_button(ap)

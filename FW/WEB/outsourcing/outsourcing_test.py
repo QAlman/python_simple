@@ -28,6 +28,7 @@ class Locator:
     outsourcing_pagination = (By.XPATH, "//*[@class='pagination__select custom-select']")
     outsourcing_pagination_value = (By.XPATH, "//option[contains(@value,'20')]")
     outsourcing_sort_fio = (By.XPATH, "//*[contains(@aria-colindex,'2')][contains(@class,'b-table-sort-icon-lef')]")
+    outsourcing_toolbar = (By.XPATH, "//*[contains(@class,'card-toolbar')]")
 
 
 
@@ -220,7 +221,7 @@ class outsourcing_create(AnyPage):
         return self
 
     @allure.step(' Добавляем смену ')
-    def add_shifts_in_agency(self, txt, txt_1) -> Type[str]:
+    def add_shifts_in_agency(self, txt, txt_1) -> Type[object]:
         el = (By.XPATH, f"(//*[contains(@data-zone,'work-area')])[{txt}]")
         self.click_element_my(el)
         el_1 = (By.XPATH, "//*[contains(@class,'input-icon input-icon-right')]")
@@ -231,7 +232,21 @@ class outsourcing_create(AnyPage):
 
         self.allure_screenshot()
 
-        return self
+        return object
+
+    @allure.step(' Добавляем смену ')
+    def add_shifts_in_agency_by_num(self, txt, txt_1) -> Type[object]:
+        el = (By.XPATH, f"(//*[contains(@data-zone,'work-area')])[{txt}]")
+        self.click_element_my(el)
+        el_1 = (By.XPATH, "//*[contains(@class,'input-icon input-icon-right')]")
+        self.click_element_my(el_1)
+        time.sleep(2)
+        el_2 = (By.XPATH, f"(//*[contains(@class,'list-item')])[{txt_1}]")
+        self.click_element_my(el_2)
+
+        self.allure_screenshot()
+
+        return object
 
     @allure.step(' Добавляем смену ')
     def add_shifts_row_agency(self, txt, txt_1) -> Type[str]:
@@ -287,11 +302,11 @@ class outsourcing_create(AnyPage):
 
         return self
 
+
     @allure.step(' Кликаем  смену ')
     def click_shifts_in_agency(self, txt) -> Type[object]:
         el = (By.XPATH, f"(//*[contains(@data-zone,'work-area')])[{txt}]")
         self.click_element_my(el)
-
         self.allure_screenshot()
 
         return self
@@ -300,7 +315,6 @@ class outsourcing_create(AnyPage):
     def click_shifts_in_shedule(self, txt) -> Type[object]:
         el = (By.XPATH, f"(//*[contains(@title,'{txt}')])[1]")
         self.click_element_my(el)
-
         self.allure_screenshot()
 
         return self
@@ -314,9 +328,126 @@ class outsourcing_create(AnyPage):
 
         return self
 
+    @allure.step(' Кликаем  редактировать сотрудника')
+    def click_shifts_toolbar(self) -> Type[object]:
+        self.click_element_my(Locator.outsourcing_toolbar)
+        self.allure_screenshot()
+
+        return object
+
+    @allure.step(' Кликаем  {txt}')
+    def click_textarea(self, txt) -> Type[object]:
+        el = (By.XPATH, f"//*[contains(@placeholder,'{txt}')]")
+        self.click_element_my(el)
+        self.allure_screenshot()
+
+        return object
+
+    @allure.step(' Передаем  {txt}')
+    def send_textarea(self, txt, txt_1) -> Type[object]:
+        el = (By.XPATH, f"//*[contains(@placeholder,'{txt}')]")
+        self.send_keys(el, txt_1)
+        self.allure_screenshot()
+
+        return object
+
+    @allure.step(' Передаем  {txt}')
+    def send_bcs_textarea(self, txt) -> Type[object]:
+        el = (By.XPATH, f"//*[contains(@placeholder,'{txt}')]")
+        self.send_keys_backspase(el)
+        self.allure_screenshot()
+
+        return object
+
+    @allure.step(' Кликаем  {txt}')
+    def click_button(self, txt) -> Type[object]:
+        el = (By.XPATH, f"//button[contains(.,'{txt}')]")
+        self.click_element_my(el)
+        self.allure_screenshot()
+
+        return object
+
+    @allure.step(' Проверяем -  {txt}')
+    def check_alert(self, txt) -> Type[object]:
+        el = (By.XPATH, "//*[contains(@class,'invalid-feedback')]")
+        fin = self.get_text_my(el)
+        assert txt == fin, "Сообщение не корректно"
+        self.allure_screenshot()
+
+        return object
+
+    @allure.step(' Кликаем-  {txt}')
+    def click_list_status(self, txt) -> Type[object]:
+        el = (By.XPATH, f"//*[contains(@class,'d-block')][contains(.,'{txt}')]")
+        self.click_element_my(el)
+        self.allure_screenshot()
+
+        return object
+
+    @allure.step(' Выбираем  -  {txt}')
+    def select_list_status(self, txt) -> Type[object]:
+        el = (By.XPATH, f"//*[contains(@class,'list-item')][contains(.,'{txt}')]")
+        self.click_element_my(el)
+        self.allure_screenshot()
+
+        return object
+
+    @allure.step('Проверяем отсутствие смен')
+    def check_mutation_out(self) -> Type[object]:
+        el = "//*[contains(@class,'schedule__event-wrap')]"
+        fin = self.get_count_elements_my(el)
+        assert fin < 1, "Смены присутствуют"
+        self.allure_screenshot()
+
+        return object
+
+    @allure.step('Проверяем наличие смен')
+    def check_mutation_on(self) -> Type[object]:
+        el = "//*[contains(@class,'schedule__event-wrap')]"
+        self.click_element_my_dp(el)
+        fin = self.get_count_elements_my(el)
+        assert fin >= 1, "Смены отсутствуют"
+        self.allure_screenshot()
+
+        return object
 
 
+    @allure.step('Перемещаемся к элементу')
+    def move_to_shifts_any(self, txt) -> Type[object]:
+        el = "//*[contains(@class,'readonly')]"
+        self.click_element_my_dp(el)
+        self.send_page_down()
+        time.sleep(1)
+        self.move_to_element(txt)
+        self.allure_screenshot()
 
+        return object
+
+
+    @allure.step('Удаляем все смены')
+    def del_shifts_all(self, txt, txt_1) -> Type[object]:
+        self.send_keys_my(txt, txt_1)
+        self.allure_screenshot()
+
+        return object
+
+
+        # dp = fin + 1
+        #
+        # time.sleep(1)
+        # for x in range(-dp, -1):
+        #     fv = x + 1
+        #     self.click_element_my_dp(f"(//*[contains(@class,'schedule__event-wrap')])[{fv * -1}]")
+        #     time.sleep(1)
+        #     self.click_element_my_dp(el_1)
+        #     time.sleep(1)
+        #     # self.GetDriver().refresh()
+        #     # time.sleep(1)
+        #     # if x == 0:
+        #     #     break
+        self.allure_screenshot()
+
+        return self
 
 
         # while fin >= 1:
