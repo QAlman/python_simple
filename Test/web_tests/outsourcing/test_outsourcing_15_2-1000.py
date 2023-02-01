@@ -5,19 +5,20 @@ import pytest
 from Test.web_tests.WebBase import WebBase
 
 
-@allure.feature('Web - Outsourcing')
-@allure.story('Test 3   Снятие со смен (Аутсорсинг и Агенства) ')
-class TestOutsourcing_3(WebBase):
 
-    @allure.title('1: 2-1014 :  Снятие со смен (Аутсорсинг и Агенства) - Версия1')
+@allure.feature('Web - Outsourcing')
+@allure.story('Test 15   Тестирование создания сотрудника')
+class TestOutsourcing_15(WebBase):
+
+    @allure.title('15: 2-1000 :  Тестирование создания сотрудника - Версия1')
     @allure.severity(allure.severity_level.CRITICAL)
-    @allure.link(name="2-1014 :  Снятие со смен (Аутсорсинг и Агенства) - Версия1",
+    @allure.link(name="2-1000 :  Тестирование создания сотрудника - Версия1",
                  url="https://testlink.verme.ru/index.php?caller=login&viewer=")
-    @allure.description("Позитивный тест 2-1014 :  Снятие со смен (Аутсорсинг и Агенства) - Версия1")
+    @allure.description("Позитивный тест 2-1000 :  Тестирование создания сотрудника - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
-    @pytest.mark.skip
-    def test_outsourcing_3(self):
+    #@pytest.mark.skip
+    def test_outsourcing_15(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
         v = "test_outsourcing_2023"
@@ -26,13 +27,25 @@ class TestOutsourcing_3(WebBase):
         outsourcing.send_password(v)
         outsourcing.click_signin()
         outsourcing.small_time()
-        ur = "https://outsourcing-auto.verme.ru/promo-schedule/"
-        outsourcing.goto_employees_all_page(ur)
+        # ur = "https://outsourcing-auto.verme.ru/agency-employees-list/"
+        # outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
-        """
-        Необходимо добавить смены
+        nb = "2"
+        outsourcing.outsourcing_click_cell(nb)
+        outsourcing. click_only_menu()
 
-        """
+        sp = "span"
+        tx = "Создать сотрудника"
+        outsourcing.click_only_txt(sp, tx)
+
+
+        outsourcing.agency_create_employee()
+
+        # time.sleep(22222)
+        # """
+        # Необходимо добавить смены
+        #
+        # """
 
         # c = "9"
         # outsourcing.outsourcing_click_cell(c)

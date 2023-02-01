@@ -1,6 +1,7 @@
 import math
 import time
 from typing import Type
+import datetime
 
 import requests
 import allure
@@ -29,6 +30,8 @@ class Locator:
     outsourcing_pagination_value = (By.XPATH, "//option[contains(@value,'20')]")
     outsourcing_sort_fio = (By.XPATH, "//*[contains(@aria-colindex,'2')][contains(@class,'b-table-sort-icon-lef')]")
     outsourcing_toolbar = (By.XPATH, "//*[contains(@class,'card-toolbar')]")
+    outsourcing_btn_menu = (By.XPATH, "//*[contains(@class,'dropdown b-dropdown btn-group')]")
+    outsourcing_btn_download = (By.XPATH, "//*[contains(@class,'la-file-download icon-2x')]")
 
 
 
@@ -431,6 +434,103 @@ class outsourcing_create(AnyPage):
 
         return object
 
+    @allure.step(' Кликаем  {txt}')
+    def click_only_txt(self, txt, txt_1) -> Type[object]:
+        el = (By.XPATH, f"//{txt}[contains(.,'{txt_1}')]")
+        self.click_element_my(el)
+        self.allure_screenshot()
+
+        return object
+
+
+    def datetime_only_data(self) -> str:
+        x = datetime.datetime.now()
+        date_time = datetime.datetime.today()
+        sd = (date_time.strftime('%H:%M'))
+        date_day = datetime.date.today()
+        dd = date_day.day
+        date = x.strftime("%m.%Y")
+        months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
+                  'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
+        month, year = date.split('.')
+
+        fin = f'{months[int(month) - 1]} {year} г.'
+        full = str(dd) + " " + str(fin) + " " + str(sd)
+
+        return full
+
+    def datetime_only_time(self, txt, txt_1) -> str:
+        date = datetime.datetime.today()
+        sd = (date.strftime('%H:%M'))
+
+        return sd
+
+    @allure.step(' Проверяем выгрузку excl - {txt}')
+    def check_excel_ui(self, txt, txt_1, txt_2, txt_3) -> Type[object]:
+        el = (By.XPATH, f"(//*[contains(@class,'field-headquarter nowrap')])[1]")
+        el_1 = (By.XPATH, f"(//*[contains(@class,'field-user nowrap')])[1]")
+        el_2 = (By.XPATH, f"(//*[contains(@class,'field-show_status')])[1]")
+        el_3 = (By.XPATH, f"(//*[contains(@class,'field-dt_created nowrap')])[1]")
+
+        fin = self.get_text_my(el)
+        fin_1 = self.get_text_my(el_1)
+        fin_2 = self.get_text_my(el_2)
+        fin_3 = self.get_text_my(el_3)
+
+        assert txt == fin , "Отчет не создан"
+        # assert txt_1 == fin_1, "Отчет не создан"
+        assert txt_2 == fin_2, "Отчет не создан"
+        assert txt_3 == fin_3, "Отчет не создан"
+
+        self.allure_screenshot()
+
+        return object
+
+    @allure.step('Кликаем кнопку меню')
+    def click_only_menu(self) -> Type[object]:
+        self.click_element_my(Locator.outsourcing_btn_menu)
+        self.allure_screenshot()
+
+        return object
+
+    @allure.step('Заполняем данные пользователя')
+    def agency_create_employee(self):
+
+        fd = self.string_letters
+        time.sleep(1)
+        rs = str(fd)
+        el = (By.XPATH, f"(//*[contains(@type,'text')])[3]")
+        el_1 = (By.XPATH, f"(//*[contains(@type,'text')])[4]")
+        el_2 = (By.XPATH, f"(//*[contains(@type,'text')])[5]")
+        el_3 = (By.XPATH, f"(//*[contains(@type,'text')])[6]")
+        el_4 = (By.XPATH, f"(//*[contains(@type,'text')])[7]")
+        el_5 = (By.XPATH, f"(//*[contains(@type,'text')])[8]")
+        el_6 = (By.XPATH, f"(//*[contains(@type,'text')])[9]")
+        el_7 = (By.XPATH, f"(//*[contains(@type,'text')])[10]")
+        el_8 = (By.XPATH, f"(//*[contains(@type,'text')])[11]")
+        el_9 = (By.XPATH, f"(//*[contains(@type,'text')])[12]")
+
+        self.send_keys(el, rs)
+        self.send_keys(el_1, rs)
+        self.send_keys(el_2, rs)
+        self.send_keys(el_3, rs)
+        self.send_keys(el_4, rs)
+        self.send_keys(el_5, rs)
+        self.send_keys(el_6, rs)
+        self.send_keys(el_7, rs)
+        self.send_keys(el_8, rs)
+        self.send_keys(el_9, rs)
+
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликаем кнопку скачать файл')
+    def click_omly_download(self) -> Type[object]:
+        self.click_element_my(Locator.outsourcing_btn_download)
+        self.allure_screenshot()
+
+        return object
 
         # dp = fin + 1
         #
@@ -445,9 +545,9 @@ class outsourcing_create(AnyPage):
         #     # time.sleep(1)
         #     # if x == 0:
         #     #     break
-        self.allure_screenshot()
-
-        return self
+        # self.allure_screenshot()
+        #
+        # return self
 
 
         # while fin >= 1:
@@ -464,9 +564,9 @@ class outsourcing_create(AnyPage):
         #     # self.click_element_my(el_2)
         #     self.GetDriver().refresh()
 
-        self.allure_screenshot()
-
-        return self
+        # self.allure_screenshot()
+        #
+        # return self
 
     #//*[@role='tab'][contains(.,'График')]
     # @allure.step(' Проверяем диапазон цен >=100')

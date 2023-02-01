@@ -6,18 +6,18 @@ from Test.web_tests.WebBase import WebBase
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('Test 3   Снятие со смен (Аутсорсинг и Агенства) ')
-class TestOutsourcing_3(WebBase):
+@allure.story('Test 16   Тестирование отчётов')
+class TestOutsourcing_16(WebBase):
 
-    @allure.title('1: 2-1014 :  Снятие со смен (Аутсорсинг и Агенства) - Версия1')
+    @allure.title('16: 2-999 :  Тестирование отчётов - Версия1')
     @allure.severity(allure.severity_level.CRITICAL)
-    @allure.link(name="2-1014 :  Снятие со смен (Аутсорсинг и Агенства) - Версия1",
+    @allure.link(name="2-999 :  Тестирование отчётов - Версия1",
                  url="https://testlink.verme.ru/index.php?caller=login&viewer=")
-    @allure.description("Позитивный тест 2-1014 :  Снятие со смен (Аутсорсинг и Агенства) - Версия1")
+    @allure.description("Позитивный тест 2-999 :  Тестирование отчётов - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
-    @pytest.mark.skip
-    def test_outsourcing_3(self):
+    #@pytest.mark.skip
+    def test_outsourcing_16(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
         v = "test_outsourcing_2023"
@@ -26,13 +26,16 @@ class TestOutsourcing_3(WebBase):
         outsourcing.send_password(v)
         outsourcing.click_signin()
         outsourcing.small_time()
-        ur = "https://outsourcing-auto.verme.ru/promo-schedule/"
+        ur = "https://outsourcing-auto.verme.ru/client-reports/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
-        """
-        Необходимо добавить смены
+        outsourcing.click_omly_download()
 
-        """
+        # time.sleep(22222)
+        # """
+        # Необходимо добавить смены
+        #
+        # """
 
         # c = "9"
         # outsourcing.outsourcing_click_cell(c)
