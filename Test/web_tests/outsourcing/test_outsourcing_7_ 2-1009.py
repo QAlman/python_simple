@@ -16,7 +16,7 @@ class TestOutsourcing_7(WebBase):
     @allure.description("Позитивный тест 2-1009 :  Создание смены более 13 часов - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
-    @pytest.mark.skip
+    #@pytest.mark.skip
     def test_outsourcing_7(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
@@ -28,59 +28,44 @@ class TestOutsourcing_7(WebBase):
         outsourcing.small_time()
         ur = "https://outsourcing-auto.verme.ru/promo-schedule/"
         outsourcing.goto_employees_all_page(ur)
+
+        ch = "Директ Кредит_РГКП24"
+        nb = "1"
+        outsourcing.click_field_agency(ch, nb)
         outsourcing.small_time()
+        # wr = "Сотрудник не назначен"
+        # outsourcing.click_shifts_in_shedule(wr)
 
-        ur = "https://outsourcing-dev.verme.ru/admin/shifts/promoshift/"
-        outsourcing.goto_employees_all_page(ur)
-        outsourcing.small_time()
+        # outsourcing.click_shifts_filter()
 
-        """
-        Необходимо добавить смены 
+        nb = "3"
+        ev = " Удалить смену "
+        outsourcing.check_mutation(nb, ev)
 
-        """
-        #time.sleep(22222)
-        # c = "9"
-        # outsourcing.outsourcing_click_cell(c)
 
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # #outsourcing.click_sort_fio()
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/employees/supervisors/agency/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-employees-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-shifts-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-reports/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/promo-employees-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/promo-reports/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
+        nm = " К Де Валер "  # К Де Валер Гал Алек Витал
+        outsourcing.add_shifts_row_agency(nb, nm)
+
+        mu = ' Добавить '
+        outsourcing.click_mutation(mu)
+
+        # time.sleep(22222)
+
+        # yr = "2023"
+        # nb = "2"  # март
+        # mn = "1"
+        # wk = "3"
+        # outsourcing.click_datapicker(yr, nb, mn, wk)
+
+        # nb = "3"
+        # ev = " Удалить смену "
+        # outsourcing.check_mutation(nb, ev)
+        #
+        # nm = " К Де Валер "  # К Де Валер Гал Алек Витал
+        # outsourcing.add_shifts_in_agency(nb, nm)
+        #
+        # mu = ' Добавить '
+        # outsourcing.click_mutation(mu)
 
 
 

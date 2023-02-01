@@ -233,6 +233,20 @@ class outsourcing_create(AnyPage):
 
         return self
 
+    @allure.step(' Добавляем смену ')
+    def add_shifts_row_agency(self, txt, txt_1) -> Type[str]:
+        el = (By.XPATH, f"(//*[contains(@data-zone,'row')])[{txt}]")
+        self.click_element_my(el)
+        el_1 = (By.XPATH, "//*[contains(@class,'input-icon input-icon-right')]")
+        self.click_element_my(el_1)
+        time.sleep(4)
+        el_2 = (By.XPATH, f"//*[contains(@class,'d-flex flex-column mb-1')][contains(.,'{txt_1}')]")
+        self.click_element_my(el_2)
+
+        self.allure_screenshot()
+
+        return self
+
     @allure.step(' Выбираем дату ')
     def click_datapicker(self, txt, txt_1, txt_2, txt_3):
         dp = (By.XPATH, "//*[contains(@class,'dropdown b-dropdown btn-group')]")
@@ -292,13 +306,17 @@ class outsourcing_create(AnyPage):
         return self
 
     @allure.step(' Кликаем  фильтр')
-    def click_shifts_filtr(self) -> Type[object]:
+    def click_shifts_filter(self) -> Type[object]:
         el = (By.XPATH, "//*[contains(@class,'btn-text-dark-50')]")
         self.click_element_my(el)
 
         self.allure_screenshot()
 
         return self
+
+
+
+
 
 
         # while fin >= 1:

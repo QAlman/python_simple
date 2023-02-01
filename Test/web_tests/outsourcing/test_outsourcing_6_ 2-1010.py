@@ -26,19 +26,21 @@ class TestOutsourcing_6(WebBase):
         outsourcing.send_password(v)
         outsourcing.click_signin()
         outsourcing.small_time()
-        ur = "https://outsourcing-auto.verme.ru/outsource-schedule/"
+        ur = "https://outsourcing-auto.verme.ru/promo-schedule/"
         outsourcing.goto_employees_all_page(ur)
 
-        ch = "НьюСтафф"
+        ch = "SHA_SEB_ORManpower" # SHA_SEB_ORManpower НьюСтафф
         nb = "1"
         outsourcing.click_field_agency(ch, nb)
+
+        outsourcing.small_time()
 
         # wr = "Сотрудник не назначен"
         # outsourcing.click_shifts_in_shedule(wr)
 
-        outsourcing.click_shifts_filtr()
+        outsourcing.click_shifts_filter()
 
-        time.sleep(22222)
+        #time.sleep(22222)
 
         # yr = "2023"
         # nb = "2"  # март
