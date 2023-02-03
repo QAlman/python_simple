@@ -38,57 +38,11 @@ class TestOutsourcing_15(WebBase):
         tx = "Создать сотрудника"
         outsourcing.click_only_txt(sp, tx)
 
-
         outsourcing.agency_create_employee()
 
-        # time.sleep(22222)
-        # """
-        # Необходимо добавить смены
-        #
-        # """
-
-        # c = "9"
-        # outsourcing.outsourcing_click_cell(c)
-
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # #outsourcing.click_sort_fio()
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/employees/supervisors/agency/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-employees-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-shifts-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-reports/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/promo-employees-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/promo-reports/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
+        sp = "button"
+        tx = "Добавить"
+        outsourcing.click_only_txt(sp, tx)
 
 
 

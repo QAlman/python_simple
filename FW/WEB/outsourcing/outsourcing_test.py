@@ -32,6 +32,8 @@ class Locator:
     outsourcing_toolbar = (By.XPATH, "//*[contains(@class,'card-toolbar')]")
     outsourcing_btn_menu = (By.XPATH, "//*[contains(@class,'dropdown b-dropdown btn-group')]")
     outsourcing_btn_download = (By.XPATH, "//*[contains(@class,'la-file-download icon-2x')]")
+    outsourcing_btn_tabels = (By.XPATH, "//span[contains(@class,'navi-text font-size-lg')][contains(.,'Табели')]")
+
 
 
 
@@ -92,14 +94,14 @@ class outsourcing_create(AnyPage):
 
         return self
 
-    @allure.step('Кликаем на - к-во отображенных сотрудников на странице')
+    @allure.step('Кликаем на - к-во отображенных элементов на странице')
     def outsourcing_click_pagination(self):
         self.click_element_my(Locator.outsourcing_pagination)
 
         self.allure_screenshot()
 
         return self
-    @allure.step('Выбираем к-во отображенных сотрудников на странице -  {txt}')
+    @allure.step('Выбираем к-во отображенных эдементов на странице -  {txt}')
     def outsourcing_click_pagination_value(self, txt) -> Type[str]:
         el = (By.XPATH, f"//option[contains(@value,'{txt}')]")
         self.click_element_my(el)
@@ -277,6 +279,17 @@ class outsourcing_create(AnyPage):
         self.click_element_my(dp_3)
         dp_4 = (By.XPATH, f"(//*[contains(@class,'datepicker-week-number')])[{txt_3}]")
         self.click_element_my(dp_4)
+        self.allure_screenshot()
+
+        return self
+
+
+    @allure.step(' Выбираем месяц ')
+    def click_datapicker_month(self,txt_1, txt_2):
+        dp = (By.XPATH, "//*[contains(@class,'dropdown b-dropdown btn-group')]")
+        self.click_element_my(dp)
+        dp_3 = (By.XPATH, f"(//*[contains(@data-month,'{txt_1}')])[{txt_2}]")
+        self.click_element_my(dp_3)
         self.allure_screenshot()
 
         return self
@@ -499,27 +512,58 @@ class outsourcing_create(AnyPage):
         fd = self.string_letters
         time.sleep(1)
         rs = str(fd)
-        el = (By.XPATH, f"(//*[contains(@type,'text')])[3]")
-        el_1 = (By.XPATH, f"(//*[contains(@type,'text')])[4]")
-        el_2 = (By.XPATH, f"(//*[contains(@type,'text')])[5]")
-        el_3 = (By.XPATH, f"(//*[contains(@type,'text')])[6]")
-        el_4 = (By.XPATH, f"(//*[contains(@type,'text')])[7]")
-        el_5 = (By.XPATH, f"(//*[contains(@type,'text')])[8]")
-        el_6 = (By.XPATH, f"(//*[contains(@type,'text')])[9]")
-        el_7 = (By.XPATH, f"(//*[contains(@type,'text')])[10]")
-        el_8 = (By.XPATH, f"(//*[contains(@type,'text')])[11]")
-        el_9 = (By.XPATH, f"(//*[contains(@type,'text')])[12]")
+        fn = self.string_d
+        f_tel = str(fn)
+        el_3 = (By.XPATH, f"(//*[contains(@type,'text')])[3]")
+        el_4 = (By.XPATH, f"(//*[contains(@type,'text')])[4]")
+        el_5 = (By.XPATH, f"(//*[contains(@type,'text')])[5]")
+        el_6 = (By.XPATH, f"(//*[contains(@type,'text')])[6]")
+        el_7 = (By.XPATH, f"(//*[contains(@type,'text')])[7]")
+        el_8 = (By.XPATH, f"(//*[contains(@type,'text')])[8]")
+        el_9 = (By.XPATH, f"(//*[contains(@type,'text')])[9]")
+        el_tel = (By.XPATH, "//*[contains(@type,'tel')]")
 
-        self.send_keys(el, rs)
-        self.send_keys(el_1, rs)
-        self.send_keys(el_2, rs)
         self.send_keys(el_3, rs)
         self.send_keys(el_4, rs)
         self.send_keys(el_5, rs)
         self.send_keys(el_6, rs)
-        self.send_keys(el_7, rs)
+        self.click_element_my(el_7)
+        self.send_keys(el_7, "01.01.2000")
         self.send_keys(el_8, rs)
         self.send_keys(el_9, rs)
+        self.send_keys(el_tel, "+7 9" + str(f_tel))
+
+        self.allure_screenshot()
+
+        return self
+
+
+    @allure.step('Редактируем данные пользователя')
+    def agency_edit_employee(self):
+
+        fd = self.string_letters
+        time.sleep(1)
+        rs = str(fd)
+        fn = self.string_d
+        f_tel = str(fn)
+        # el_3 = (By.XPATH, f"(//*[contains(@type,'text')])[3]")
+        el_4 = (By.XPATH, f"(//*[contains(@type,'text')])[4]")
+        el_5 = (By.XPATH, f"(//*[contains(@type,'text')])[5]")
+        el_6 = (By.XPATH, f"(//*[contains(@type,'text')])[6]")
+        # el_7 = (By.XPATH, f"(//*[contains(@type,'text')])[7]")
+        # el_8 = (By.XPATH, f"(//*[contains(@type,'text')])[8]")
+        # el_9 = (By.XPATH, f"(//*[contains(@type,'text')])[9]")
+        # el_tel = (By.XPATH, "//*[contains(@type,'tel')]")
+
+        # self.send_keys(el_3, rs)
+        self.send_keys(el_4, rs)
+        self.send_keys(el_5, rs)
+        self.send_keys(el_6, rs)
+        # self.click_element_my(el_7)
+        # self.send_keys(el_7, "01.01.2000")
+        # self.send_keys(el_8, rs)
+        # self.send_keys(el_9, rs)
+        # self.send_keys(el_tel, "+7 9" + str(f_tel))
 
         self.allure_screenshot()
 
@@ -531,6 +575,35 @@ class outsourcing_create(AnyPage):
         self.allure_screenshot()
 
         return object
+
+    @allure.step('Кликаем кнопку Табели')
+    def click_only_tabels(self) -> Type[object]:
+        self.click_element_my(Locator.outsourcing_btn_tabels)
+        self.allure_screenshot()
+
+        return object
+
+    @allure.step('Загрузить фото при регистрации')
+    def send_photo_agency(self):
+        el = (By.XPATH, "//*[contains(@type ,'file')][contains(@accept,'image/*')]")
+        self.send_keys(el, "E:\\pvp-at\\02.jpg")
+        time.sleep(3)
+        self.allure_screenshot()
+
+        return self
+
+
+
+    @allure.step('Меняем пагинацию')
+    def send_pagination_agency(self):
+        el = (By.XPATH, "//*[contains(@class,'pagination__select custom-select')]")
+        self.click_element_my(el)
+
+        self.send_keys(el, "E:\\pvp-at\\02.jpg")
+        time.sleep(3)
+        self.allure_screenshot()
+
+        return self
 
         # dp = fin + 1
         #
