@@ -2,8 +2,8 @@ import math
 import time
 from typing import Type
 import datetime
-
 import requests
+import os.path
 import allure
 from selenium.webdriver.common.by import By
 from FW.WEB.AnyPage import AnyPage
@@ -34,7 +34,7 @@ class Locator:
     outsourcing_btn_download = (By.XPATH, "//*[contains(@class,'la-file-download icon-2x')]")
     outsourcing_btn_tabels = (By.XPATH, "//span[contains(@class,'navi-text font-size-lg')][contains(.,'Табели')]")
 
-
+    to_file = '01.jpg'
 
 
 
@@ -591,8 +591,32 @@ class outsourcing_create(AnyPage):
         self.allure_screenshot()
 
         return self
+    @allure.step('Загрузить фото при регистрации ')
+    def send_photo_agency_all(self, txt):
+        el = (By.XPATH, "//*[contains(@type ,'file')][contains(@accept,'image/*')]")
+        fll = os.path.dirname(os.path.abspath(__file__))
+        #self.send_keys(el, "E:\\pvp-at\\02.jpg")
+        self.send_keys(el, fll + f"\\{txt}")
+        #print(os.getcwd())
+        time.sleep(3)
+        self.allure_screenshot()
 
+        return self
 
+    # @allure.step('Загрузить картинку ')
+    # def send_image(self, txt):
+    #     el = (By.XPATH, "//*[contains(@name,'transfer.document')]")
+    #     fll = os.path.dirname(os.path.abspath(__file__))
+    #     print(fll)
+    #     # im = Image.open(r"path/to/file")
+    #     #print(os.getcwd())
+    #     #self.send_keys(el, "D:\\frontend\\01.png")
+    #
+    #     self.send_keys(el, fll + f"\\{txt}")
+    #     time.sleep(1)
+    #     self.allure_screenshot()
+    #
+    #     return self
 
     @allure.step('Меняем пагинацию')
     def send_pagination_agency(self):
