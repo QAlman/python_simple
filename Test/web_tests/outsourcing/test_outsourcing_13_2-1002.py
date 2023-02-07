@@ -50,3 +50,5 @@ class TestOutsourcing_13(WebBase):
         st = "Готов"
         outsourcing.check_excel_ui(ch, us, st, d)
 
+
+

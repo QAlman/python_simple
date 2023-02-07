@@ -478,7 +478,7 @@ class outsourcing_create(AnyPage):
 
         return sd
 
-    @allure.step(' Проверяем выгрузку excl - {txt}')
+    @allure.step(' Проверяем выгрузку excel - {txt}')
     def check_excel_ui(self, txt, txt_1, txt_2, txt_3) -> Type[object]:
         el = (By.XPATH, f"(//*[contains(@class,'field-headquarter nowrap')])[1]")
         el_1 = (By.XPATH, f"(//*[contains(@class,'field-user nowrap')])[1]")
@@ -494,6 +494,8 @@ class outsourcing_create(AnyPage):
         # assert txt_1 == fin_1, "Отчет не создан"
         assert txt_2 == fin_2, "Отчет не создан"
         assert txt_3 == fin_3, "Отчет не создан"
+        print(fin_3)
+        print(txt_3)
 
         self.allure_screenshot()
 
@@ -584,15 +586,16 @@ class outsourcing_create(AnyPage):
         return object
 
     @allure.step('Загрузить фото при регистрации')
-    def send_photo_agency(self):
+    def send_photo_agency(self) -> Type[object]:
         el = (By.XPATH, "//*[contains(@type ,'file')][contains(@accept,'image/*')]")
         self.send_keys(el, "E:\\pvp-at\\02.jpg")
         time.sleep(3)
         self.allure_screenshot()
 
-        return self
+        return object
+
     @allure.step('Загрузить фото при регистрации ')
-    def send_photo_agency_all(self, txt):
+    def send_photo_agency_all(self, txt) -> Type[object]:
         el = (By.XPATH, "//*[contains(@type ,'file')][contains(@accept,'image/*')]")
         fll = os.path.dirname(os.path.abspath(__file__))
         #self.send_keys(el, "E:\\pvp-at\\02.jpg")
@@ -601,22 +604,9 @@ class outsourcing_create(AnyPage):
         time.sleep(3)
         self.allure_screenshot()
 
-        return self
+        return object
 
-    # @allure.step('Загрузить картинку ')
-    # def send_image(self, txt):
-    #     el = (By.XPATH, "//*[contains(@name,'transfer.document')]")
-    #     fll = os.path.dirname(os.path.abspath(__file__))
-    #     print(fll)
-    #     # im = Image.open(r"path/to/file")
-    #     #print(os.getcwd())
-    #     #self.send_keys(el, "D:\\frontend\\01.png")
-    #
-    #     self.send_keys(el, fll + f"\\{txt}")
-    #     time.sleep(1)
-    #     self.allure_screenshot()
-    #
-    #     return self
+
 
     @allure.step('Меняем пагинацию')
     def send_pagination_agency(self):

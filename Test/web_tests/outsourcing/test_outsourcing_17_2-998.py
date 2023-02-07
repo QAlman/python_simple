@@ -75,7 +75,11 @@ class TestOutsourcing_17(WebBase):
         tx = "Лицевая биометрия"
         outsourcing.click_only_txt(sp, tx)
 
-        outsourcing.send_photo_agency()
+        #outsourcing.send_photo_agency()
+        file = "01.jpg"
+        outsourcing.send_photo_agency_all(file)
+
+        #time.sleep(2222)
 
         sp = "button"
         tx = " Кадрировать и отправить "
