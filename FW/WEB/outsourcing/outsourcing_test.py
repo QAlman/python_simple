@@ -7,6 +7,7 @@ import os.path
 import allure
 from selenium.webdriver.common.by import By
 from FW.WEB.AnyPage import AnyPage
+from selenium.webdriver.common.keys import Keys
 
 
 class Locator:
@@ -222,13 +223,21 @@ class outsourcing_create(AnyPage):
         return self
 
     @allure.step('Проверяем изменения ')
-    def check_mutation(self):
-        el = (By.XPATH, "//*[contains(@class,'input-icon input-icon-right')]")
-        fin = self.get_text_my(el)
-        #print("fin =" + str(fin))
-        time.sleep(1)
-        el_1 = (By.XPATH, "//*[contains(@class,'input-icon input-icon-right')]")
-        self.click_element_my(el_1)
+    def check_mutation_(self):
+        el = (By.XPATH, "//*[contains(@class,'schedule__event-wrap')]")
+        el_1 = f"//*[contains(@class,'btn btn-sm btn-danger')][contains(.,' Удалить смену ')]"
+        el_2 = (By.XPATH, "(//*[contains(@class,'app-modal__close')])[2]")
+
+        k = Keys.ESCAPE
+        fields = self.find_elements(el)
+        for element in fields:
+            self.click_element_my(el)
+            time.sleep(1)
+            #self.GetDriver().refresh()
+            self.send_esc()
+            # self.click_element_my_dp(el_1)
+
+
         self.allure_screenshot()
 
         return self

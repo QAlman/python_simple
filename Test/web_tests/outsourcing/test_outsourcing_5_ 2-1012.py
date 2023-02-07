@@ -37,6 +37,12 @@ class TestOutsourcing_5(WebBase):
         wr = "Сотрудник не назначен"
         outsourcing.click_shifts_in_shedule(wr)
 
+        """
+        Необходимо детализировать шаги теста
+
+        """
+
+
         # time.sleep(22222)
 
         # yr = "2023"

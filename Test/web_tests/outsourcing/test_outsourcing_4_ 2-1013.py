@@ -16,7 +16,7 @@ class TestOutsourcing_4(WebBase):
     @allure.description("Позитивный тест 2-1013 :  Копирование назначений на смены Агенств - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
-    #@pytest.mark.skip
+    # @pytest.mark.skip
     def test_outsourcing_4(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
@@ -34,25 +34,28 @@ class TestOutsourcing_4(WebBase):
         outsourcing.click_field_agency(ch, nb)
 
         yr = "2023"
-        nb = "2" # март
+        nb = "2"  # март
         mn = "1"
         wk = "3"
         outsourcing.click_datapicker(yr, nb, mn, wk)
-
 
         nb = "3"
         ev = " Удалить смену "
         outsourcing.check_mutation(nb, ev)
 
-
-        nm = " К Де Валер " # К Де Валер Гал Алек Витал
+        nm = " К Де Валер "  # К Де Валер Гал Алек Витал
         outsourcing.add_shifts_in_agency(nb, nm)
-
 
         mu = ' Добавить '
         outsourcing.click_mutation(mu)
 
-        #time.sleep(22222)
+        """
+        
+        Необходимо детализировать шаги теста
+
+        """
+
+        # time.sleep(22222)
         #
         # nb = "3"
         # nm = " К Де Валер "  # К Де Валер Гал Алек Витал

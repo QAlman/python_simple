@@ -44,7 +44,6 @@ class TestOutsourcing_3(WebBase):
         outsourcing.check_mutation(nb, ev)
 
 
-
         nm = " К Де Валер " # К Де Валер Гал Алек Витал
         outsourcing.add_shifts_in_agency(nb, nm)
 
@@ -63,8 +62,11 @@ class TestOutsourcing_3(WebBase):
         mu = ' Изменить '
         outsourcing.click_mutation(mu)
 
+        """
+              
+        Необходимо детализировать шаги теста
 
-
+        """
 
 
 

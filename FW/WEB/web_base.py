@@ -366,6 +366,13 @@ class WebBase(FWBase):
         actions.send_keys(Keys.PAGE_DOWN)
         actions.perform()
 
+    @allure.step("send_Esc")
+    def send_esc(self):
+
+        actions = ActionChains(self.GetDriver())
+        actions.send_keys(Keys.ESCAPE)
+        actions.perform()
+
     @allure.step('Выбираем чекбокс terms ')
     def clic_approve_terms(self, locator, ):
 

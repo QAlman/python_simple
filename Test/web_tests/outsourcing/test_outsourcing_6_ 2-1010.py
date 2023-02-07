@@ -40,6 +40,12 @@ class TestOutsourcing_6(WebBase):
 
         outsourcing.click_shifts_filter()
 
+        """
+        Необходимо детализировать шаги теста
+
+        """
+
+
         #time.sleep(22222)
 
         # yr = "2023"
