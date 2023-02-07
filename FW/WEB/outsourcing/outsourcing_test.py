@@ -129,6 +129,14 @@ class outsourcing_create(AnyPage):
 
         return self
 
+    @allure.step('Кликаем  поле - {txt}')
+    def outsourcing_click_row(self, txt):
+        el = (By.XPATH, f"(//td[contains(@role,'cell')])[{txt}]")
+        self.click_element_my(el)
+        self.allure_screenshot()
+
+        return self
+
     @allure.step('Переходим на - {txt}')
     def goto_employees_all_page(self, txt):
         self.goto_page(txt)
@@ -596,9 +604,10 @@ class outsourcing_create(AnyPage):
 
     @allure.step('Загрузить фото при регистрации ')
     def send_photo_agency_all(self, txt) -> Type[object]:
-        el = (By.XPATH, "//*[contains(@type ,'file')][contains(@accept,'image/*')]")
+        #el = (By.XPATH, "//*[contains(@type ,'file')][contains(@accept,'image/*')]")
+        el = (By.XPATH, "//*[contains(@type ,'file')][contains(@accept,'')]")
         fll = os.path.dirname(os.path.abspath(__file__))
-        #self.send_keys(el, "E:\\pvp-at\\02.jpg")
+
         self.send_keys(el, fll + f"\\{txt}")
         #print(os.getcwd())
         time.sleep(3)
@@ -615,6 +624,33 @@ class outsourcing_create(AnyPage):
 
         self.send_keys(el, "E:\\pvp-at\\02.jpg")
         time.sleep(3)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликаем файл в clime')
+    def click_file_claim(self):
+        el = (By.XPATH, "//*[contains(@class,'pagination__select custom-select')]")
+        self.click_element_my(el)
+
+        self.send_keys(el, "E:\\pvp-at\\02.jpg")
+        time.sleep(3)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликаем чекбокс - {txt}')
+    def click_checkbox_claim(self, txt):
+        el = (By.XPATH, f"//*[contains(@class,'form-control__checkbox-item')][contains(.,'{txt}')]")
+        self.click_element_my(el)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Кликаем - {txt}')
+    def click_text_center_claim(self, txt):
+        el = (By.XPATH, f"//*[contains(@class,'text-center')][contains(.,'{txt}')]")
+        self.click_element_my(el)
         self.allure_screenshot()
 
         return self

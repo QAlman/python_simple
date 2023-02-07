@@ -1,3 +1,4 @@
+import datetime
 import time
 from random import random
 import allure
@@ -16,7 +17,7 @@ class TestOutsourcing_27(WebBase):
     @allure.description("Позитивный тест 2-988 :   Тестирование работы страницы претензии - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
-    @pytest.mark.skip
+    #@pytest.mark.skip
     def test_outsourcing_27(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
@@ -26,57 +27,154 @@ class TestOutsourcing_27(WebBase):
         outsourcing.send_password(v)
         outsourcing.click_signin()
         outsourcing.small_time()
-        ur = "https://outsourcing-auto.verme.ru/promo-schedule/"
+        ur = "https://outsourcing-auto.verme.ru/agency-claims-list/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
-        """
-        Необходимо добавить смены
 
-        """
+        ch = "Тестовое агентство М.Видео"
+        nb = "1"
+        outsourcing.click_field_agency(ch, nb)
+        outsourcing.small_time()
 
-        # c = "9"
-        # outsourcing.outsourcing_click_cell(c)
+        cell = "2"
+        outsourcing.outsourcing_click_cell(cell)
+        outsourcing.small_time()
 
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # #outsourcing.click_sort_fio()
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/employees/supervisors/agency/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-employees-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-shifts-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-reports/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/promo-employees-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/promo-reports/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
+        sp = "span"
+        tx = "Файлы"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        outsourcing.outsourcing_click_cell(cell)
+        outsourcing.small_time()
+        tx = "Сообщения"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        sp = "button"
+        tx = "Добавить "
+        outsourcing.click_only_txt(sp, tx)
+
+        ta = "Введите сообщение..."
+        outsourcing.click_textarea(ta)
+        ts = datetime.datetime.now()
+        outsourcing.send_textarea(ta, str(ts))
+
+        file = "02.jpg"
+        outsourcing.send_photo_agency_all(file)
+
+        sp = "button"
+        tx = "Отправить"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        sp = "span"
+        tx = "Основная"
+        outsourcing.click_only_txt(sp, tx)
+
+        sp = "button"
+        tx = "К списку обращений "
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
 
 
+        ur = "https://outsourcing-auto.verme.ru/client-claims-list/"
+        outsourcing.goto_employees_all_page(ur)
+        outsourcing.small_time()
+
+        ch = 'Группа "М.Видео-Эльдорадо"'
+        nb = "1"
+        outsourcing.click_field_agency(ch, nb)
+        outsourcing.small_time()
+
+        cell = "2"
+        outsourcing.outsourcing_click_cell(cell)
+        outsourcing.small_time()
+
+        sp = "span"
+        tx = "Файлы"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        outsourcing.outsourcing_click_cell(cell)
+        outsourcing.small_time()
+        tx = "Сообщения"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        sp = "button"
+        tx = "Добавить "
+        outsourcing.click_only_txt(sp, tx)
+
+        ta = "Введите сообщение..."
+        outsourcing.click_textarea(ta)
+        ts = datetime.datetime.now()
+        outsourcing.send_textarea(ta, str(ts))
+
+        file = "02.jpg"
+        outsourcing.send_photo_agency_all(file)
+
+        sp = "button"
+        tx = "Отправить"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        sp = "span"
+        tx = "Основная"
+        outsourcing.click_only_txt(sp, tx)
+
+        sp = "button"
+        tx = "К списку обращений "
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        ur = "https://outsourcing-auto.verme.ru/promo-claims-list/"
+        outsourcing.goto_employees_all_page(ur)
+        outsourcing.small_time()
+
+        ch = "Директ Кредит"
+        nb = "1"
+        outsourcing.click_field_agency(ch, nb)
+        outsourcing.small_time()
+
+        cell = "2"
+        outsourcing.outsourcing_click_cell(cell)
+        outsourcing.small_time()
+
+        sp = "span"
+        tx = "Файлы"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        outsourcing.outsourcing_click_cell(cell)
+        outsourcing.small_time()
+        tx = "Сообщения"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        sp = "button"
+        tx = "Добавить "
+        outsourcing.click_only_txt(sp, tx)
+
+        ta = "Введите сообщение..."
+        outsourcing.click_textarea(ta)
+        ts = datetime.datetime.now()
+        outsourcing.send_textarea(ta, str(ts))
+
+        file = "02.jpg"
+        outsourcing.send_photo_agency_all(file)
+
+        sp = "button"
+        tx = "Отправить"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        sp = "span"
+        tx = "Основная"
+        outsourcing.click_only_txt(sp, tx)
+
+        sp = "button"
+        tx = "К списку обращений "
+        outsourcing.click_only_txt(sp, tx)
 
 

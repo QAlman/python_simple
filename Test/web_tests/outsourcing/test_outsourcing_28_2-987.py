@@ -16,7 +16,7 @@ class TestOutsourcing_28(WebBase):
     @allure.description("Позитивный тест 2-987 :  Тестирование фильтров на страницах - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
-    @pytest.mark.skip
+    #@pytest.mark.skip
     def test_outsourcing_28(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
@@ -26,56 +26,85 @@ class TestOutsourcing_28(WebBase):
         outsourcing.send_password(v)
         outsourcing.click_signin()
         outsourcing.small_time()
-        ur = "https://outsourcing-auto.verme.ru/promo-schedule/"
+        ur = "https://outsourcing-auto.verme.ru/agency-claims-list/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
-        """
-        Необходимо добавить смены
+
+        ch = "Тестовое агентство М.Видео"
+        nb = "1"
+        outsourcing.click_field_agency(ch, nb)
+        outsourcing.small_time()
+
+        sp = "button"
+        tx = "Столбцы"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        checkbox = '#'
+        outsourcing.click_checkbox_claim(checkbox)
+        checkbox = 'Магазин'
+        outsourcing.click_checkbox_claim(checkbox)
+        checkbox = 'Тип обращения'
+        outsourcing.click_checkbox_claim(checkbox)
+        checkbox = 'Обновлено'
+        outsourcing.click_checkbox_claim(checkbox)
+        checkbox = 'Текст обращения'
+        outsourcing.click_checkbox_claim(checkbox)
+        checkbox = 'Статус'
+        outsourcing.click_checkbox_claim(checkbox)
+        checkbox = 'Смена статуса'
+        outsourcing.click_checkbox_claim(checkbox)
+        checkbox = 'Файлы'
+        outsourcing.click_checkbox_claim(checkbox)
+
+        tx = "Восстановить"
+        outsourcing.click_text_center_claim(tx)
+        outsourcing.small_time()
+
+
+
+
+        ur = "https://outsourcing-auto.verme.ru/client-claims-list/"
+        outsourcing.goto_employees_all_page(ur)
+        outsourcing.small_time()
+
+        ch = 'Группа "М.Видео-Эльдорадо"'
+        nb = "1"
+        outsourcing.click_field_agency(ch, nb)
+        outsourcing.small_time()
+
+        sp = "button"
+        tx = "Столбцы"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        checkbox = '#'
+        outsourcing.click_checkbox_claim(checkbox)
+        checkbox = 'Город'
+        outsourcing.click_checkbox_claim(checkbox)
+        checkbox = 'Магазин'
+        outsourcing.click_checkbox_claim(checkbox)
+        checkbox = 'Агентство'
+        outsourcing.click_checkbox_claim(checkbox)
+        checkbox = 'Тип обращения'
+        outsourcing.click_checkbox_claim(checkbox)
+        checkbox = 'Обновлено'
+        outsourcing.click_checkbox_claim(checkbox)
+        checkbox = 'Текст обращения'
+        outsourcing.click_checkbox_claim(checkbox)
+        checkbox = 'Статус'
+        outsourcing.click_checkbox_claim(checkbox)
+
+
+        tx = "Восстановить"
+        outsourcing.click_text_center_claim(tx)
+        outsourcing.small_time()
 
         """
+        Необходимо детализировать шаги теста
 
-        # c = "9"
-        # outsourcing.outsourcing_click_cell(c)
+        """
 
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # #outsourcing.click_sort_fio()
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/employees/supervisors/agency/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-employees-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-shifts-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-reports/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/promo-employees-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/promo-reports/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
 
 
 

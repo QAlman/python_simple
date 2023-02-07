@@ -76,10 +76,8 @@ class TestOutsourcing_17(WebBase):
         outsourcing.click_only_txt(sp, tx)
 
         #outsourcing.send_photo_agency()
-        file = "01.jpg"
+        file = "02.jpg"
         outsourcing.send_photo_agency_all(file)
-
-        #time.sleep(2222)
 
         sp = "button"
         tx = " Кадрировать и отправить "
@@ -95,54 +93,10 @@ class TestOutsourcing_17(WebBase):
         outsourcing.click_only_txt(sp, tx)
 
 
-        #time.sleep(22222)
-        # """
-        # Необходимо добавить смены
-        #
-        # """
+        """
+        Необходимо детализировать шаги теста
 
-        # c = "9"
-        # outsourcing.outsourcing_click_cell(c)
-
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # #outsourcing.click_sort_fio()
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/employees/supervisors/agency/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-employees-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-shifts-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-reports/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/promo-employees-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/promo-reports/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
+        """
 
 
 
