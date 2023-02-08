@@ -222,25 +222,24 @@ class outsourcing_create(AnyPage):
 
         return self
 
-    @allure.step('Проверяем изменения ')
-    def check_mutation_(self):
-        el = (By.XPATH, "//*[contains(@class,'schedule__event-wrap')]")
-        el_1 = f"//*[contains(@class,'btn btn-sm btn-danger')][contains(.,' Удалить смену ')]"
-        el_2 = (By.XPATH, "(//*[contains(@class,'app-modal__close')])[2]")
-
-        k = Keys.ESCAPE
-        fields = self.find_elements(el)
-        for element in fields:
-            self.click_element_my(el)
-            time.sleep(1)
-            #self.GetDriver().refresh()
-            self.send_esc()
-            # self.click_element_my_dp(el_1)
-
-
-        self.allure_screenshot()
-
-        return self
+    # @allure.step('Проверяем изменения ')
+    # def check_mutation_(self):
+    #     el = (By.XPATH, "//*[contains(@class,'schedule__event-wrap')]")
+    #
+    #     el_1 = f"//*[contains(@class,'btn btn-sm btn-danger')][contains(.,' Удалить смену ')]"
+    #     el_2 = (By.XPATH, "(//*[contains(@class,'app-modal__close')])[2]")
+    #
+    #     k = Keys.ESCAPE
+    #     fields = self.find_elements(el)
+    #     for elem in fields:
+    #         self.click_element_my(el)
+    #         time.sleep(1)
+    #         self.GetDriver().refresh()
+    #         self.send_esc()
+    #         # self.click_element_my_dp(el_1)
+    #     self.allure_screenshot()
+    #
+    #     return self
 
     @allure.step(' Добавляем смену ')
     def add_shifts_in_agency(self, txt, txt_1) -> Type[object]:
@@ -660,6 +659,14 @@ class outsourcing_create(AnyPage):
     def click_text_center_claim(self, txt):
         el = (By.XPATH, f"//*[contains(@class,'text-center')][contains(.,'{txt}')]")
         self.click_element_my(el)
+        self.allure_screenshot()
+
+        return self
+
+    @allure.step('Refresh')
+    def ex_refresh(self):
+        self.GetDriver().refresh()
+        time.sleep(1)
         self.allure_screenshot()
 
         return self

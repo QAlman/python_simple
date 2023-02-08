@@ -43,7 +43,6 @@ class TestOutsourcing_3(WebBase):
         ev = " Удалить смену "
         outsourcing.check_mutation(nb, ev)
 
-
         nm = " К Де Валер " # К Де Валер Гал Алек Витал
         outsourcing.add_shifts_in_agency(nb, nm)
 
@@ -51,10 +50,8 @@ class TestOutsourcing_3(WebBase):
         outsourcing.click_mutation(mu)
 
         outsourcing.small_time()
-        #
+
         # outsourcing.click_shifts_in_agency(nb)
-        #
-        # time.sleep(42222)
 
         st = ' Не назначен '
         outsourcing.get_shifts_agency(nb, st)
@@ -63,7 +60,7 @@ class TestOutsourcing_3(WebBase):
         outsourcing.click_mutation(mu)
 
         """
-              
+
         Необходимо детализировать шаги теста
 
         """

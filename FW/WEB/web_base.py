@@ -208,6 +208,13 @@ class WebBase(FWBase):
             actions_3.perform()
             return self
 
+    @allure.step('Send keys {txt}')
+    def send_keys_once(self, txt):
+            actions_3 = ActionChains(self.GetDriver())
+            actions_3.send_keys(txt)
+            actions_3.perform()
+            return self
+
     def get_tag_text(self, locator):
         try:
             text = self.find_element(locator).text
