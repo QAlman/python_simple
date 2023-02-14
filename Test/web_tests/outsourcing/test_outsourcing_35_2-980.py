@@ -1,5 +1,6 @@
 import time
 from random import random
+import datetime
 import allure
 import pytest
 from Test.web_tests.WebBase import WebBase
@@ -27,13 +28,82 @@ class TestOutsourcing_35(WebBase):
         outsourcing.send_password(v)
         outsourcing.click_signin()
         outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-shifts-list/"
+        # ur = "https://outsourcing-auto.verme.ru/agency-employees-list/"
         # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
+
+        ch = "Моя Смена"
+        nb = "1"
+        outsourcing.click_field_agency(ch, nb)
         outsourcing.small_time()
 
+        outsourcing.small_time()
+        nb = "2"
+        outsourcing.outsourcing_click_cell(nb)
+        outsourcing.click_only_menu()
+
+        sp = "span"
+        tx = "Создать сотрудника"
+        outsourcing.click_only_txt(sp, tx)
+
+        outsourcing.agency_create_employee()
+
+        sp = "button"
+        tx = "Добавить"
+        outsourcing.click_only_txt(sp, tx)
+
+        # sp = "button"
+        # tx = "Редактировать сотрудника "
+        # outsourcing.click_only_txt(sp, tx)
+        #
+        # outsourcing.agency_edit_employee()
+        #
+        # sp = "button"
+        # tx = " Сохранить изменения "
+        # outsourcing.click_only_txt(sp, tx)
+
+        # sp = "span"
+        # tx = "Документы"
+        # outsourcing.click_only_txt(sp, tx)
+        #
+        # sp = "span"
+        # tx = "Компетенции"
+        # outsourcing.click_only_txt(sp, tx)
+        #
+        # sp = "span"
+        # tx = "Кадровые документы"
+        # outsourcing.click_only_txt(sp, tx)
+        #
+        # outsourcing.click_only_tabels()
+        #
+        # sp = "span"
+        # tx = "История переводов"
+        # outsourcing.click_only_txt(sp, tx)
+
+        sp = "span"
+        tx = "Лицевая биометрия"
+        outsourcing.click_only_txt(sp, tx)
+
+        # outsourcing.send_photo_agency()
+        file = "02.jpg"
+        outsourcing.send_photo_agency_all(file)
+
+        time.sleep(22222)
+
+        sp = "button"
+        tx = " Кадрировать и отправить "
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        sp = "span"
+        tx = "Клиенты"
+        outsourcing.click_only_txt(sp, tx)
+
+        sp = "span"
+        tx = "Мероприятия"
+        outsourcing.click_only_txt(sp, tx)
+
         """
-        Необходимо уточнить по поводу наличия страницы  PowerBI
+        Необходимо детализировать шаги теста
 
         """
 

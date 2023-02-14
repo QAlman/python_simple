@@ -17,10 +17,10 @@ class Settings:
     selenium_server = 'http://127.0.0.1:4444/wd/hub'
     Browser = {
          'Name': 'chrome',
-        #'headless': False,
-        'headless': True,
-        'Remote': True
-         #'Remote': False
+        'headless': False,
+        #'headless': True,
+        #'Remote': True
+         'Remote': False
     }
 
     GLOBAL = {
