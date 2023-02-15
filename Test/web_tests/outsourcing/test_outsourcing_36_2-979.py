@@ -8,18 +8,18 @@ from selenium.webdriver.common.keys import Keys
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('Test 35    Некорректная ошибка при загрузке дополнительного фото')
-class TestOutsourcing_35(WebBase):
+@allure.story('Test 36    Отчет ')
+class TestOutsourcing_36(WebBase):
 
-    @allure.title('35: 2-980 :   Некорректная ошибка при загрузке дополнительного фото - Версия1')
+    @allure.title('36: 2-979 :   Отчет - Версия1')
     @allure.severity(allure.severity_level.CRITICAL)
-    @allure.link(name="2-980 :   Некорректная ошибка при загрузке дополнительного фото - Версия1",
+    @allure.link(name="2-979 :   Отчет - Версия1",
                  url="https://testlink.verme.ru/index.php?caller=login&viewer=")
-    @allure.description("Позитивный тест 2-980 :   Некорректная ошибка при загрузке дополнительного фото - Версия1")
+    @allure.description("Позитивный тест 2-979 :   Отчет - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
     #@pytest.mark.skip
-    def test_outsourcing_35(self):
+    def test_outsourcing_36(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
         v = "test_outsourcing_2023"
@@ -28,28 +28,39 @@ class TestOutsourcing_35(WebBase):
         outsourcing.send_password(v)
         outsourcing.click_signin()
         outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/agency-employees-list/"
-        # outsourcing.goto_employees_all_page(ur)
+        ur = "https://outsourcing-auto.verme.ru/timesheets-list/"
+        outsourcing.goto_employees_all_page(ur)
 
-        ch = "Моя Смена"
+        ch = "Ресурс+"
         nb = "1"
         outsourcing.click_field_agency(ch, nb)
         outsourcing.small_time()
 
-        outsourcing.small_time()
-        nb = "2"
-        outsourcing.outsourcing_click_cell(nb)
-        outsourcing.click_only_menu()
-
-        sp = "span"
-        tx = "Создать сотрудника"
-        outsourcing.click_only_txt(sp, tx)
-
-        outsourcing.agency_create_employee()
-
         sp = "button"
-        tx = "Добавить"
+        tx = "Действия"
         outsourcing.click_only_txt(sp, tx)
+
+        # time.sleep(22222)
+        #
+        # ch = "Моя Смена"
+        # nb = "1"
+        # outsourcing.click_field_agency(ch, nb)
+        # outsourcing.small_time()
+        #
+        # outsourcing.small_time()
+        # nb = "2"
+        # outsourcing.outsourcing_click_cell(nb)
+        # outsourcing.click_only_menu()
+        #
+        # sp = "span"
+        # tx = "Создать сотрудника"
+        # outsourcing.click_only_txt(sp, tx)
+        #
+        # outsourcing.agency_create_employee()
+        #
+        # sp = "button"
+        # tx = "Добавить"
+        # outsourcing.click_only_txt(sp, tx)
 
         # sp = "button"
         # tx = "Редактировать сотрудника "
@@ -93,7 +104,7 @@ class TestOutsourcing_35(WebBase):
         tx = " Кадрировать и отправить "
         outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
-        #time.sleep(22222)
+        time.sleep(22222)
         # sp = "span"
         # tx = "Клиенты"
         # outsourcing.click_only_txt(sp, tx)
