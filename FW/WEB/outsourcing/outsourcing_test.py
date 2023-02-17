@@ -35,6 +35,8 @@ class Locator:
     outsourcing_btn_download = (By.XPATH, "//*[contains(@class,'la-file-download icon-2x')]")
     outsourcing_btn_tabels = (By.XPATH, "//span[contains(@class,'navi-text font-size-lg')][contains(.,'Табели')]")
 
+    outsourcing_checkbox_12 = (By.XPATH, "//*[contains(@id,'id_config_set-12-value')]")
+
     to_file = '01.jpg'
 
 
@@ -464,7 +466,7 @@ class outsourcing_create(AnyPage):
         return object
 
     @allure.step(' Кликаем  {txt}')
-    def click_only_txt(self, txt, txt_1) -> Type[object]:
+    def click_only_txt(self, txt: str, txt_1: str) -> Type[object]:
         el = (By.XPATH, f"//{txt}[contains(.,'{txt_1}')]")
         self.click_element_my(el)
         self.allure_screenshot()
@@ -588,7 +590,7 @@ class outsourcing_create(AnyPage):
         return self
 
     @allure.step('Кликаем кнопку скачать файл')
-    def click_omly_download(self) -> Type[object]:
+    def click_only_download(self) -> Type[object]:
         self.click_element_my(Locator.outsourcing_btn_download)
         self.allure_screenshot()
 
@@ -671,6 +673,47 @@ class outsourcing_create(AnyPage):
 
         return self
 
+    # @allure.step('Проверяем  параметр- "Табель - разрешить агентства создание корректировок ')
+    # def chekbox_12(self) -> Type[object]:
+    #     el = "//*[contains(@id,'id_config_set-12-value')][contains(@checked,'')]"
+    #     el_1 = (By.XPATH, "//*[contains(@id,'id_config_set-12-value')]")
+    #
+    #     fin = self.get_count_elements_my(el)
+    #
+    #     if fin == 1:
+    #         print(" checkbox активен")
+    #     else:
+    #         self.click_element_my(el_1)
+    #
+    #     self.allure_screenshot()
+    #
+    #     return object
+    #
+
+    @allure.step('Проверяем параметр {txt} для - {txt_1}')
+    def chekbox_all(self, txt: str, txt_1: str, txt_2: str) -> Type[bool]:
+        el = (By.XPATH, f"//*[contains(@id,'{txt_2}')]")
+        fin = self.get_prop(el, txt)
+
+        if fin is True:
+            print("checkbox активен")
+        else:
+            self.click_element_my(el)
+
+        self.allure_screenshot()
+
+        return fin
+
+    @allure.step(' Кликаем  {txt_2}')
+    def click_only_class(self, txt: str, txt_1: str, txt_2: str) -> Type[object]:
+        el = (By.XPATH, f"//{txt}[contains(@{txt_1},'{txt_2}')]")
+        self.click_element_my(el)
+        self.allure_screenshot()
+
+        return object
+
+        #       if len(driver.find_elements_by_xpath("//span[@class='basket-sku-control__text']")) == 0:
+        #    print(" товар уже в корзине ")
         # dp = fin + 1
         #
         # time.sleep(1)

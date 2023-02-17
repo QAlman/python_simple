@@ -461,6 +461,12 @@ class WebBase(FWBase):
         is_displayed = self.find_element(locator).is_displayed()
         return is_displayed
 
+    @allure.step("get_property")
+    def get_prop(self, locator, txt):
+        get_prop = self.find_element(locator).get_property(txt)
+
+        return get_prop
+
 
     def find_element_my(self, locator):
         return WebDriverWait(self.GetDriver(), self.manager.settings.time_element_Wait).until(EC.element_to_be_clickable(locator))

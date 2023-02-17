@@ -52,7 +52,7 @@ class TestOutsourcing_33(WebBase):
         outsourcing.more_time()
         outsourcing.ex_refresh()
         outsourcing.small_time()
-        outsourcing.click_omly_download()
+        outsourcing.click_only_download()
 
 
 

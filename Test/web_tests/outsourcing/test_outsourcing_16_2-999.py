@@ -29,7 +29,7 @@ class TestOutsourcing_16(WebBase):
         ur = "https://outsourcing-auto.verme.ru/client-reports/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
-        outsourcing.click_omly_download()
+        outsourcing.click_only_download()
 
         # time.sleep(22222)
         # """
