@@ -4,8 +4,7 @@ class Settings:
     path_to_project = ''
     time_element_Wait = 30
 
-
-    branch = 'pvp-at'
+    branch = 'outsourcing'
     mobile_stand_name = 'Android_emulator_Pixel2'
 
     # API
@@ -20,19 +19,19 @@ class Settings:
         #'headless': False,
         'headless': True,
         'Remote': True
-         #'Remote': False
+        #'Remote': False
     }
 
     GLOBAL = {
-        'pvp-at': {
+        'outsourcing': {
             'Name': 'Catalog',
-            'main_page': 'https://verme.ru/',
-            'Internal_Link': 'https://verme.ru/',
+            'main_page': 'https://outsourcing-auto.verme.ru',
+            'Internal_Link': 'https://outsourcing-auto.verme.ru',
         },
         'python_verme_stage': {
             'Name': 'Catalog',
-            'main_page': 'https://outsourcing-dev.verme.ru/',
-            'Internal_Link': 'https://outsourcing-dev.verme.ru/',
+            'main_page': 'https://outsourcing-auto.verme.ru/',
+            'Internal_Link': 'https://outsourcing-auto.verme.ru/',
 
 
 

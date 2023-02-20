@@ -26,7 +26,6 @@ class Locator:
 
     # shifts_filter_day_work = (By.XPATH, "(//*[contains(@class ,'v-calendar-weekly__day-label')]//following-sibling::div)[1]")
 
-
     outsourcing_pagination = (By.XPATH, "//*[@class='pagination__select custom-select']")
     outsourcing_pagination_value = (By.XPATH, "//option[contains(@value,'20')]")
     outsourcing_sort_fio = (By.XPATH, "//*[contains(@aria-colindex,'2')][contains(@class,'b-table-sort-icon-lef')]")
@@ -38,10 +37,6 @@ class Locator:
     outsourcing_checkbox_12 = (By.XPATH, "//*[contains(@id,'id_config_set-12-value')]")
 
     to_file = '01.jpg'
-
-
-
-
 
 
 class outsourcing_create(AnyPage):
