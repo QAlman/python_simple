@@ -4,7 +4,7 @@ class Settings:
     path_to_project = ''
     time_element_Wait = 30
 
-    branch = 'outsourcing'
+    branch = 'pvp-at'
     mobile_stand_name = 'Android_emulator_Pixel2'
 
     # API
