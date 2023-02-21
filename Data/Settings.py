@@ -14,7 +14,7 @@ class Settings:
     use_internal_link_in_api = False
 
     # WEB
-    selenium_server = 'http://selenoid:4444/wd/hub'
+    selenium_server = 'https://selenoid:4444/wd/hub'
     Browser = {
          'Name': 'chrome',
         #'headless': False,
