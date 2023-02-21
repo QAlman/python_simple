@@ -23,7 +23,7 @@ class Settings:
     }
 
     GLOBAL = {
-        'outsourcing': {
+        'pvp-at': {
             'Name': 'Catalog',
             'main_page': 'https://outsourcing-auto.verme.ru',
             'Internal_Link': 'https://outsourcing-auto.verme.ru',
