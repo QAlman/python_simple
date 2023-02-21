@@ -3,13 +3,6 @@ pipeline {
       label 'wfm-at'
    }
    stages {
-      stage("Build name"){
-         steps {
-            script {
-              currentBuild.displayName = "#${BUILD_NUMBER} : ${BRANCH}"
-            }
-         }
-      }
       stage("Build image") {
          steps {
     	      catchError {
