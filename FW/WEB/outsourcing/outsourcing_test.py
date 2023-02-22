@@ -613,7 +613,7 @@ class outsourcing_create(AnyPage):
         el = (By.XPATH, "//*[contains(@type ,'file')][contains(@accept,'')]")
         fll = os.path.dirname(os.path.abspath(__file__))
 
-        self.send_keys(el, fll + f"\\{txt}")
+        self.send_keys(el, fll + f"/{txt}")
         #print(os.getcwd())
         time.sleep(3)
         self.allure_screenshot()
