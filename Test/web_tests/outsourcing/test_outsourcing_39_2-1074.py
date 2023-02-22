@@ -6,18 +6,18 @@ from Test.web_tests.WebBase import WebBase
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('Test 3   Снятие со смен (Аутсорсинг и Агенства) ')
-class TestOutsourcing_3(WebBase):
+@allure.story('Test 39   Тестирование push оповещений')
+class TestOutsourcing_39(WebBase):
 
-    @allure.title('1: 2-1014 :  Снятие со смен (Аутсорсинг и Агенства) - Версия1')
+    @allure.title('39: 2-1074 :  Тестирование push оповещений - Версия1')
     @allure.severity(allure.severity_level.CRITICAL)
-    @allure.link(name="2-1014 :  Снятие со смен (Аутсорсинг и Агенства) - Версия1",
+    @allure.link(name="2-1074 :  Тестирование push оповещений - Версия1",
                  url="https://testlink.verme.ru/index.php?caller=login&viewer=")
-    @allure.description("Позитивный тест 2-1014 :  Снятие со смен (Аутсорсинг и Агенства) - Версия1")
+    @allure.description("Позитивный тест 2-1074 :  Тестирование push оповещений - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
-    @pytest.mark.skip
-    def test_outsourcing_3(self):
+    #@pytest.mark.skip
+    def test_outsourcing_39(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
         v = "test_outsourcing_2023"
@@ -26,11 +26,29 @@ class TestOutsourcing_3(WebBase):
         outsourcing.send_password(v)
         outsourcing.click_signin()
         outsourcing.small_time()
-        ur = "https://outsourcing-auto.verme.ru/promo-schedule/"
+        ur = "https://outsourcing-auto.verme.ru/admin/outsource/headquater/177/change/?_changelist_filters=q%3D%25D0%25B4%25D0%25B8%25D1%2580%25D0%25B5%25D0%25BA%25D1%2582"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
+
+        sp = "li"
+        tx = "Параметры"
+        outsourcing.click_only_txt(sp, tx)
+
+        chb = "checked"
+        tx = "Табель - разрешить агентства создание корректировок"
+        id_12 = "id_config_set-12-value"
+        outsourcing.chekbox_all(chb, tx, id_12)
+        #
+        t_1 = "input"
+        t_2 = "name"
+        t_3 = "_save"
+        outsourcing.click_only_class(t_1, t_2, t_3)
+
+        #time.sleep(22222)
+
         """
-        Необходимо добавить смены
+        Необходимо расписать шаги подробно и разбить тест на несколько
+        с использованием  заранее подготовленных пользователнй
 
         """
 
