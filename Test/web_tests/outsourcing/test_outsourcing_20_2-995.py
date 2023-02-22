@@ -16,7 +16,7 @@ class TestOutsourcing_20(WebBase):
     @allure.description("Позитивный тест 2-995 :   Тестирование страницы - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
-    @pytest.mark.skip
+    #@pytest.mark.skip
     def test_outsourcing_20(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
