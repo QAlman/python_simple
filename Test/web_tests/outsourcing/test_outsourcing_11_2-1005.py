@@ -34,6 +34,10 @@ class TestOutsourcing_11(WebBase):
         nb = "1"
         outsourcing.click_field_agency(ch, nb)
 
+        d = 1
+        d2 = 2
+        assert d > d2, "Проверка assert"
+
 
         """
         Необходимо добавить проверку по признаку 
