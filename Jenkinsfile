@@ -25,7 +25,7 @@ pipeline {
          steps {
             catchError {
                script {
-          	      docker.image('aerokube/selenoid:1.10.9').withRun('-p 4445:4444 -v /run/docker.sock:/var/run/docker.sock -v $PWD:/etc/selenoid/', '-limit 2') { c ->
+          	      docker.image('aerokube/selenoid:1.10.9').withRun('-p 4445:4444 -v /run/docker.sock:/var/run/docker.sock -v $PWD:/etc/selenoid/', '-timeout 800s -limit 3') { c ->
               	   docker.image('pvp-tests').inside("--link ${c.id}:selenoid") { sh "python -m pytest --alluredir reports" }
                   }
         	      }
