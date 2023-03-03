@@ -1,5 +1,3 @@
-import time
-from random import random
 import allure
 import pytest
 from Test.web_tests.WebBase import WebBase
@@ -18,8 +16,8 @@ class TestOutsourcing_14(WebBase):
     @pytest.mark.WebTest
     @pytest.mark.skip
     def test_outsourcing_14(self):
-        outsourcing = self.APP.web_activity.button_to_outsourcing()
 
+        outsourcing = self.APP.web_activity.button_to_outsourcing()
         v = "test_outsourcing_2023"
         outsourcing.send_login(v)
         v = "freftTRHTRH!@#13564"
