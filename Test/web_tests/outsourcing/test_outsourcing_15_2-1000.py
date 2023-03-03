@@ -5,7 +5,6 @@ import pytest
 from Test.web_tests.WebBase import WebBase
 
 
-
 @allure.feature('Web - Outsourcing')
 @allure.story('Test 15   Тестирование создания сотрудника')
 class TestOutsourcing_15(WebBase):
@@ -29,7 +28,7 @@ class TestOutsourcing_15(WebBase):
         outsourcing.small_time()
         # ur = "https://outsourcing-auto.verme.ru/agency-employees-list/"
         # outsourcing.goto_employees_all_page(ur)
-        outsourcing.small_time()
+        #outsourcing.small_time()
         nb = "2"
         outsourcing.outsourcing_click_cell(nb)
         outsourcing. click_only_menu()
@@ -43,7 +42,3 @@ class TestOutsourcing_15(WebBase):
         sp = "button"
         tx = "Добавить"
         outsourcing.click_only_txt(sp, tx)
-
-
-
-
