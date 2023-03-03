@@ -16,9 +16,8 @@ class TestOutsourcing_14(WebBase):
     @allure.description("Позитивный тест 2-1001 :  Тестирование модальных фильтров - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
-    #@pytest.mark.skip
+    @pytest.mark.skip
     def test_outsourcing_14(self):
-        time.sleep(3)
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
         v = "test_outsourcing_2023"
