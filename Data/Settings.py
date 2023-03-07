@@ -14,13 +14,13 @@ class Settings:
     use_internal_link_in_api = False
 
     # WEB
-    selenium_server = 'http://selenoid:4444/wd/hub'
+    selenium_server = 'http://127.0.0.1:4445/wd/hub'
     Browser = {
-         'Name': 'chrome',
+        'Name': 'chrome',
         #'headless': False,
         'headless': True,
-        'Remote': True
-        #'Remote': False
+        #'Remote': True
+        'Remote': False
     }
 
     GLOBAL = {
