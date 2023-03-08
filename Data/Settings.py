@@ -18,8 +18,8 @@ class Settings:
          'Name': 'chrome',
         #'headless': False,
         'headless': True,
-        'Remote': True
-        #'Remote': False
+        #'Remote': True
+        'Remote': False
     }
 
     GLOBAL = {

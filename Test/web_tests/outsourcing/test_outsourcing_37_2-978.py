@@ -40,7 +40,7 @@ class TestOutsourcing_37(WebBase):
         # tx = " Всё равно загрузить "
         # outsourcing.click_only_txt(sp, tx)
 
-        time.sleep(22222)
+        # time.sleep(22222)
         sp = "button"
         tx = "Действия"
         outsourcing.click_only_txt(sp, tx)
