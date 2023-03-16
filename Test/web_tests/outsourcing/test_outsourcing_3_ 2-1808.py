@@ -36,26 +36,33 @@ class TestOutsourcing_3(WebBase):
         outsourcing.click_field_agency(ch, nb)
         outsourcing.small_time()
 
+
+        """
+        Необходимо детализировать шаги теста
+
+        """
+
+
         # sp = "button"
         # tx = " Всё равно загрузить "
         # outsourcing.click_only_txt(sp, tx)
 
         # time.sleep(22222)
-        sp = "button"
-        tx = "Действия"
-        outsourcing.click_only_txt(sp, tx)
+        # sp = "button"
+        # tx = "Действия"
+        # outsourcing.click_only_txt(sp, tx)
 
-        sp = "span"
-        tx = "Статус по табелям"
-        outsourcing.click_only_txt(sp, tx)
+        # sp = "span"
+        # tx = "Статус по табелям"
+        # outsourcing.click_only_txt(sp, tx)
+        #
+        # outsourcing.small_time()
+        # ur = "https://outsourcing-auto.verme.ru/outsource-reports/"
+        # outsourcing.goto_employees_all_page(ur)
+        # outsourcing.small_time()
+        # outsourcing.click_only_download()
 
-        outsourcing.small_time()
-        ur = "https://outsourcing-auto.verme.ru/outsource-reports/"
-        outsourcing.goto_employees_all_page(ur)
-        outsourcing.small_time()
-        outsourcing.click_only_download()
-
-        #time.sleep(22222)
+        time.sleep(22222)
         #
         # ch = "Моя Смена"
         # nb = "1"
@@ -105,20 +112,20 @@ class TestOutsourcing_3(WebBase):
         # tx = "История переводов"
         # outsourcing.click_only_txt(sp, tx)
 
-        sp = "span"
-        tx = "Лицевая биометрия"
-        outsourcing.click_only_txt(sp, tx)
+        # sp = "span"
+        # tx = "Лицевая биометрия"
+        # outsourcing.click_only_txt(sp, tx)
 
         # outsourcing.send_photo_agency()
-        file = "02.jpg"
-        outsourcing.send_photo_agency_all(file)
+        # file = "02.jpg"
+        # outsourcing.send_photo_agency_all(file)
 
 
 
-        sp = "button"
-        tx = " Кадрировать и отправить "
-        outsourcing.click_only_txt(sp, tx)
-        outsourcing.small_time()
+        # sp = "button"
+        # tx = " Кадрировать и отправить "
+        # outsourcing.click_only_txt(sp, tx)
+        # outsourcing.small_time()
         #time.sleep(22222)
         # sp = "span"
         # tx = "Клиенты"
@@ -128,8 +135,4 @@ class TestOutsourcing_3(WebBase):
         # tx = "Мероприятия"
         # outsourcing.click_only_txt(sp, tx)
         #
-        # """
-        # Необходимо детализировать шаги теста
-        #
-        # """
 

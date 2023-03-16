@@ -20,7 +20,7 @@ class TestOutsourcing_1(WebBase):
     #@pytest.mark.skip
     def test_outsourcing_1(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
-
+        # test_outsourcing_2_ 2-950.py
         v = "test_outsourcing_2023"
         outsourcing.send_login(v)
         v = "freftTRHTRH!@#13564"
