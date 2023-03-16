@@ -34,7 +34,7 @@ class TestOutsourcing_42(WebBase):
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
 
-        time.sleep(22222)
+        #time.sleep(22222)
 
         sp = "a"
         tx = "Добавить Очередь оповещения"

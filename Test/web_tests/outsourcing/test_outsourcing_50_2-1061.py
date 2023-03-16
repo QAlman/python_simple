@@ -33,7 +33,7 @@ class TestOutsourcing_3(WebBase):
         Необходимо добавить смены
 
         """
-        time.sleep(22222)
+        #time.sleep(22222)
         # c = "9"
         # outsourcing.outsourcing_click_cell(c)
 
