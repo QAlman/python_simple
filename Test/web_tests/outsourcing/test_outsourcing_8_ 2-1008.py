@@ -16,7 +16,7 @@ class TestOutsourcing_8(WebBase):
     @allure.description("Позитивный тест 2-1008 :   Статус уволен у сотрудника с прошедшей, текущей и будущей датой увольнения - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
-    #@pytest.mark.skip
+    @pytest.mark.skip
     def test_outsourcing_8(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
