@@ -31,7 +31,7 @@ class TestOutsourcing_3(WebBase):
         ur = "https://outsourcing-auto.verme.ru/promo-schedule/"
         outsourcing.goto_employees_all_page(ur)
 
-        ch = "Директ Кредит_РГКП106"
+        ch = "Директ Кредит_РГКП106" # можно менять
         nb = "1"
         outsourcing.click_field_agency(ch, nb)
         outsourcing.small_time()
@@ -47,7 +47,7 @@ class TestOutsourcing_3(WebBase):
         # tx = " Всё равно загрузить "
         # outsourcing.click_only_txt(sp, tx)
 
-        # time.sleep(22222)
+        #time.sleep(22222)
         # sp = "button"
         # tx = "Действия"
         # outsourcing.click_only_txt(sp, tx)

@@ -31,7 +31,7 @@ class TestOutsourcing_4(WebBase):
         ur = "https://outsourcing-auto.verme.ru/agency-employees-list/"
         outsourcing.goto_employees_all_page(ur)
 
-        ch = "Моя Смена"
+        ch = "Моя Смена" # можно менять
         nb = "1"
         outsourcing.click_field_agency(ch, nb)
         outsourcing.small_time()
