@@ -62,7 +62,7 @@ class TestOutsourcing_3(WebBase):
         # outsourcing.small_time()
         # outsourcing.click_only_download()
 
-        time.sleep(22222)
+        #time.sleep(22222)
         #
         # ch = "Моя Смена"
         # nb = "1"
