@@ -144,9 +144,9 @@ class outsourcing_create(AnyPage):
         return self
 
 
-    # @allure.step('Кликаем  ячейку с данными сотрудника')
-    # def outsourcing_click_cell(self, txt):
-    #     el = (By.XPATH, f"(//td[contains(@role,'cell')])[{txt}]")
+    # @allure.step('Кликаем  чекбокс в списке')
+    # def outsourcing_click_navi(self, txt):
+    #     el = (By.XPATH, f"(//*[contains(@class,'form-control__checkbox')])[{txt}]")
     #     self.click_element_my(el)
     #     self.allure_screenshot()
     #
