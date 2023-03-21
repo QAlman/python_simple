@@ -144,13 +144,13 @@ class outsourcing_create(AnyPage):
         return self
 
 
-    @allure.step('Кликаем  ячейку с данными сотрудника')
-    def outsourcing_click_cell(self, txt):
-        el = (By.XPATH, f"(//td[contains(@role,'cell')])[{txt}]")
-        self.click_element_my(el)
-        self.allure_screenshot()
-
-        return self
+    # @allure.step('Кликаем  ячейку с данными сотрудника')
+    # def outsourcing_click_cell(self, txt):
+    #     el = (By.XPATH, f"(//td[contains(@role,'cell')])[{txt}]")
+    #     self.click_element_my(el)
+    #     self.allure_screenshot()
+    #
+    #     return self
 
     @allure.step('Кликаем сортировка по ФИО')
     def click_sort_fio(self):

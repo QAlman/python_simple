@@ -9,7 +9,7 @@ from selenium.webdriver.common.keys import Keys
 
 @allure.feature('Web - Outsourcing')
 @allure.story('Test 5   Передавать в карточку сотрудника Адрес фактического проживания  ')
-class TestOutsourcing_4(WebBase):
+class TestOutsourcing_5(WebBase):
 
     @allure.title('5: 2-947 :   Передавать в карточку сотрудника Адрес фактического проживания - Версия1')
     @allure.severity(allure.severity_level.CRITICAL)
