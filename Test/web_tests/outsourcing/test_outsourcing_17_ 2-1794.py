@@ -28,7 +28,7 @@ class TestOutsourcing_17(WebBase):
         outsourcing.send_password(v)
         outsourcing.click_signin()
         outsourcing.small_time()
-        ur = "https://outsourcing-auto.verme.ru/outsource-reports/"
+        ur = "https://outsourcing-auto.verme.ru/timesheets-list"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
 
@@ -37,16 +37,8 @@ class TestOutsourcing_17(WebBase):
         outsourcing.click_field_agency(ch, nb)
         outsourcing.small_time()
 
-        ur = "https://outsourcing-auto.verme.ru/client-reports/"
-        outsourcing.goto_employees_all_page(ur)
-        outsourcing.small_time()
 
-        ch = "Эльдорадо а442"
-        nb = "1"
-        outsourcing.click_field_agency(ch, nb)
-        outsourcing.small_time()
-
-        ur = "https://outsourcing-auto.verme.ru/promo-reports/"
+        ur = "https://outsourcing-auto.verme.ru/promo-timesheets-list/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
 
