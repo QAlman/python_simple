@@ -6,10 +6,10 @@ from Test.web_tests.WebBase import WebBase
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('Test 23   Тестирование создания сотрудника - Версия1')
+@allure.story('Test 23   Тестирование создания сотрудника ')
 class TestOutsourcing_23(WebBase):
 
-    @allure.title('22: 2-1409 :   Тестирование создания сотрудника - Версия1')
+    @allure.title('23: 2-1409 :   Тестирование создания сотрудника - Версия1')
     @allure.severity(allure.severity_level.CRITICAL)
     @allure.link(name="2-1409 :   Тестирование создания сотрудника - Версия1",
                  url="https://testlink.verme.ru/linkto.php?tprojectPrefix=2&item=testcase&id=2-1409")
