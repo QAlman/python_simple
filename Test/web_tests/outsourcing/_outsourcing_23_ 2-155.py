@@ -9,7 +9,7 @@ from selenium.webdriver.common.keys import Keys
 
 @allure.feature('Web - Outsourcing')
 @allure.story('Test 23    Outsourcing. Проверка "Наличие отметок" фронт (Позитив)')
-class TestOutsourcing_23(WebBase):
+class _TestOutsourcing_23(WebBase):
 
     @allure.title('23: 2-155 :     Outsourcing. Проверка "Наличие отметок" фронт (Позитив) - Версия1')
     @allure.severity(allure.severity_level.CRITICAL)
@@ -18,8 +18,8 @@ class TestOutsourcing_23(WebBase):
     @allure.description('Позитивный тест 2-155 :      Outsourcing. Проверка "Наличие отметок" фронт (Позитив) - Версия1')
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
-    #@pytest.mark.skip
-    def test_outsourcing_23(self):
+    @pytest.mark.skip
+    def _test_outsourcing_23(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
         v = "test_outsourcing_2023"

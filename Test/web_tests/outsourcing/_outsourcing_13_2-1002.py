@@ -7,7 +7,7 @@ from Test.web_tests.WebBase import WebBase
 
 @allure.feature('Web - Outsourcing')
 @allure.story('Test 13   Ошибка при выгрузке супервайзеров')
-class TestOutsourcing_13(WebBase):
+class _TestOutsourcing_13(WebBase):
 
     @allure.title('13: 2-1002 :  Ошибка при выгрузке супервайзеров - Версия1')
     @allure.severity(allure.severity_level.CRITICAL)
@@ -17,7 +17,7 @@ class TestOutsourcing_13(WebBase):
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
     @pytest.mark.skip
-    def test_outsourcing_13(self):
+    def _test_outsourcing_13(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
         v = "test_outsourcing_2023"

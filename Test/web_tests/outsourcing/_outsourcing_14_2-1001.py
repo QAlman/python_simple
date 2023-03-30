@@ -5,7 +5,7 @@ from Test.web_tests.WebBase import WebBase
 
 @allure.feature('Web - Outsourcing')
 @allure.story('Test 14  Тестирование модальных фильтров')
-class TestOutsourcing_14(WebBase):
+class _TestOutsourcing_14(WebBase):
 
     @allure.title('14: 2-1001 :  Тестирование модальных фильтров - Версия1')
     @allure.severity(allure.severity_level.CRITICAL)
@@ -15,7 +15,7 @@ class TestOutsourcing_14(WebBase):
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
     @pytest.mark.skip
-    def test_outsourcing_14(self):
+    def _test_outsourcing_14(self):
 
         outsourcing = self.APP.web_activity.button_to_outsourcing()
         v = "test_outsourcing_2023"

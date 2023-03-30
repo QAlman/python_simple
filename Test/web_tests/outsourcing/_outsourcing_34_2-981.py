@@ -8,7 +8,7 @@ from selenium.webdriver.common.keys import Keys
 
 @allure.feature('Web - Outsourcing')
 @allure.story('Test 34    Страница для вывода BI отчетов')
-class TestOutsourcing_34(WebBase):
+class _TestOutsourcing_34(WebBase):
 
     @allure.title('34: 2-981 :   Страница для вывода BI отчетов - Версия1')
     @allure.severity(allure.severity_level.CRITICAL)
@@ -18,7 +18,7 @@ class TestOutsourcing_34(WebBase):
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
     @pytest.mark.skip
-    def test_outsourcing_34(self):
+    def _test_outsourcing_34(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
         v = "test_outsourcing_2023"
