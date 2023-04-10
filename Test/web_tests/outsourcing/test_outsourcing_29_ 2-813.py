@@ -6,7 +6,7 @@ from Test.web_tests.WebBase import WebBase
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('Test 29   Ошибка при выгрузке супервайзеров')
+@allure.story('29: 2-813 :  Ошибка при выгрузке супервайзеров - Версия1')
 class TestOutsourcing_29(WebBase):
 
     @allure.title('29: 2-813 :  Ошибка при выгрузке супервайзеров - Версия1')

@@ -7,7 +7,7 @@ from Test.web_tests.WebBase import WebBase
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('Test 1    Не отображаются отметки в отчете')
+@allure.story('1: 2-1091 :   Не отображаются отметки в отчете - Версия1')
 class TestOutsourcing_1(WebBase):
 
     @allure.title('1: 2-1091 :   Не отображаются отметки в отчете - Версия1')

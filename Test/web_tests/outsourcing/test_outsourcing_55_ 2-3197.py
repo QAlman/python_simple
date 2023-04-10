@@ -4,10 +4,10 @@ from Test.web_tests.WebBase import WebBase
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('Test 28  Тестирование модальных фильтров')
-class TestOutsourcing_28(WebBase):
+@allure.story('55: 2-3197 :  Тестирование модальных фильтров - Версия1')
+class TestOutsourcing_55(WebBase):
 
-    @allure.title('28: 2-3197 :  Тестирование модальных фильтров - Версия1')
+    @allure.title('55: 2-3197 :  Тестирование модальных фильтров - Версия1')
     @allure.severity(allure.severity_level.CRITICAL)
     @allure.link(name="2-3197 :  Тестирование модальных фильтров - Версия1",
                  url="https://testlink.verme.ru/linkto.php?tprojectPrefix=2&item=testcase&id=2-3197")
@@ -15,7 +15,7 @@ class TestOutsourcing_28(WebBase):
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
     #@pytest.mark.skip
-    def test_outsourcing_28(self):
+    def test_outsourcing_55(self):
 
         outsourcing = self.APP.web_activity.button_to_outsourcing()
         v = "test_outsourcing_2023"

@@ -4,7 +4,7 @@ from Test.web_tests.WebBase import WebBase
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('Test 31 При отправке табелей на оплату не работает фильтр по датам ')
+@allure.story('31: 2-822 :  При отправке табелей на оплату не работает фильтр по датам - Версия1')
 class TestOutsourcing_31(WebBase):
 
     @allure.title('31: 2-822 :  При отправке табелей на оплату не работает фильтр по датам - Версия1')

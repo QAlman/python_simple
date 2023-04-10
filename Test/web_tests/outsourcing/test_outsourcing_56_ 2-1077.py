@@ -8,10 +8,10 @@ from selenium.webdriver.common.keys import Keys
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('Test 48  Проверить отчет Пятёрочка ')
-class TestOutsourcing_48(WebBase):
+@allure.story('56: 2-1027 :    Проверка выгрузки отчетов со страниц без данных - Версия1')
+class TestOutsourcing_56(WebBase):
 
-    @allure.title('48: 2-1027 :    Проверка выгрузки отчетов со страниц без данных - Версия1')
+    @allure.title('56: 2-1027 :    Проверка выгрузки отчетов со страниц без данных - Версия1')
     @allure.severity(allure.severity_level.CRITICAL)
     @allure.link(name='2-1077 :    Проверить отчет Пятёрочка - Версия1',
                  url="https://testlink.verme.ru/linkto.php?tprojectPrefix=2&item=testcase&id=2-1077")
@@ -19,7 +19,7 @@ class TestOutsourcing_48(WebBase):
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
     #@pytest.mark.skip
-    def test_outsourcing_48(self):
+    def test_outsourcing_56(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
         v = "test_outsourcing_2023"

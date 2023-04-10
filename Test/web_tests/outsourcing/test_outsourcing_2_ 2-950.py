@@ -7,7 +7,7 @@ from Test.web_tests.WebBase import WebBase
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('Test 2     Добавить возможность массового формирования ручных табелей для Агентства')
+@allure.story('2: 2-950 :    Добавить возможность массового формирования ручных табелей для Агентства (Ди - Версия1')
 class TestOutsourcing_2(WebBase):
 
     @allure.title('2: 2-950 :    Добавить возможность массового формирования ручных табелей для Агентства (Ди - Версия1')

@@ -6,7 +6,7 @@ from Test.web_tests.WebBase import WebBase
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('Test 39   Создание смены более 13 часов')
+@allure.story('39: 2-880 :  Создание смены более 13 часов - Версия1')
 class TestOutsourcing_39(WebBase):
 
     @allure.title('39: 2-880 :  Создание смены более 13 часов - Версия1')

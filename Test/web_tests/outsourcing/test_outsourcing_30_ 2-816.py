@@ -6,7 +6,7 @@ from Test.web_tests.WebBase import WebBase
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('Test 30   Не открываются ячейки табелей ')
+@allure.story('30: 2-816 :  Не открываются ячейки табелей - Версия1')
 class TestOutsourcing_30(WebBase):
 
     @allure.title('30: 2-816 :  Не открываются ячейки табелей - Версия1')
@@ -16,7 +16,7 @@ class TestOutsourcing_30(WebBase):
     @allure.description("Позитивный тест 2-816 :  Не открываются ячейки табелей - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
-    @pytest.mark.skip
+    #@pytest.mark.skip
     def test_outsourcing_30(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
@@ -37,7 +37,12 @@ class TestOutsourcing_30(WebBase):
         outsourcing.check_mutation_on()
 
 
+        """
+        Необходимо актуализировать шаги 
+        с ссылками
 
+
+        """
 
 
 

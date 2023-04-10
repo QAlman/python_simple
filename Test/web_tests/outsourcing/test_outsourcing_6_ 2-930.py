@@ -8,7 +8,7 @@ from selenium.webdriver.common.keys import Keys
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('Test 6   Некорректная ошибка при загрузке дополнительного фото ')
+@allure.story('6: 2-930 :   Некорректная ошибка при загрузке дополнительного фото - Версия1')
 class TestOutsourcing_6(WebBase):
 
     @allure.title('6: 2-930 :   Некорректная ошибка при загрузке дополнительного фото - Версия1')

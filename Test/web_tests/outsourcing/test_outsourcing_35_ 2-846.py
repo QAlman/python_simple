@@ -8,7 +8,7 @@ from Test.web_tests.WebBase import WebBase
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('Test 35   Зависает страница Табели при изменении масштаба - Версия1 ')
+@allure.story('35: 2-846 :  Зависает страница Табели при изменении масштаба - Версия1')
 class TestOutsourcing_35(WebBase):
 
     @allure.title('35: 2-846 :  Зависает страница Табели при изменении масштаба - Версия1')

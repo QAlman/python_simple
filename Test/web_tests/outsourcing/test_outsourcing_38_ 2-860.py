@@ -6,7 +6,7 @@ from Test.web_tests.WebBase import WebBase
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('Test 38    Статус уволен у сотрудника с прошедшей, текущей и будущей датой увольнения')
+@allure.story('38: 2-860 :   Статус уволен у сотрудника с прошедшей, текущей и будущей датой увольнения - Версия1')
 class TestOutsourcing_38(WebBase):
 
     @allure.title('38: 2-860 :   Статус уволен у сотрудника с прошедшей, текущей и будущей датой увольнения - Версия1')

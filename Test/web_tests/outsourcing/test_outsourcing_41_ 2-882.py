@@ -6,7 +6,7 @@ from Test.web_tests.WebBase import WebBase
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('Test 41   Отображение смен при изменении месяца')
+@allure.story('41: 2-882 :  Отображение смен при изменении месяца - Версия1')
 class TestOutsourcing_41(WebBase):
 
     @allure.title('41: 2-882 :  Отображение смен при изменении месяца - Версия1')

@@ -8,7 +8,7 @@ from Test.web_tests.WebBase import WebBase
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('Test 34   Не удаляются несколько смен сразу ')
+@allure.story('34: 2-844 :  Не удаляются несколько смен сразу - Версия1')
 class TestOutsourcing_34(WebBase):
 
     @allure.title('34: 2-844 :  Не удаляются несколько смен сразу - Версия1')

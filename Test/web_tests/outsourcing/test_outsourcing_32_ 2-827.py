@@ -6,7 +6,7 @@ from Test.web_tests.WebBase import WebBase
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('Test 32 Ошибка получения orgUnit\pageParty ')
+@allure.story('32: 2-827 :  Ошибка получения orgUnit\pageParty - Версия1')
 class TestOutsourcing_32(WebBase):
 
     @allure.title('32: 2-827 :  Ошибка получения orgUnit\pageParty - Версия1')

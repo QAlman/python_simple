@@ -6,7 +6,7 @@ from Test.web_tests.WebBase import WebBase
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('Test 33    Проверка поисковика орг. единиц ')
+@allure.story('33: 2-833 :   Проверка поисковика орг. единиц - Версия1')
 class TestOutsourcing_33(WebBase):
 
     @allure.title('33: 2-833 :   Проверка поисковика орг. единиц - Версия1')

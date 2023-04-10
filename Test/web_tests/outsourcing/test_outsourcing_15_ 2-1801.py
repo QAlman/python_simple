@@ -8,7 +8,7 @@ from selenium.webdriver.common.keys import Keys
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('Test 15   Тестирование работы интерфейса страницы "Претензии" ')
+@allure.story('15: 2-1801 :    Тестирование работы интерфейса страницы "Претензии" - Версия1')
 class TestOutsourcing_15(WebBase):
 
     @allure.title('15: 2-1801 :    Тестирование работы интерфейса страницы "Претензии" - Версия1')
