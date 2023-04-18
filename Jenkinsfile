@@ -54,7 +54,7 @@ pipeline {
                   properties: [],
                   reportBuildPolicy: 'ALWAYS',
                   results: [[path: "reports/${TESTS}"]]
-    	            ])
+                  ])
                } else {
                   allure([
                   includeProperties: false,
