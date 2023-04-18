@@ -18,8 +18,9 @@ class TestVerme_1(WebBase):
     @pytest.mark.WebTest
     def test_verme_1(self):
 
-        verme = self.APP.web_activity.button_to_shifts()
-        self.APP.web_steps.step_test_1()
+        verme = self.APP.web_activity.button_to_Integral()
+        #self.APP.web_steps.step_test_1()
+        #time.sleep(2222)
         verme.click_shifts_next()
         verme.click_shifts_done()
         z = self.APP.web_any_page.string_d

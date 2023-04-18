@@ -40,8 +40,8 @@ class DriverInstance:
             self.driver = webdriver.Chrome(options=options, desired_capabilities=capabilities)
 
         if self.settings.Browser['headless'] is False:
-            options.add_argument('--window-size=640,1136')
-            #self.driver.maximize_window()
+            #options.add_argument('--window-size=640,1136')
+            self.driver.maximize_window()
         return self.driver
 
     def stop_driver(self):
