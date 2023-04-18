@@ -3,7 +3,7 @@ pipeline {
       label 'wfm-at'
    }
    parameters {
-      choice (choices: ['WebTest', 'ApiTest'], name: 'TESTS', description: 'Выборочный запуск тестов')
+      string ( name: 'TESTS', trim: true, description: 'Введите название тестов')
       booleanParam (description: 'Запуск всех тестов', defaultValue: false ,name: 'ALL_TEST')
    }
    stages {
