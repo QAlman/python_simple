@@ -62,7 +62,7 @@ pipeline {
       	         properties: [],
       	         reportBuildPolicy: 'ALWAYS',
       	         results: [[path: "reports/ALL_TEST"]]
-    	            ])
+                  ])
                }
             }
          }
