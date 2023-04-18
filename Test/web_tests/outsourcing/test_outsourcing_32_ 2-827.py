@@ -16,6 +16,7 @@ class TestOutsourcing_32(WebBase):
     @allure.description("Позитивный тест 2-827 :  Ошибка получения orgUnit\pageParty - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
+    @pytest.mark.test2_827
     #@pytest.mark.skip
     def test_outsourcing_32(self):
 

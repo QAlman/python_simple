@@ -16,6 +16,7 @@ class TestOutsourcing_29(WebBase):
     @allure.description("Позитивный тест 2-813:   Ошибка при выгрузке супервайзеров - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
+    @pytest.mark.test2_813
     @pytest.mark.skip
     def test_outsourcing_29(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()

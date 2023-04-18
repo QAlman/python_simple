@@ -18,6 +18,7 @@ class TestOutsourcing_35(WebBase):
     @allure.description("Позитивный тест 2-846 :  Зависает страница Табели при изменении масштаба - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
+    @pytest.mark.test2_846
     @pytest.mark.skip
     def test_outsourcing_35(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()

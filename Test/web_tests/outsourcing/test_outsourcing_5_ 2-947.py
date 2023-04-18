@@ -18,6 +18,7 @@ class TestOutsourcing_5(WebBase):
     @allure.description('Позитивный тест 2-947 :    Передавать в карточку сотрудника Адрес фактического проживания - Версия1')
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
+    @pytest.mark.test2_947
     #@pytest.mark.skip
     def test_outsourcing_5(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()

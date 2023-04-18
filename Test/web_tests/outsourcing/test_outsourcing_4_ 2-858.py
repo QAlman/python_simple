@@ -18,6 +18,7 @@ class TestOutsourcing_4(WebBase):
     @allure.description('Позитивный тест 2-858 :   Отчет "Статус по табелям"  на странице Табели Аутсорсинга - Версия1')
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
+    @pytest.mark.test2_858
     #@pytest.mark.skip
     def test_outsourcing_4(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()

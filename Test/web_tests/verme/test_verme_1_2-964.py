@@ -16,7 +16,7 @@ class TestVerme_1(WebBase):
     @allure.description("Позитивный тест 2-964 : Регистрации на Shifts-dev - Version 1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
-    @pytest.mark.skip
+    #@pytest.mark.skip
     def test_verme_1(self):
 
         verme = self.APP.web_activity.button_to_shifts()
@@ -38,6 +38,7 @@ class TestVerme_1(WebBase):
         verme.click_signin_celery()
         verme.send_login(z)
         verme.click_signin_celery()
+        time.sleep(22222)
         verme.click_phone_celery(z_2)
         x = verme.get_text_sms()
         verme.return_shifts_page()

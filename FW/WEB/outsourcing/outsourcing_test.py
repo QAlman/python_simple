@@ -36,6 +36,8 @@ class Locator:
 
     outsourcing_checkbox_12 = (By.XPATH, "//*[contains(@id,'id_config_set-12-value')]")
 
+    outsourcing_button_signin = (By.XPATH, "//input[@type='submit']")
+
     to_file = '01.jpg'
 
 
@@ -668,6 +670,14 @@ class outsourcing_create(AnyPage):
 
         return self
 
+    @allure.step('Page down once')
+    def page_down_once(self):
+        self.send_page_down()
+        time.sleep(1)
+        self.allure_screenshot()
+
+        return self
+
     # @allure.step('Проверяем  параметр- "Табель - разрешить агентства создание корректировок ')
     # def chekbox_12(self) -> Type[object]:
     #     el = "//*[contains(@id,'id_config_set-12-value')][contains(@checked,'')]"
@@ -706,6 +716,22 @@ class outsourcing_create(AnyPage):
         self.allure_screenshot()
 
         return object
+
+    @allure.step('Кликаем поиск')
+    def click_search_celery(self):
+        self.click_element_my(Locator.outsourcing_button_signin)
+        self.allure_screenshot()
+
+        return self
+
+    # @allure.step('Передаем   Login')
+    # def send_login(self, txt):
+    #     self.send_keys_slow(Locator.login_verme, txt, 100)
+    #     self.allure_screenshot()
+    #
+    #     return self
+
+
 
         #       if len(driver.find_elements_by_xpath("//span[@class='basket-sku-control__text']")) == 0:
         #    print(" товар уже в корзине ")

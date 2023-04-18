@@ -18,6 +18,7 @@ class TestOutsourcing_52(WebBase):
     @allure.description('Позитивный тест 2-155 :      Outsourcing. Проверка "Наличие отметок" фронт (Позитив) - Версия1')
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
+    @pytest.mark.test2_155
     #@pytest.mark.skip
     def test_outsourcing_52(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()

@@ -18,6 +18,7 @@ class TestOutsourcing_6(WebBase):
     @allure.description('Позитивный тест 2-930 :    Некорректная ошибка при загрузке дополнительного фото - Версия1')
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
+    @pytest.mark.test2_930
     #@pytest.mark.skip
     def test_outsourcing_6(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()

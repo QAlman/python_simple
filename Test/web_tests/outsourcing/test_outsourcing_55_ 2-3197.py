@@ -14,6 +14,7 @@ class TestOutsourcing_55(WebBase):
     @allure.description("Позитивный тест 2-3197 :  Тестирование модальных фильтров - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
+    @pytest.mark.test2_3197
     #@pytest.mark.skip
     def test_outsourcing_55(self):
 

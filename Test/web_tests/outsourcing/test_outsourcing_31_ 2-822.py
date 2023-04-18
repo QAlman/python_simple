@@ -14,6 +14,7 @@ class TestOutsourcing_31(WebBase):
     @allure.description("Позитивный тест 2-822 :  При отправке табелей на оплату не работает фильтр по датам - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
+    @pytest.mark.test2_822
     #@pytest.mark.skip
     def test_outsourcing_31(self):
 
