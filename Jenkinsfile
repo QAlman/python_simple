@@ -2,11 +2,14 @@ pipeline {
    agent {
       label 'wfm-at'
    }
+   parameters {
+      choice (choices: ['WebTest', 'ApiTest'], name: 'TESTS')
+   }
    stages {
       stage('RUN TESTS') {
          steps {
             catchError {
-               sh 'pytest -m WebTest --alluredir reports || true'
+               sh 'pytest -m $TESTS --alluredir reports || true'
             }
          }
       }
