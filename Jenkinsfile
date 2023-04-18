@@ -3,7 +3,7 @@ pipeline {
       label 'wfm-at'
    }
    parameters {
-      choice (choices: ['WebTest', 'ApiTest'], name: 'TESTS')
+      choice (choices: ['WebTest', 'ApiTest'], name: 'TESTS', description: 'Please Select One Marker')
    }
    stages {
       stage('RUN TESTS') {
