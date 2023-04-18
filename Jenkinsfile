@@ -6,7 +6,7 @@ pipeline {
       stage('RUN TESTS') {
          steps {
             catchError {
-               sh 'pytest -m WebTest --alluredir reports'
+               sh 'pytest -m ApiTest WebTest --alluredir reports'
             }
          }
       }
