@@ -10,6 +10,13 @@ pipeline {
             }
          }
       }
+      stage('Remove hidden tests') {
+         steps {
+            sh """
+               grep -rl '"status": "skipped"' reports | xargs rm -rf
+            """
+         }
+      }
       stage('Reports') {
          steps {
             allure([
