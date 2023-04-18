@@ -17,6 +17,7 @@ class TestOutsourcing_2(WebBase):
     @allure.description("Позитивный тест 2-950 :    Добавить возможность массового формирования ручных табелей для Агентства (Ди - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
+    @pytest.mark.test2_950
     #@pytest.mark.skip
     def test_outsourcing_2(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
