@@ -49,19 +49,19 @@ pipeline {
             script {
                if (env.ALL_TEST == 'false') {
                   allure([
-      	         includeProperties: false,
-      	         jdk: '',
-      	         properties: [],
-      	         reportBuildPolicy: 'ALWAYS',
-      	         results: [[path: "reports/${TESTS}"]]
+                  includeProperties: false,
+                  jdk: '',
+                  properties: [],
+                  reportBuildPolicy: 'ALWAYS',
+                  results: [[path: "reports/${TESTS}"]]
     	            ])
                } else {
                   allure([
-      	         includeProperties: false,
-      	         jdk: '',
-      	         properties: [],
-      	         reportBuildPolicy: 'ALWAYS',
-      	         results: [[path: "reports/ALL_TEST"]]
+                  includeProperties: false,
+                  jdk: '',
+                  properties: [],
+                  reportBuildPolicy: 'ALWAYS',
+                  results: [[path: "reports/ALL_TEST"]]
                   ])
                }
             }
