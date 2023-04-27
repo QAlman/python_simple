@@ -41,7 +41,7 @@ class TestOutsourcing_60(WebBase):
         outsourcing.small_time()
 
         outsourcing.click_search_celery()
-        z = '119. Документы СЗ (Моя смена)'
+        z = '97. Выгрузка СЗ вместе со ссылками на AMO'
         outsourcing.send_login(z)
         outsourcing.click_search_celery()
 

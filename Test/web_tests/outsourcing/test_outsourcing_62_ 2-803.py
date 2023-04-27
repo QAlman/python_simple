@@ -41,7 +41,7 @@ class TestOutsourcing_62(WebBase):
         outsourcing.small_time()
 
         outsourcing.click_search_celery()
-        z = '119. Документы СЗ (Моя смена)'
+        z = '53. Смены аутсорсинга импорт-экспорт (моя смена)'
         outsourcing.send_login(z)
         outsourcing.click_search_celery()
 

@@ -41,9 +41,33 @@ class TestOutsourcing_61(WebBase):
         outsourcing.small_time()
 
         outsourcing.click_search_celery()
-        z = '119. Документы СЗ (Моя смена)'
+        z = '97. Выгрузка СЗ вместе со ссылками на AMO'
         outsourcing.send_login(z)
         outsourcing.click_search_celery()
+
+        sp = "a"
+        tx = "97. Выгрузка СЗ вместе со ссылками на AMO"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        tx = 'input'
+        txx = 'value'
+        txxx = 'Запустить экспорт'
+        outsourcing.click_only_class(tx, txx, txxx)
+
+        time.sleep(22222)
+
+
+
+
+
+
+        outsourcing.small_time()
+        ur = "https://outsourcing-auto.verme.ru/admin"
+        outsourcing.goto_employees_all_page(ur)
+        outsourcing.small_time()
+
+
 
         time.sleep(22222)
 

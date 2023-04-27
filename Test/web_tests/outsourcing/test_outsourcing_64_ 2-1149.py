@@ -29,9 +29,32 @@ class TestOutsourcing_64(WebBase):
         outsourcing.send_password(v)
         outsourcing.click_signin()
         outsourcing.small_time()
-        ur = "https://outsourcing-auto.verme.ru/admin"
+        ur = "https://outsourcing-auto.verme.ru/timesheets-list"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
+
+        ch = "Моя Смена"
+        nb = "1"
+        outsourcing.click_field_agency(ch, nb)
+        outsourcing.small_time()
+        #outsourcing.check_mutation_on()
+
+        sp = "button"
+        tx = "Действия"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        sp = "span"
+        tx = "Платёжные поручения"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        time.sleep(22222)
+
+
+
+
+
 
         outsourcing.page_down_once()
 
@@ -45,7 +68,7 @@ class TestOutsourcing_64(WebBase):
         outsourcing.send_login(z)
         outsourcing.click_search_celery()
 
-        time.sleep(22222)
+
 
         ch = "Директ Кредит_РГКП24"
         nb = "1"

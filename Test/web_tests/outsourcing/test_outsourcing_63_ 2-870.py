@@ -29,9 +29,14 @@ class TestOutsourcing_63(WebBase):
         outsourcing.send_password(v)
         outsourcing.click_signin()
         outsourcing.small_time()
-        ur = "https://outsourcing-auto.verme.ru/admin"
+        ur = "https://outsourcing-auto.verme.ru/client-quotas-list/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
+
+        time.sleep(22222)
+
+
+
 
         outsourcing.page_down_once()
 
@@ -45,7 +50,7 @@ class TestOutsourcing_63(WebBase):
         outsourcing.send_login(z)
         outsourcing.click_search_celery()
 
-        time.sleep(22222)
+
 
         ch = "Директ Кредит_РГКП24"
         nb = "1"
