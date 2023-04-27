@@ -45,15 +45,34 @@ class TestOutsourcing_57(WebBase):
         outsourcing.send_login(z)
         outsourcing.click_search_celery()
 
+        sp = "a"
+        tx = "74.Реестр кандидатов Моя Смена интеграция АльфаБанк"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        sp = "li"
+        tx = "Исполняемый код"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
         time.sleep(22222)
+
+
+
+
+
+        sp = "li"
+        tx = "74.Реестр кандидатов Моя Смена интеграция АльфаБанк"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
 
         ch = "Директ Кредит_РГКП24"
         nb = "1"
         outsourcing.click_field_agency(ch, nb)
         outsourcing.small_time()
 
-        sp = "button"
-        tx = "Действия"
+        sp = "a"
+        tx = "74.Реестр кандидатов Моя Смена интеграция АльфаБанк"
         outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
 
