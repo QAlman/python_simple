@@ -19,7 +19,7 @@ class TestOutsourcing_64(WebBase):
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
     @pytest.mark.test2_1149
-    @pytest.mark.skip
+    #@pytest.mark.skip
     def test_outsourcing_64(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
@@ -29,7 +29,8 @@ class TestOutsourcing_64(WebBase):
         outsourcing.send_password(v)
         outsourcing.click_signin()
         outsourcing.small_time()
-        ur = "https://outsourcing-auto.verme.ru/timesheets-list"
+
+        ur = "https://outsourcing-auto.verme.ru/agency-timesheets-list/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
 
@@ -37,6 +38,48 @@ class TestOutsourcing_64(WebBase):
         nb = "1"
         outsourcing.click_field_agency(ch, nb)
         outsourcing.small_time()
+
+        # outsourcing.big_time()
+        # outsourcing.big_time()
+        # outsourcing.big_time()
+
+        #1111111111111111111111111111111
+
+        sp = "div"
+        tx = "id"
+        txx = "__BVID__46"
+        outsourcing. click_only_class(sp, tx, txx)
+
+        sp = "td"
+        tx = "data-month"
+        txx = "3"
+        outsourcing.click_only_class(sp, tx, txx)
+
+        sp = "button"
+        tx = "Фильтры"
+        outsourcing.click_only_txt(sp, tx)
+
+        sp = "span"
+        tx = "Выберите сотрудника"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        sp = "Поиск..."
+        tx = "Рутилова"
+        outsourcing.send_textarea(sp, tx)
+        outsourcing.small_time()
+        sp = "li"
+        tx = "Рутилова Марина Марина"
+        outsourcing.click_only_txt(sp, tx)
+
+
+        sp = "button"
+        tx = "Применить"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+
+
         #outsourcing.check_mutation_on()
 
         #выбор апреля
@@ -62,53 +105,91 @@ class TestOutsourcing_64(WebBase):
         outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
 
-        time.sleep(22222)
+        sp = "input"
+        tx = "placeholder"
+
+        txx = "начало"
+        txxx ="01.04.2023"
+
+        txxxx = "окончание"
+        txxxxx = "01.05.2023"
+
+        outsourcing.send_datepicker(sp, tx, txx, txxx, txxxx, txxxxx)
 
 
-
-
-
-
-        outsourcing.page_down_once()
-
-        sp = "a"
-        tx = "Виды отчётов"
+        sp = "span"
+        tx = "Выберите банк..."
         outsourcing.click_only_txt(sp, tx)
-        outsourcing.small_time()
 
-        outsourcing.click_search_celery()
-        z = '119. Документы СЗ (Моя смена)'
-        outsourcing.send_login(z)
-        outsourcing.click_search_celery()
-
-
-
-        ch = "Директ Кредит_РГКП24"
-        nb = "1"
-        outsourcing.click_field_agency(ch, nb)
+        sp = "li"
+        tx = "Альфа Банк (Инвент сервис)"
+        outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
 
         sp = "button"
-        tx = "Действия"
+        tx = "Сформировать"
         outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
 
-        sp = "span"
-        tx = "Расширенный отчёт"
-        outsourcing.click_only_txt(sp, tx)
-        outsourcing.small_time()
+        #--------------------------
+        # self.verme.goto_celery_page()
+        # v = "asdsadsfdvg@asdsffrgt.com"
+        # self.verme.send_login(v)
+        # v = "freftTRHTRH!@#13564"
+        # self.verme.send_password(v)
+        # self.verme.click_signin_celery()
+        # self.verme.send_login(z)
+        # self.verme.click_signin_celery()
+        #----------------------------
 
-        ur = "https://outsourcing-auto.verme.ru/admin/reports/reportitem/"
+        ur = "https://outsourcing-auto.verme.ru/admin/payments/paymentdoc/"
         outsourcing.goto_employees_all_page(ur)
-        outsourcing.more_time()
-        outsourcing.ex_refresh()
         outsourcing.small_time()
-        outsourcing.click_only_download()
 
-        """
-        Необходимо уточнить по выгрузке отчета и полям
-
-        """
+        # time.sleep(22222)
+        #
+        #
+        #
+        # outsourcing.page_down_once()
+        #
+        # sp = "a"
+        # tx = "Виды отчётов"
+        # outsourcing.click_only_txt(sp, tx)
+        # outsourcing.small_time()
+        #
+        # outsourcing.click_search_celery()
+        # z = '119. Документы СЗ (Моя смена)'
+        # outsourcing.send_login(z)
+        # outsourcing.click_search_celery()
+        #
+        #
+        #
+        # ch = "Директ Кредит_РГКП24"
+        # nb = "1"
+        # outsourcing.click_field_agency(ch, nb)
+        # outsourcing.small_time()
+        #
+        # sp = "button"
+        # tx = "Действия"
+        # outsourcing.click_only_txt(sp, tx)
+        # outsourcing.small_time()
+        #
+        # sp = "span"
+        # tx = "Расширенный отчёт"
+        # outsourcing.click_only_txt(sp, tx)
+        # outsourcing.small_time()
+        #
+        # ur = "https://outsourcing-auto.verme.ru/admin/reports/reportitem/"
+        # outsourcing.goto_employees_all_page(ur)
+        # outsourcing.more_time()
+        # outsourcing.ex_refresh()
+        # outsourcing.small_time()
+        # outsourcing.click_only_download()
+        #
+        # """
+        # Необходимо уточнить по выгрузке отчета и полям
+        #
+        # """
 
         # c = "9"
         # outsourcing.outsourcing_click_cell(c)

@@ -15,6 +15,7 @@ class Locator:
     sms_url = "https://outsourcing-dev.verme.ru/admin/notifications/notifyitem/"
     verme_url = "https://outsourcing-dev.verme.ru/auth/login/"
     # shifts_dev_url = "https://shifts-dev.verme.ru/auth"
+    txt_blank = "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"
 
     outsourcing_employees = "https://outsourcing-dev.verme.ru/agency-employees-list/"
     outsourcing_supervisors = "https://outsourcing-dev.verme.ru/employees/supervisors/agency/"
@@ -723,6 +724,33 @@ class outsourcing_create(AnyPage):
         self.allure_screenshot()
 
         return self
+
+
+    @allure.step(' Задаем период в календаре   {txt_2}')
+    def send_datepicker(self, txt: str, txt_1: str, txt_2: str , txt_3: str, txt_4: str, txt_5: str) -> Type[object]:
+        el = (By.XPATH, f"//{txt}[contains(@{txt_1},'{txt_2}')]")
+        el_1 = (By.XPATH, f"//{txt}[contains(@{txt_1},'{txt_4}')]")
+        self.click_element_my(el)
+        self.send_keys(el, Locator.txt_blank )
+        self.send_keys(el, txt_3)
+
+        self.click_element_my(el_1)
+        self.send_keys(el_1, Locator.txt_blank)
+        self.send_keys(el_1, txt_5)
+
+        self.allure_screenshot()
+
+        return object
+
+
+
+
+
+
+
+
+
+
 
     # @allure.step('Передаем   Login')
     # def send_login(self, txt):

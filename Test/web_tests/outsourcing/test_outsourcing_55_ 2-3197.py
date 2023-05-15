@@ -1,3 +1,5 @@
+import time
+
 import allure
 import pytest
 from Test.web_tests.WebBase import WebBase
