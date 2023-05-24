@@ -471,6 +471,14 @@ class outsourcing_create(AnyPage):
 
         return object
 
+    @allure.step(' Кликаем  {txt}')
+    def click_only_txt_next(self, txt: str, txt_1: str, txt_2) -> Type[object]:
+        el = (By.XPATH, f"(//{txt}[contains(.,'{txt_1}')])[{txt_2}]")
+        self.click_element_my(el)
+        self.allure_screenshot()
+
+        return object
+
 
     def datetime_only_data(self) -> str:
         x = datetime.datetime.now()
@@ -679,22 +687,7 @@ class outsourcing_create(AnyPage):
 
         return self
 
-    # @allure.step('Проверяем  параметр- "Табель - разрешить агентства создание корректировок ')
-    # def chekbox_12(self) -> Type[object]:
-    #     el = "//*[contains(@id,'id_config_set-12-value')][contains(@checked,'')]"
-    #     el_1 = (By.XPATH, "//*[contains(@id,'id_config_set-12-value')]")
-    #
-    #     fin = self.get_count_elements_my(el)
-    #
-    #     if fin == 1:
-    #         print(" checkbox активен")
-    #     else:
-    #         self.click_element_my(el_1)
-    #
-    #     self.allure_screenshot()
-    #
-    #     return object
-    #
+
 
     @allure.step('Проверяем параметр {txt} для - {txt_1}')
     def chekbox_all(self, txt: str, txt_1: str, txt_2: str) -> Type[bool]:
@@ -714,6 +707,25 @@ class outsourcing_create(AnyPage):
     def click_only_class(self, txt: str, txt_1: str, txt_2: str) -> Type[object]:
         el = (By.XPATH, f"//{txt}[contains(@{txt_1},'{txt_2}')]")
         self.click_element_my(el)
+        self.allure_screenshot()
+
+        return object
+
+    @allure.step(' Кликаем  {txt_2}')
+    def click_only_class_next(self, txt: str, txt_1: str, txt_2: str, txt_3) -> Type[object]:
+        el = (By.XPATH, f"//{txt}[contains(@{txt_1},'{txt_2}')]['{txt_3}']")
+        self.click_element_my(el)
+        self.allure_screenshot()
+
+        return object
+
+
+
+    @allure.step('Перемещаемся к элементу')
+    def move_to_class(self, txt: str, txt_1: str, txt_2: str) -> Type[object]:
+        el = f"//{txt}[contains(@{txt_1},'{txt_2}')]"
+        time.sleep(1)
+        self.move_to_element(el)
         self.allure_screenshot()
 
         return object
@@ -743,10 +755,83 @@ class outsourcing_create(AnyPage):
         return object
 
 
+    @allure.step('Проверяем наличие поля')
+    def check_search_field(self):
+        self.click_element_my(Locator.outsourcing_button_signin)
+        self.allure_screenshot()
+
+        return self
 
 
 
 
+    @allure.step('Проверяем  наличие поля')
+    def check_field(self) -> Type[int]:
+        el = "//th[contains(@class,'field-aheadquarter nowrap')]"
+        fin = self.get_count_elements_my(el)
+
+        return fin
+
+
+    @allure.step('Перемещаемся к элементу {txt_1}')
+    def move_to_txt(self, txt, txt_1) -> Type[object]:
+        el = f"//{txt}[contains(.,'{txt_1}')]"
+        time.sleep(1)
+        self.move_to_element(el)
+        self.allure_screenshot()
+
+        return object
+
+
+    def move_to_item(self):
+        el = "//input[contains(@value,'Да, я уверен')]"
+        time.sleep(1)
+        self.move_to_element(el)
+        self.allure_screenshot()
+
+        return self
+
+
+    def clear_all_item(self):
+        el = "//input[contains(@value,'Да, я уверен')]"
+        time.sleep(1)
+        self.move_to_element(el)
+        self.allure_screenshot()
+
+        return self
+
+
+    @allure.step('Проверяем наличие скрипта на странице')
+    def outsourcing_get_queryset(self, txt) -> Type[str]:
+        el = (By.XPATH, f"//input[contains(@name,'initial-queryset')]")
+
+        #el = (By.XPATH, "(//textarea[contains(@name,'queryset')])[1]")
+
+        fin = self.get_prop(el, txt)
+
+        self.allure_screenshot()
+
+        return fin
+
+    @allure.step('Переходим на новую открытую страницу')
+    def switch_to_new_tab(self):
+        time.sleep(1)
+        self.switch_to_tab()
+        time.sleep(1)
+        self.allure_screenshot()
+
+        return self
+
+
+    @allure.step('Проверяем наличие скрипта на странице')
+    def get_text_only(self, txt, txt_1, txt_2, txt_3) -> Type[str]:
+        el = (By.XPATH, f"(//{txt}[contains(@{txt_1},'{txt_2}')])[{txt_3}]")
+
+        fin = self.get_text_my(el)
+
+        self.allure_screenshot()
+
+        return fin
 
 
 

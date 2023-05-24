@@ -101,3 +101,6 @@ print(datetime_only_data())
 # # Получение часа суток от времени
 # print(date_time.hour)
 
+
+
+

@@ -9,18 +9,12 @@ from selenium.webdriver.common.keys import Keys
 
 @allure.feature('Web - Outsourcing')
 @allure.story('59: 2-805 : Проверка формирования отчета 119 ')
-class TestOutsourcing_64(WebBase):
+@pytest.mark.skip()
+class  TestOutsourcing_clear(WebBase):
 
-    @allure.title('59:2-805 : Проверка формирования отчета 119 - Версия1')
-    @allure.severity(allure.severity_level.CRITICAL)
-    @allure.link(name='2-805 : Проверка формирования отчета 119 - Версия1',
-                 url="https://testlink.verme.ru/linkto.php?tprojectPrefix=2&item=testcase&id=2-805")
-    @allure.description('Позитивный тест 2-805 : Проверка формирования отчета 119 - Версия1')
-    @pytest.mark.CRITICAL
-    @pytest.mark.WebTest
-    @pytest.mark.test2_1149
-    #@pytest.mark.skip
-    def test_outsourcing_64(self):
+    @pytest.mark.test2_clear
+    # @pytest.mark.skip
+    def  test_outsourcing_clear(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
         v = "test_outsourcing_2023"
@@ -34,10 +28,7 @@ class TestOutsourcing_64(WebBase):
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
 
-        el = outsourcing.check_field()
-
-        if el >= 1:
-
+        for i in range(60):
             sp = "input"
             tx = "type"
             txx = "checkbox"
@@ -73,11 +64,15 @@ class TestOutsourcing_64(WebBase):
             outsourcing.click_only_class(sp, tx, txx)
             outsourcing.small_time()
 
-        fin = outsourcing.check_field()
-        assert fin < 1, "Список документов не очищен"
 
 
-        #https://outsourcing-auto.verme.ru/admin/payments/paymentdoc/? 19:52
+
+        time.sleep(22222)
+
+        # fin = outsourcing.check_field()
+        # assert fin == 0, "Список документов не очищен"
+
+        # https://outsourcing-auto.verme.ru/admin/payments/paymentdoc/? 19:52
         # sp = "select"
         # tx = "name"
         # txx = "action"
@@ -90,10 +85,6 @@ class TestOutsourcing_64(WebBase):
         # outsourcing.click_only_txt(sp, tx)
         # outsourcing.small_time()
 
-
-
-
-
         # time.sleep(5)
         #
         # sp = "select"
@@ -102,21 +93,25 @@ class TestOutsourcing_64(WebBase):
         # outsourcing.click_only_class(sp, tx, txx)
         # outsourcing.small_time()
 
-        outsourcing.small_time()
         ur = "https://outsourcing-auto.verme.ru/agency-timesheets-list/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
-
 
         ch = "Моя Смена"
         nb = "1"
         outsourcing.click_field_agency(ch, nb)
         outsourcing.small_time()
 
+        # outsourcing.big_time()
+        # outsourcing.big_time()
+        # outsourcing.big_time()
+
+        # 1111111111111111111111111111111
+
         sp = "div"
         tx = "id"
         txx = "__BVID__46"
-        outsourcing. click_only_class(sp, tx, txx)
+        outsourcing.click_only_class(sp, tx, txx)
 
         sp = "td"
         tx = "data-month"
@@ -140,16 +135,15 @@ class TestOutsourcing_64(WebBase):
         tx = "Рутилова Марина Марина"
         outsourcing.click_only_txt(sp, tx)
 
-
         sp = "button"
         tx = "Применить"
         outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
 
-        #outsourcing.check_mutation_on()
+        # outsourcing.check_mutation_on()
 
-        #выбор апреля
-        #фильтры - компания- пятерочка - сотрудники -т Рутилова Мирина
+        # выбор апреля
+        # фильтры - компания- пятерочка - сотрудники -т Рутилова Мирина
         # применить
         # банк - выбрать все - сформировать
         # админка- отчетность-документы об оплате
@@ -159,7 +153,6 @@ class TestOutsourcing_64(WebBase):
         # статус -готов
         # скачать
         # проверить к-во табелей
-
 
         sp = "button"
         tx = "Действия"
@@ -175,36 +168,28 @@ class TestOutsourcing_64(WebBase):
         tx = "placeholder"
 
         txx = "начало"
-        txxx ="01.04.2023"
+        txxx = "01.04.2023"
 
         txxxx = "окончание"
         txxxxx = "01.05.2023"
 
         outsourcing.send_datepicker(sp, tx, txx, txxx, txxxx, txxxxx)
 
-
         sp = "span"
         tx = "Выберите банк..."
         outsourcing.click_only_txt(sp, tx)
 
-        # sp = "li"
-        # tx = "Альфа Банк (Моя смена)"
-        # outsourcing.click_only_txt(sp, tx)
-        # outsourcing.small_time()
-        #
-        sp = "div"
-        tx = "class"
-        txx = "list-item"
-        outsourcing.click_only_class(sp, tx, txx)
+        sp = "li"
+        tx = "Альфа Банк (Инвент сервис)"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
 
         sp = "button"
         tx = "Сформировать"
         outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
-        # time.sleep(40)
-        outsourcing.ex_refresh()
-        outsourcing.small_time()
-        #--------------------------
+
+        # --------------------------
         # self.verme.goto_celery_page()
         # v = "asdsadsfdvg@asdsffrgt.com"
         # self.verme.send_login(v)
@@ -213,13 +198,13 @@ class TestOutsourcing_64(WebBase):
         # self.verme.click_signin_celery()
         # self.verme.send_login(z)
         # self.verme.click_signin_celery()
-        #----------------------------
-       
+        # ----------------------------
+
         ur = "https://outsourcing-auto.verme.ru/admin/payments/paymentdoc/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
 
-        #time.sleep(22222)
+        time.sleep(22222)
         #
         #
         #

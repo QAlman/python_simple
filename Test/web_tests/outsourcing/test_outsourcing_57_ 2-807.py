@@ -1,8 +1,11 @@
+import json
 import time
 from random import random
 import datetime
 import allure
 import pytest
+
+import FW.WEB.outsourcing.data_test
 from Test.web_tests.WebBase import WebBase
 from selenium.webdriver.common.keys import Keys
 
@@ -19,7 +22,7 @@ class TestOutsourcing_57(WebBase):
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
     @pytest.mark.test2_807
-    @pytest.mark.skip
+    #@pytest.mark.skip
     def test_outsourcing_57(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
@@ -51,47 +54,86 @@ class TestOutsourcing_57(WebBase):
         outsourcing.small_time()
 
         sp = "li"
-        tx = "Исполняемый код"
+        tx = "Параметры"
         outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
 
-        time.sleep(22222)
+        pr = 'value'
+        fin = outsourcing.outsourcing_get_queryset(pr)
+        fin_ex = json.loads(fin)
+        scr = FW.WEB.outsourcing.data_test.DataTest.txt_script_807
+        fin_int = json.loads(scr)
+        assert fin_ex == fin_int, "Скрипт для 807 не корректен"
 
-
-
-
-
-        sp = "li"
-        tx = "74.Реестр кандидатов Моя Смена интеграция АльфаБанк"
-        outsourcing.click_only_txt(sp, tx)
-        outsourcing.small_time()
-
-        ch = "Директ Кредит_РГКП24"
-        nb = "1"
-        outsourcing.click_field_agency(ch, nb)
+        sp = "input"
+        tx = 'value'
+        txx = "Запустить экспорт"
+        outsourcing.click_only_class(sp, tx,  txx)
         outsourcing.small_time()
 
         sp = "a"
-        tx = "74.Реестр кандидатов Моя Смена интеграция АльфаБанк"
+        tx = "[↗]"
+        txx = "1"
+        outsourcing.click_only_txt_next(sp, tx, txx)
+
+        outsourcing.switch_to_new_tab()
+
+        sp = "div"
+        tx = "class"
+        txx = "readonly"
+        txxx = "5"
+        st = "Готов"
+        fin = outsourcing.get_text_only(sp, tx, txx, txxx)
+        assert fin == st, "Статус не корректен"
+
+        sp = "a"
+        tx = "Скачать"
         outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
+        # time.sleep(22222)
+        # print(fin)
 
-        sp = "span"
-        tx = "Расширенный отчёт"
-        outsourcing.click_only_txt(sp, tx)
-        outsourcing.small_time()
 
-        ur = "https://outsourcing-auto.verme.ru/admin/reports/reportitem/"
-        outsourcing.goto_employees_all_page(ur)
-        outsourcing.more_time()
-        outsourcing.ex_refresh()
-        outsourcing.small_time()
-        outsourcing.click_only_download()
 
-        """
-        Необходимо уточнить по выгрузке отчета и полям
 
-        """
+
+
+
+
+
+
+
+        # sp = "li"
+        # tx = "74.Реестр кандидатов Моя Смена интеграция АльфаБанк"
+        # outsourcing.click_only_txt(sp, tx)
+        # outsourcing.small_time()
+        #
+        # ch = "Директ Кредит_РГКП24"
+        # nb = "1"
+        # outsourcing.click_field_agency(ch, nb)
+        # outsourcing.small_time()
+        #
+        # sp = "a"
+        # tx = "74.Реестр кандидатов Моя Смена интеграция АльфаБанк"
+        # outsourcing.click_only_txt(sp, tx)
+        # outsourcing.small_time()
+        #
+        # sp = "span"
+        # tx = "Расширенный отчёт"
+        # outsourcing.click_only_txt(sp, tx)
+        # outsourcing.small_time()
+        #
+        # ur = "https://outsourcing-auto.verme.ru/admin/reports/reportitem/"
+        # outsourcing.goto_employees_all_page(ur)
+        # outsourcing.more_time()
+        # outsourcing.ex_refresh()
+        # outsourcing.small_time()
+        # outsourcing.click_only_download()
+        #
+        # """
+        # Необходимо уточнить по выгрузке отчета и полям
+        #
+        # """
 
         # c = "9"
         # outsourcing.outsourcing_click_cell(c)
