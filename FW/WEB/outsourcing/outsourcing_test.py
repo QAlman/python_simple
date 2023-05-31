@@ -5,6 +5,11 @@ import datetime
 import requests
 import os.path
 import allure
+import glob
+import zipfile
+import pandas as pd
+import pathlib
+
 from selenium.webdriver.common.by import By
 from FW.WEB.AnyPage import AnyPage
 from selenium.webdriver.common.keys import Keys
@@ -46,12 +51,17 @@ class outsourcing_create(AnyPage):
 
     def small_time(self):
         time.sleep(2)
+        self.allure_screenshot()
         return self
+
     def big_time(self):
         time.sleep(4)
+        self.allure_screenshot()
         return self
+
     def more_time(self):
         time.sleep(30)
+        self.allure_screenshot()
         return self
 
     @allure.step('Передаем   Login')
@@ -832,6 +842,72 @@ class outsourcing_create(AnyPage):
         self.allure_screenshot()
 
         return fin
+
+    @allure.step('Фиксируем время формирования отчета')
+    def get_time_only(self) -> str:
+        #x = datetime.datetime.now()
+        x = datetime.datetime.now(tz=datetime.timezone(datetime.timedelta(seconds=1)))
+        zz = x.strftime("%Y%m%d.%H%M")
+
+        return zz
+
+    @allure.step('Проверяем открываем файл для чтения и проверки')
+    def get_zipfile_only(self, zz) -> object:
+
+        vv = f'export_paymentorder_talkbank_{zz}08.zip' # шаблон
+        vvv = vv[:-6]
+
+        #ooo = glob.glob('C:\\1\\' + vvv + '*.zip') # шаблон обработанный win
+        ooo = glob.glob('./' + vvv + '*.zip')  # шаблон обработанный lin
+        path_1 = str(ooo)[2:-2]
+        # print("ooo = " + str(ooo))
+        # print("path_1 = " + path_1)
+        archive = zipfile.ZipFile(path_1, 'r')
+        # archive = zipfile.ZipFile(f'C:\\1\\export_paymentorder_talkbank_20230607.161708.zip', 'r')
+        archive1 = archive.namelist()
+
+        fin = (str(archive1)[2:-2]) # имя файла внутри архива
+
+        xtx = archive.open(fin, 'r', pwd=None, force_zip64=False)
+        #archive.printdir()
+        # Let us verify the operation..
+        # txtdata = archive.read('1.xlsx')
+        #columns = ['Компания-клиент', 'Кластер ', 'Дневное время', 'Ночное время', 'Хрень']
+        txt_data = pd.read_excel(xtx)
+        #txt_fin = pd.read_excel(xtx, header=None, names=columns)
+        df = pd.DataFrame(txt_data)
+        assert 'Компания-клиент' in df.columns, "1 Колонки Компания-клиент нет"
+        assert 'Кластер' in df.columns, "2 Колонки Кластер нет"
+        assert 'Дата табеля' in df.columns, "3 Колонки Дата табеля нет"
+        assert 'ФИО' in df.columns, "4 Колонки ФИО  нет"
+        assert 'ИНН клиента' in df.columns, "24 Колонки ИНН клиента нет"
+        assert 'Номер телефона' in df.columns, "5 Колонки Номер телефона  нет"
+        assert 'сумма без учета налога' in df.columns, "6 Колонки сумма без учета налога нет"
+        assert 'сумма к выплате с учетом налога' in df.columns, "7 Колонки сумма к выплате с учетом налога нет"
+        assert 'На карту' in df.columns, "8 Колонки На карту нет"
+        assert 'Удержание' in df.columns, "9 Колонки Удержание нет"
+        assert 'полный номер счета/номер карты' in df.columns, "10 Колонки полный номер счета/номер карты нет"
+        assert 'БИК' in df.columns, "11 Колонки БИК нет"
+        assert 'Тип заказчика' in df.columns, "12 Колонки Тип заказчика нет"
+        assert 'ИНН заказчика' in df.columns, "13 Колонки ИНН заказчика нет"
+        assert 'наименование товара или услуги' in df.columns, "14 Колонки наименование товара или услуги нет"
+        assert 'Номер договора' in df.columns, "15 Колонки Номер договора нет"
+        assert 'Чек' in df.columns, "16 Колонки Чек нет"
+        assert 'Дата' in df.columns, "17 Колонки Дата нет"
+        assert 'Статус выплаты' in df.columns, "18 Статус выплаты"
+        assert 'Платим?' in df.columns, "19 Колонки Платим? нет"
+        assert 'Название заказчика' in df.columns, "20 Колонки Название заказчиканет"
+        assert 'Назначение платежа' in df.columns, "21 Колонки Назначение платежа нет"
+        assert 'Дневное время' in df.columns, "22 Колонки Дневное время нет"
+        assert 'Ночное время' in df.columns, "23 Колонки Ночное время нет"
+
+        self.allure_screenshot()
+
+        print(df)
+
+        return self
+
+
 
 
 

@@ -9,11 +9,11 @@ from selenium.webdriver.common.keys import Keys
 
 @allure.feature('Web - Outsourcing')
 @allure.story('59: 2-805 : Проверка формирования отчета 119 ')
-@pytest.mark.skip()
+
 class  TestOutsourcing_clear(WebBase):
 
     @pytest.mark.test2_clear
-    # @pytest.mark.skip
+    @pytest.mark.skip()
     def  test_outsourcing_clear(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
@@ -27,6 +27,7 @@ class  TestOutsourcing_clear(WebBase):
         ur = "https://outsourcing-auto.verme.ru/admin/payments/paymentdoc/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
+        #time.sleep(22222)
 
         for i in range(60):
             sp = "input"

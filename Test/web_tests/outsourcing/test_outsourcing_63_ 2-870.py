@@ -33,6 +33,42 @@ class TestOutsourcing_63(WebBase):
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
 
+        ch = "Магазин A442"
+        nb = "1"
+        outsourcing.click_field_agency(ch, nb)
+        outsourcing.small_time()
+
+
+        sp = "div"
+        tx = "id"
+        txx = "__BVID__47"
+        outsourcing.click_only_class(sp, tx, txx)
+
+        sp = "td"
+        tx = "data-month"
+        txx = "4"
+        outsourcing.click_only_class(sp, tx, txx)
+
+        sp = "button"
+        tx = "Действия"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        sp = "span"
+        tx = "Справочник орг. структуры"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        ur = "https://outsourcing-auto.verme.ru/client-reports/"
+        outsourcing.goto_employees_all_page(ur)
+        outsourcing.small_time()
+
+        outsourcing.click_only_download()
+        outsourcing.small_time()
+
+
+
+
         #time.sleep(22222)
 
 

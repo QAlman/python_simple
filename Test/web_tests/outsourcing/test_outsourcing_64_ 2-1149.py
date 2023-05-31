@@ -116,7 +116,7 @@ class TestOutsourcing_64(WebBase):
         sp = "div"
         tx = "id"
         txx = "__BVID__46"
-        outsourcing. click_only_class(sp, tx, txx)
+        outsourcing.click_only_class(sp, tx, txx)
 
         sp = "td"
         tx = "data-month"
@@ -201,9 +201,10 @@ class TestOutsourcing_64(WebBase):
         tx = "Сформировать"
         outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
-        # time.sleep(40)
+
         outsourcing.ex_refresh()
-        outsourcing.small_time()
+        outsourcing.more_time()
+        outsourcing.more_time()
         #--------------------------
         # self.verme.goto_celery_page()
         # v = "asdsadsfdvg@asdsffrgt.com"
@@ -214,21 +215,90 @@ class TestOutsourcing_64(WebBase):
         # self.verme.send_login(z)
         # self.verme.click_signin_celery()
         #----------------------------
-       
+
         ur = "https://outsourcing-auto.verme.ru/admin/payments/paymentdoc/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
 
-        #time.sleep(22222)
+
         #
         #
         #
         # outsourcing.page_down_once()
         #
+
+
+
+        nb= "3"
+        sp = "td"
+        tx = "class"
+        txx = "field-count_row"
+        txxx = "1"
+        sd = outsourcing.get_text_only(sp, tx, txx, txxx)
+        outsourcing.small_time()
+        assert sd == nb, "Колличество смен не корректно"
+
+        sp = "input"
+        tx = "type"
+        txx = "checkbox"
+        txxx = "1"
+        outsourcing.click_only_class_next(sp, tx, txx, txxx)
+
+        sp = "option"
+        tx = "---------"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        sp = "option"
+        tx = "Выгрузить платежные документы(Все)"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        sp = "button"
+        tx = "Выполнить"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        dt_1 = outsourcing.get_time_only()
+
+        sp = "a"
+        tx = "[↗]"
+        txx = "1"
+        outsourcing.click_only_txt_next(sp, tx, txx)
+        outsourcing.small_time()
+
+        outsourcing.switch_to_new_tab()
+
+        sp = "div"
+        tx = "class"
+        txx = "readonly"
+        txxx = "5"
+        st = "Готов"
+        fin = outsourcing.get_text_only(sp, tx, txx, txxx)
+        assert fin == st, "Статус не корректен"
+
+        sp = "a"
+        tx = "Скачать"
+        outsourcing.click_only_txt(sp, tx)
+        outsourcing.small_time()
+
+        print(dt_1)
+
+        outsourcing.get_zipfile_only(dt_1)
+
+
+
+        #time.sleep(22222)
+
+
         # sp = "a"
-        # tx = "Виды отчётов"
+        # tx = "Моя Смена"
         # outsourcing.click_only_txt(sp, tx)
-        # outsourcing.small_time()
+
+
+        #
+        #
+        # outsourcing.get_text_only()
         #
         # outsourcing.click_search_celery()
         # z = '119. Документы СЗ (Моя смена)'
@@ -242,9 +312,7 @@ class TestOutsourcing_64(WebBase):
         # outsourcing.click_field_agency(ch, nb)
         # outsourcing.small_time()
         #
-        # sp = "button"
-        # tx = "Действия"
-        # outsourcing.click_only_txt(sp, tx)
+
         # outsourcing.small_time()
         #
         # sp = "span"

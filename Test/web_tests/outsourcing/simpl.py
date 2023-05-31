@@ -1,4 +1,7 @@
-
+import glob
+import zipfile
+import pandas as pd
+import pathlib
 #
 # xxx = "Абу Али С "
 # xxxx = xxx[0:1]
@@ -93,6 +96,15 @@ def datetime_only_data() -> str:
 
 print(datetime_only_data())
 
+#zo = datetime.datetime.now(ZoneInfo("America/Los_Angeles"))
+
+offset = datetime.timedelta(hours=3)
+zo = datetime.timezone(offset, name='МСК')
+print("zo = " + str(zo))
+
+zov = datetime.datetime.now(tz=datetime.timezone(datetime.timedelta(seconds=1)))
+print("zov = " + str(zov))
+
 # print(datetime_only_data() + " " + sd)
 
 # date_day = datetime.date.today()
@@ -102,5 +114,62 @@ print(datetime_only_data())
 # print(date_time.hour)
 
 
+# with ZipFile("metanit.zip", "a") as myzip:
+#     # записываем в архив новый файл "hello5.txt"
+#     with myzip.open("hello5.txt", "w") as hello_file:
+#         encoded_str = bytes("Python...", "UTF-8")
+#         hello_file.write(encoded_str)
+
+#zz = x.strftime("%Y%m%d.%H%M")
+
+zz = '20230607.2242'
+
+vv = f'export_paymentorder_talkbank_{zz}08.zip'
+vvv = vv[:-6]
+# print("vvv = " + vvv)
+ooo = glob.glob('C:\\1\\' + vvv + '*.zip')
+path_1 = str(ooo)[2:-2]
+#print("ooo = " + str(ooo))
+print("path_1 = " + path_1)
+archive = zipfile.ZipFile(path_1, 'r')
+#archive = zipfile.ZipFile(f'C:\\1\\export_paymentorder_talkbank_20230607.161708.zip', 'r')
+archive1 = archive.namelist()
+
+fin = (str(archive1)[2:-2])
+#g = glob.glob('*.')
+
+xtx = archive.open( fin ,'r', pwd=None, force_zip64=False)
+#print(xtx.readlines())
+archive.printdir()
+#Let us verify the operation..
+#txtdata = archive.read('1.xlsx')
+columns = ['Компания-клиент', 'Кластер ','Дневное время','Ночное время', 'Хрень']
+txt_data = pd.read_excel(xtx)
+txt_fin = pd.read_excel(xtx, header=None, names = columns)
+df = pd.DataFrame(txt_data)
+assert 'Компания-клиент' in df.columns, "Колонки нет"
+
+#print(txtdata)
+#print(archive)
+#print(xtx)
+print(txt_data)
+
+print(txt_fin)
+
+#print('txt_check = '  + str(txt_check))
+
+#check if 'team' column exists in DataFrame
+
+#print(str(archive1)[2:-2])
 
 
+#ABC#1.png  20230607.161708
+#export_paymentorder_talkbank_20230607.002247.zip
+
+
+path = pathlib.Path('C:\\1')
+abc = path.glob('export_paymentorder_talkbank_20230607.161708.zip')
+#def_ = path.glob('export_paymentorder_talkbank_[0-9].png')
+
+# Veter = Veter[0].rsplit(".", 1)[0]
+# print(Veter)
