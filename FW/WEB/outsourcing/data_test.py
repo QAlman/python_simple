@@ -20,6 +20,14 @@ class DataTest:
 
     txt_script_807 = '{ "agency__code": "verme_ag", "route_state__code__in": ["employee_ready_non_medical", "employee_ready_non_food", "employee_ready_food", "employee_booked_shift", "employee_shift", "employee_5_shift"], "paymentbankemployee__status": "request_sent", "paymentbankemployee__payment_bank__code": "alfa_is" }'
 
+    txt_script_806 = '{ "agency__code": "verme_ag" }'
+
+    txt_script_805 = '{ "route_state__code__ne": "employee_doc_removed", "agency_employee__agency__headquater__code": "Verme_1" }'
+
+    txt_script_804 = '{ "agency__code": "verme_ag" }'
+
+    txt_script_803 = '{ "agency__code": "verme_ag", "start_date__year": 2023, "start_date__month": 5 }'
+
 
     url_admin = "https://outsourcing-auto.verme.ru/admin"
 

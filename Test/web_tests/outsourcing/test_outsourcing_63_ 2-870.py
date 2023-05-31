@@ -8,18 +8,18 @@ from selenium.webdriver.common.keys import Keys
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('59: 2-805 : Проверка формирования отчета 119 ')
+@allure.story('63: 2-870 :  Проверка формирования отчета Выгрузка орг.структуры ')
 class TestOutsourcing_63(WebBase):
 
-    @allure.title('59:2-805 : Проверка формирования отчета 119 - Версия1')
+    @allure.title('63:2-870 :  Проверка формирования отчета Выгрузка орг.структуры - Версия1')
     @allure.severity(allure.severity_level.CRITICAL)
-    @allure.link(name='2-805 : Проверка формирования отчета 119 - Версия1',
-                 url="https://testlink.verme.ru/linkto.php?tprojectPrefix=2&item=testcase&id=2-805")
-    @allure.description('Позитивный тест 2-805 : Проверка формирования отчета 119 - Версия1')
+    @allure.link(name='2-870 :  Проверка формирования отчета Выгрузка орг.структуры - Версия1',
+                 url="https://testlink.verme.ru/linkto.php?tprojectPrefix=2&item=testcase&id=2-870")
+    @allure.description('Позитивный тест  Проверка формирования отчета Выгрузка орг.структуры - Версия1')
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
     @pytest.mark.test2_870
-    @pytest.mark.skip
+    #@pytest.mark.skip
     def test_outsourcing_63(self):
         outsourcing = self.APP.web_activity.button_to_outsourcing()
 
@@ -33,51 +33,51 @@ class TestOutsourcing_63(WebBase):
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
 
-        time.sleep(22222)
+        #time.sleep(22222)
 
 
 
 
-        outsourcing.page_down_once()
-
-        sp = "a"
-        tx = "Виды отчётов"
-        outsourcing.click_only_txt(sp, tx)
-        outsourcing.small_time()
-
-        outsourcing.click_search_celery()
-        z = '119. Документы СЗ (Моя смена)'
-        outsourcing.send_login(z)
-        outsourcing.click_search_celery()
-
-
-
-        ch = "Директ Кредит_РГКП24"
-        nb = "1"
-        outsourcing.click_field_agency(ch, nb)
-        outsourcing.small_time()
-
-        sp = "button"
-        tx = "Действия"
-        outsourcing.click_only_txt(sp, tx)
-        outsourcing.small_time()
-
-        sp = "span"
-        tx = "Расширенный отчёт"
-        outsourcing.click_only_txt(sp, tx)
-        outsourcing.small_time()
-
-        ur = "https://outsourcing-auto.verme.ru/admin/reports/reportitem/"
-        outsourcing.goto_employees_all_page(ur)
-        outsourcing.more_time()
-        outsourcing.ex_refresh()
-        outsourcing.small_time()
-        outsourcing.click_only_download()
-
-        """
-        Необходимо уточнить по выгрузке отчета и полям
-
-        """
+        # outsourcing.page_down_once()
+        #
+        # sp = "a"
+        # tx = "Виды отчётов"
+        # outsourcing.click_only_txt(sp, tx)
+        # outsourcing.small_time()
+        #
+        # outsourcing.click_search_celery()
+        # z = '119. Документы СЗ (Моя смена)'
+        # outsourcing.send_login(z)
+        # outsourcing.click_search_celery()
+        #
+        #
+        #
+        # ch = "Директ Кредит_РГКП24"
+        # nb = "1"
+        # outsourcing.click_field_agency(ch, nb)
+        # outsourcing.small_time()
+        #
+        # sp = "button"
+        # tx = "Действия"
+        # outsourcing.click_only_txt(sp, tx)
+        # outsourcing.small_time()
+        #
+        # sp = "span"
+        # tx = "Расширенный отчёт"
+        # outsourcing.click_only_txt(sp, tx)
+        # outsourcing.small_time()
+        #
+        # ur = "https://outsourcing-auto.verme.ru/admin/reports/reportitem/"
+        # outsourcing.goto_employees_all_page(ur)
+        # outsourcing.more_time()
+        # outsourcing.ex_refresh()
+        # outsourcing.small_time()
+        # outsourcing.click_only_download()
+        #
+        # """
+        # Необходимо уточнить по выгрузке отчета и полям
+        #
+        # """
 
         # c = "9"
         # outsourcing.outsourcing_click_cell(c)

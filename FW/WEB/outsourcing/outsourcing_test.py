@@ -463,7 +463,7 @@ class outsourcing_create(AnyPage):
 
         return object
 
-    @allure.step(' Кликаем  {txt}')
+    @allure.step(' Кликаем  {txt_1}')
     def click_only_txt(self, txt: str, txt_1: str) -> Type[object]:
         el = (By.XPATH, f"//{txt}[contains(.,'{txt_1}')]")
         self.click_element_my(el)
@@ -471,7 +471,7 @@ class outsourcing_create(AnyPage):
 
         return object
 
-    @allure.step(' Кликаем  {txt}')
+    @allure.step(' Кликаем  {txt_1}')
     def click_only_txt_next(self, txt: str, txt_1: str, txt_2) -> Type[object]:
         el = (By.XPATH, f"(//{txt}[contains(.,'{txt_1}')])[{txt_2}]")
         self.click_element_my(el)
