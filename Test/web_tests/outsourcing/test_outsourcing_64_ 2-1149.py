@@ -8,14 +8,14 @@ from selenium.webdriver.common.keys import Keys
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('59: 2-805 : Проверка формирования отчета 119 ')
+@allure.story('64: 2-1149 : Экспорт отчета "Документа TKB" ')
 class TestOutsourcing_64(WebBase):
 
-    @allure.title('59:2-805 : Проверка формирования отчета 119 - Версия1')
+    @allure.title('64: 2-1149 : Экспорт отчета "Документа TKB" - Версия1')
     @allure.severity(allure.severity_level.CRITICAL)
-    @allure.link(name='2-805 : Проверка формирования отчета 119 - Версия1',
-                 url="https://testlink.verme.ru/linkto.php?tprojectPrefix=2&item=testcase&id=2-805")
-    @allure.description('Позитивный тест 2-805 : Проверка формирования отчета 119 - Версия1')
+    @allure.link(name='2-1149 : Экспорт отчета "Документа TKB" - Версия1',
+                 url="https://testlink.verme.ru/linkto.php?tprojectPrefix=2&item=testcase&id=2-1149")
+    @allure.description('Позитивный тест 2-1149 : Экспорт отчета "Документа TKB" - Версия1')
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
     @pytest.mark.test2_1149
