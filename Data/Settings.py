@@ -16,7 +16,7 @@ class Settings:
     selenium_server = 'http://selenoid:4444/wd/hub'
     Browser = {
          'Name': 'chrome',
-       #'headless': False,
+        #'headless': False,
         'headless': True,
         #'Remote': True
         'Remote': False

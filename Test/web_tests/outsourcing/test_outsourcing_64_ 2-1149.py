@@ -112,6 +112,7 @@ class TestOutsourcing_64(WebBase):
         nb = "1"
         outsourcing.click_field_agency(ch, nb)
         outsourcing.small_time()
+        outsourcing.small_time()
 
         sp = "div"
         tx = "id"
