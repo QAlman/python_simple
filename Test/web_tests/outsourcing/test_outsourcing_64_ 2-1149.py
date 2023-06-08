@@ -1,6 +1,8 @@
 import time
 from random import random
 import datetime
+import pandas as pd
+import openpyxl
 import allure
 import pytest
 from Test.web_tests.WebBase import WebBase

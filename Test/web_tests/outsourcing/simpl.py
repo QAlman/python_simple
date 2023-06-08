@@ -122,7 +122,7 @@ print("zov = " + str(zov))
 
 #zz = x.strftime("%Y%m%d.%H%M")
 
-zz = '20230607.2242'
+zz = '20230607.2324'
 
 vv = f'export_paymentorder_talkbank_{zz}08.zip'
 vvv = vv[:-6]
