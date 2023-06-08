@@ -14,7 +14,8 @@ class Locator:
     verme_url = "https://outsourcing-dev.verme.ru/"
     shifts_dev_url = "https://shifts-dev.verme.ru/auth"
 
-    integral_url = "https://www.ozon.ru/"
+    integral_url_oz = "https://www.ozon.ru/"
+    integral_url_wb = "https://www.wildberries.ru/"
 
 
 
@@ -46,7 +47,7 @@ class Activity(AnyPage):
     def button_to_Integral(self):
         # Переходим на целевую страницу теста
         #self.goto_page(Locator.verme_url)
-        self.goto_page(Locator.integral_url)
+        self.goto_page(Locator.integral_url_wb)
         time.sleep(1)
         return self.manager.web_verme
 
