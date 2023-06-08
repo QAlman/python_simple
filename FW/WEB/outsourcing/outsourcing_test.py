@@ -97,7 +97,6 @@ class outsourcing_create(AnyPage):
     #     return self
     #
 
-
     @allure.step('Переходим на - Сотрудники')
     def goto_employees_page(self):
         self.goto_page(Locator.outsourcing_employees)
@@ -113,6 +112,7 @@ class outsourcing_create(AnyPage):
         self.allure_screenshot()
 
         return self
+
     @allure.step('Выбираем к-во отображенных эдементов на странице -  {txt}')
     def outsourcing_click_pagination_value(self, txt) -> Type[str]:
         el = (By.XPATH, f"//option[contains(@value,'{txt}')]")
@@ -131,7 +131,6 @@ class outsourcing_create(AnyPage):
         self.allure_screenshot()
 
         return str
-
 
     @allure.step('Кликаем  ячейку с данными сотрудника')
     def outsourcing_click_cell(self, txt):
@@ -156,7 +155,6 @@ class outsourcing_create(AnyPage):
         self.allure_screenshot()
 
         return self
-
 
     # @allure.step('Кликаем  чекбокс в списке')
     # def outsourcing_click_navi(self, txt):
@@ -194,7 +192,7 @@ class outsourcing_create(AnyPage):
     def check_sort_all(self, txt) -> Type[str]:
         el = (By.XPATH, f"(//*[contains(@aria-sort,'none')])[{txt}]")
         fin = self.get_text_my(el)
-        #assert fin[:1] == txt_1
+        # assert fin[:1] == txt_1
         self.allure_screenshot()
 
         return fin
@@ -310,9 +308,8 @@ class outsourcing_create(AnyPage):
 
         return self
 
-
     @allure.step(' Выбираем месяц ')
-    def click_datapicker_month(self,txt_1, txt_2):
+    def click_datapicker_month(self, txt_1, txt_2):
         dp = (By.XPATH, "//*[contains(@class,'dropdown b-dropdown btn-group')]")
         self.click_element_my(dp)
         dp_3 = (By.XPATH, f"(//*[contains(@data-month,'{txt_1}')])[{txt_2}]")
@@ -320,7 +317,6 @@ class outsourcing_create(AnyPage):
         self.allure_screenshot()
 
         return self
-
 
     @allure.step('Проверяем и выполняем - {txt_1}')
     def check_mutation(self, txt, txt_1):
@@ -344,7 +340,6 @@ class outsourcing_create(AnyPage):
         self.allure_screenshot()
 
         return self
-
 
     @allure.step(' Кликаем  смену ')
     def click_shifts_in_agency(self, txt) -> Type[object]:
@@ -454,7 +449,6 @@ class outsourcing_create(AnyPage):
 
         return object
 
-
     @allure.step('Перемещаемся к элементу')
     def move_to_shifts_any(self, txt) -> Type[object]:
         el = "//*[contains(@class,'readonly')]"
@@ -465,7 +459,6 @@ class outsourcing_create(AnyPage):
         self.allure_screenshot()
 
         return object
-
 
     @allure.step('Удаляем все смены')
     def del_shifts_all(self, txt, txt_1) -> Type[object]:
@@ -489,7 +482,6 @@ class outsourcing_create(AnyPage):
         self.allure_screenshot()
 
         return object
-
 
     def datetime_only_data(self) -> str:
         x = datetime.datetime.now()
@@ -525,7 +517,7 @@ class outsourcing_create(AnyPage):
         fin_2 = self.get_text_my(el_2)
         fin_3 = self.get_text_my(el_3)
 
-        assert txt == fin , "Отчет не создан"
+        assert txt == fin, "Отчет не создан"
         # assert txt_1 == fin_1, "Отчет не создан"
         assert txt_2 == fin_2, "Отчет не создан"
         assert txt_3 == fin_3, "Отчет не создан"
@@ -573,7 +565,6 @@ class outsourcing_create(AnyPage):
         self.allure_screenshot()
 
         return self
-
 
     @allure.step('Редактируем данные пользователя')
     def agency_edit_employee(self):
@@ -631,18 +622,16 @@ class outsourcing_create(AnyPage):
 
     @allure.step('Загрузить фото при регистрации ')
     def send_photo_agency_all(self, txt) -> Type[object]:
-        #el = (By.XPATH, "//*[contains(@type ,'file')][contains(@accept,'image/*')]")
+        # el = (By.XPATH, "//*[contains(@type ,'file')][contains(@accept,'image/*')]")
         el = (By.XPATH, "//*[contains(@type ,'file')][contains(@accept,'')]")
         fll = os.path.dirname(os.path.abspath(__file__))
 
         self.send_keys(el, fll + f"/{txt}")
-        #print(os.getcwd())
+        # print(os.getcwd())
         time.sleep(3)
         self.allure_screenshot()
 
         return object
-
-
 
     @allure.step('Меняем пагинацию')
     def send_pagination_agency(self):
@@ -698,8 +687,6 @@ class outsourcing_create(AnyPage):
 
         return self
 
-
-
     @allure.step('Проверяем параметр {txt} для - {txt_1}')
     def chekbox_all(self, txt: str, txt_1: str, txt_2: str) -> Type[bool]:
         el = (By.XPATH, f"//*[contains(@id,'{txt_2}')]")
@@ -730,8 +717,6 @@ class outsourcing_create(AnyPage):
 
         return object
 
-
-
     @allure.step('Перемещаемся к элементу')
     def move_to_class(self, txt: str, txt_1: str, txt_2: str) -> Type[object]:
         el = f"//{txt}[contains(@{txt_1},'{txt_2}')]"
@@ -748,13 +733,12 @@ class outsourcing_create(AnyPage):
 
         return self
 
-
     @allure.step(' Задаем период в календаре   {txt_2}')
-    def send_datepicker(self, txt: str, txt_1: str, txt_2: str , txt_3: str, txt_4: str, txt_5: str) -> Type[object]:
+    def send_datepicker(self, txt: str, txt_1: str, txt_2: str, txt_3: str, txt_4: str, txt_5: str) -> Type[object]:
         el = (By.XPATH, f"//{txt}[contains(@{txt_1},'{txt_2}')]")
         el_1 = (By.XPATH, f"//{txt}[contains(@{txt_1},'{txt_4}')]")
         self.click_element_my(el)
-        self.send_keys(el, Locator.txt_blank )
+        self.send_keys(el, Locator.txt_blank)
         self.send_keys(el, txt_3)
 
         self.click_element_my(el_1)
@@ -765,7 +749,6 @@ class outsourcing_create(AnyPage):
 
         return object
 
-
     @allure.step('Проверяем наличие поля')
     def check_search_field(self):
         self.click_element_my(Locator.outsourcing_button_signin)
@@ -773,16 +756,12 @@ class outsourcing_create(AnyPage):
 
         return self
 
-
-
-
     @allure.step('Проверяем  наличие поля')
     def check_field(self) -> Type[int]:
         el = "//th[contains(@class,'field-aheadquarter nowrap')]"
         fin = self.get_count_elements_my(el)
 
         return fin
-
 
     @allure.step('Перемещаемся к элементу {txt_1}')
     def move_to_txt(self, txt, txt_1) -> Type[object]:
@@ -793,7 +772,6 @@ class outsourcing_create(AnyPage):
 
         return object
 
-
     def move_to_item(self):
         el = "//input[contains(@value,'Да, я уверен')]"
         time.sleep(1)
@@ -801,7 +779,6 @@ class outsourcing_create(AnyPage):
         self.allure_screenshot()
 
         return self
-
 
     def clear_all_item(self):
         el = "//input[contains(@value,'Да, я уверен')]"
@@ -811,12 +788,11 @@ class outsourcing_create(AnyPage):
 
         return self
 
-
     @allure.step('Проверяем наличие скрипта на странице')
     def outsourcing_get_queryset(self, txt) -> Type[str]:
         el = (By.XPATH, f"//input[contains(@name,'initial-queryset')]")
 
-        #el = (By.XPATH, "(//textarea[contains(@name,'queryset')])[1]")
+        # el = (By.XPATH, "(//textarea[contains(@name,'queryset')])[1]")
 
         fin = self.get_prop(el, txt)
 
@@ -833,7 +809,6 @@ class outsourcing_create(AnyPage):
 
         return self
 
-
     @allure.step('Проверяем наличие скрипта на странице')
     def get_text_only(self, txt, txt_1, txt_2, txt_3) -> Type[str]:
         el = (By.XPATH, f"(//{txt}[contains(@{txt_1},'{txt_2}')])[{txt_3}]")
@@ -846,19 +821,19 @@ class outsourcing_create(AnyPage):
 
     @allure.step('Фиксируем время формирования отчета')
     def get_time_only(self) -> str:
-        #x = datetime.datetime.now()
+        # x = datetime.datetime.now()
         x = datetime.datetime.now(tz=datetime.timezone(datetime.timedelta(seconds=1)))
         zz = x.strftime("%Y%m%d.%H%M")
 
         return zz
 
-    @allure.step('Проверяем открываем файл для чтения и проверки')
+    @allure.step('Проверяем zip -  открываем файл для чтения и проверки')
     def get_zipfile_only(self, zz) -> object:
 
-        vv = f'export_paymentorder_talkbank_{zz}08.zip' # шаблон
+        vv = f'export_paymentorder_talkbank_{zz}08.zip'  # шаблон
         vvv = vv[:-6]
 
-        #ooo = glob.glob('C:\\1\\' + vvv + '*.zip') # шаблон обработанный win
+        # ooo = glob.glob('C:\\1\\' + vvv + '*.zip') # шаблон обработанный win
         ooo = glob.glob('./' + vvv + '*.zip')  # шаблон обработанный lin
         path_1 = str(ooo)[2:-2]
         # print("ooo = " + str(ooo))
@@ -867,15 +842,15 @@ class outsourcing_create(AnyPage):
         # archive = zipfile.ZipFile(f'C:\\1\\export_paymentorder_talkbank_20230607.161708.zip', 'r')
         archive1 = archive.namelist()
 
-        fin = (str(archive1)[2:-2]) # имя файла внутри архива
+        fin = (str(archive1)[2:-2])  # имя файла внутри архива
 
         xtx = archive.open(fin, 'r', pwd=None, force_zip64=False)
-        #archive.printdir()
+        # archive.printdir()
         # Let us verify the operation..
         # txtdata = archive.read('1.xlsx')
-        #columns = ['Компания-клиент', 'Кластер ', 'Дневное время', 'Ночное время', 'Хрень']
+        # columns = ['Компания-клиент', 'Кластер ', 'Дневное время', 'Ночное время', 'Хрень']
         txt_data = pd.read_excel(xtx)
-        #txt_fin = pd.read_excel(xtx, header=None, names=columns)
+        # txt_fin = pd.read_excel(xtx, header=None, names=columns)
         df = pd.DataFrame(txt_data)
         assert 'Компания-клиент' in df.columns, "1 Колонки Компания-клиент нет"
         assert 'Кластер' in df.columns, "2 Колонки Кластер нет"
@@ -897,7 +872,7 @@ class outsourcing_create(AnyPage):
         assert 'Дата' in df.columns, "17 Колонки Дата нет"
         assert 'Статус выплаты' in df.columns, "18 Статус выплаты"
         assert 'Платим?' in df.columns, "19 Колонки Платим? нет"
-        assert 'Название заказчика' in df.columns, "20 Колонки Название заказчиканет"
+        assert 'Название заказчика' in df.columns, "20 Колонки Название заказчика нет"
         assert 'Назначение платежа' in df.columns, "21 Колонки Назначение платежа нет"
         assert 'Дневное время' in df.columns, "22 Колонки Дневное время нет"
         assert 'Ночное время' in df.columns, "23 Колонки Ночное время нет"
@@ -908,11 +883,145 @@ class outsourcing_create(AnyPage):
 
         return self
 
+    @allure.step('Проверяем xlsx - открываем файл для чтения и проверки')
+    def get_xlsxfile_only(self, zz, c1=None, c2=None, c3=None, c4=None, c5=None, c6=None, c7=None, c8=None, c9=None,
+                          c10=None, c11=None, c12=None, c13=None, c14=None, c15=None, c16=None, c17=None,
+                          c18=None, c19=None, c20=None, c21=None, c22=None, c23=None, c24=None) -> object:
 
+        vv = f'export_selfemployed_alfabank_{zz}12.xlsx'  # шаблон
+        vvv = vv[:-6]
+        ooo = glob.glob('./' + vvv + '*.xlsx')  # шаблон обработанный для lin
+        path_1 = str(ooo)[2:-2]
 
+        print("path_1 = " + path_1)
 
+        txt_data = pd.read_excel(path_1)
+        df = pd.DataFrame(txt_data)
+        if c1 == None:
+            pass
+        else:
+            assert c1 in df.columns, f"1 Колонки {c1} нет"
 
+        if c2 == None:
+            pass
+        else:
+            assert c2 in df.columns, f"2 Колонки {c2} нет"
 
+        if c3 == None:
+            pass
+        else:
+            assert c3 in df.columns, f"3 Колонки {c3} нет"
+
+        if c4 == None:
+            pass
+        else:
+            assert c4 in df.columns, f"4 Колонки {c4} нет"
+
+        if c5 == None:
+            pass
+        else:
+            assert c5 in df.columns, f"5 Колонки {c5} нет"
+
+        if c6 == None:
+            pass
+        else:
+            assert c6 in df.columns, f"6 Колонки {c6} нет"
+
+        if c7 == None:
+            pass
+        else:
+            assert c7 in df.columns, f"7 Колонки {c7} нет"
+
+        if c8 == None:
+            pass
+        else:
+            assert c8 in df.columns, f"8 Колонки {c8} нет"
+
+        if c9 == None:
+            pass
+        else:
+            assert c9 in df.columns, f"9 Колонки {c9} нет"
+
+        if c10 == None:
+            pass
+        else:
+            assert c10 in df.columns, f"10 Колонки {c10} нет"
+
+        if c11 == None:
+            pass
+        else:
+            assert c11 in df.columns, f"11 Колонки {c11} нет"
+
+        if c12 == None:
+            pass
+        else:
+            assert c12 in df.columns, f"12 Колонки {c12} нет"
+
+        if c13 == None:
+            pass
+        else:
+            assert c13 in df.columns, f"13 Колонки {c13} нет"
+
+        if c14 == None:
+            pass
+        else:
+            assert c14 in df.columns, f"14 Колонки {c14} нет"
+
+        if c15 == None:
+            pass
+        else:
+            assert c15 in df.columns, f"15 Колонки {c15} нет"
+
+        if c16 == None:
+            pass
+        else:
+            assert c16 in df.columns, f"16 Колонки {c16} нет"
+
+        if c17 == None:
+            pass
+        else:
+            assert c17 in df.columns, f"17 Колонки {c17} нет"
+
+        if c18 == None:
+            pass
+        else:
+            assert c18 in df.columns, f"18 Колонки {c18} нет"
+
+        if c19 == None:
+            pass
+        else:
+            assert c19 in df.columns, f"1 Колонки {c19} нет"
+
+        if c20 == None:
+            pass
+        else:
+            assert c20 in df.columns, f"1 Колонки {c20} нет"
+
+        if c21 == None:
+            pass
+        else:
+            assert c21 in df.columns, f"1 Колонки {c21} нет"
+
+        if c22 == None:
+            pass
+        else:
+            assert c22 in df.columns, f"1 Колонки {c22} нет"
+
+        if c23 == None:
+            pass
+        else:
+            assert c23 in df.columns, f"1 Колонки {c23} нет"
+
+        if c24 == None:
+            pass
+        else:
+            assert c24 in df.columns, f"1 Колонки {c24} нет"
+
+        self.allure_screenshot()
+
+        print(df)
+
+        return df
 
     # @allure.step('Передаем   Login')
     # def send_login(self, txt):
@@ -921,47 +1030,44 @@ class outsourcing_create(AnyPage):
     #
     #     return self
 
+    #       if len(driver.find_elements_by_xpath("//span[@class='basket-sku-control__text']")) == 0:
+    #    print(" товар уже в корзине ")
+    # dp = fin + 1
+    #
+    # time.sleep(1)
+    # for x in range(-dp, -1):
+    #     fv = x + 1
+    #     self.click_element_my_dp(f"(//*[contains(@class,'schedule__event-wrap')])[{fv * -1}]")
+    #     time.sleep(1)
+    #     self.click_element_my_dp(el_1)
+    #     time.sleep(1)
+    #     # self.GetDriver().refresh()
+    #     # time.sleep(1)
+    #     # if x == 0:
+    #     #     break
+    # self.allure_screenshot()
+    #
+    # return self
 
+    # while fin >= 1:
+    #     self.click_element_my_dp(f"(//*[contains(@class,'schedule__event-wrap')])[{fin}]")
+    #     self.click_element_my_dp(el_1)
+    #
+    #     if fin == 0:
+    #         break
+    #     fin -= 1
+    # if fin >= 1:
+    #     self.click_element_my_dp(el_1)
+    #
+    # else:
+    #     # self.click_element_my(el_2)
+    #     self.GetDriver().refresh()
 
-        #       if len(driver.find_elements_by_xpath("//span[@class='basket-sku-control__text']")) == 0:
-        #    print(" товар уже в корзине ")
-        # dp = fin + 1
-        #
-        # time.sleep(1)
-        # for x in range(-dp, -1):
-        #     fv = x + 1
-        #     self.click_element_my_dp(f"(//*[contains(@class,'schedule__event-wrap')])[{fv * -1}]")
-        #     time.sleep(1)
-        #     self.click_element_my_dp(el_1)
-        #     time.sleep(1)
-        #     # self.GetDriver().refresh()
-        #     # time.sleep(1)
-        #     # if x == 0:
-        #     #     break
-        # self.allure_screenshot()
-        #
-        # return self
+    # self.allure_screenshot()
+    #
+    # return self
 
-
-        # while fin >= 1:
-        #     self.click_element_my_dp(f"(//*[contains(@class,'schedule__event-wrap')])[{fin}]")
-        #     self.click_element_my_dp(el_1)
-        #
-        #     if fin == 0:
-        #         break
-        #     fin -= 1
-        # if fin >= 1:
-        #     self.click_element_my_dp(el_1)
-        #
-        # else:
-        #     # self.click_element_my(el_2)
-        #     self.GetDriver().refresh()
-
-        # self.allure_screenshot()
-        #
-        # return self
-
-    #//*[@role='tab'][contains(.,'График')]
+    # //*[@role='tab'][contains(.,'График')]
     # @allure.step(' Проверяем диапазон цен >=100')
     # def compare_all(self):
     #     el_l = self.get_count_elements_my(Locator.compare_left)
@@ -1027,7 +1133,3 @@ class outsourcing_create(AnyPage):
     #
     #     return self
     #
-
-
-
-

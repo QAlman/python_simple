@@ -122,39 +122,42 @@ print("zov = " + str(zov))
 
 #zz = x.strftime("%Y%m%d.%H%M")
 
-zz = '20230607.2324'
+zz = '20230611.1157'
 
-vv = f'export_paymentorder_talkbank_{zz}08.zip'
+#vv = f'export_paymentorder_talkbank_{zz}08.zip'
+vv = f'export_selfemployed_alfabank_{zz}12.xlsx'
 vvv = vv[:-6]
 # print("vvv = " + vvv)
-ooo = glob.glob('C:\\1\\' + vvv + '*.zip')
+ooo = glob.glob('C:\\1\\' + vvv + '*.xlsx')
 path_1 = str(ooo)[2:-2]
 #print("ooo = " + str(ooo))
 print("path_1 = " + path_1)
-archive = zipfile.ZipFile(path_1, 'r')
+#archive = zipfile.ZipFile(path_1, 'r')
 #archive = zipfile.ZipFile(f'C:\\1\\export_paymentorder_talkbank_20230607.161708.zip', 'r')
-archive1 = archive.namelist()
+#archive1 = archive.namelist()
 
-fin = (str(archive1)[2:-2])
+#fin = (str(archive1)[2:-2])
 #g = glob.glob('*.')
 
-xtx = archive.open( fin ,'r', pwd=None, force_zip64=False)
+#xtx = archive.open( fin ,'r', pwd=None, force_zip64=False)
 #print(xtx.readlines())
-archive.printdir()
+#archive.printdir()
 #Let us verify the operation..
 #txtdata = archive.read('1.xlsx')
 columns = ['Компания-клиент', 'Кластер ','Дневное время','Ночное время', 'Хрень']
-txt_data = pd.read_excel(xtx)
-txt_fin = pd.read_excel(xtx, header=None, names = columns)
+txt_data = pd.read_excel(path_1)
 df = pd.DataFrame(txt_data)
-assert 'Компания-клиент' in df.columns, "Колонки нет"
+
+#txt_fin = pd.read_excel(xtx, header=None, names = columns)
+#df = pd.DataFrame(txt_data)
+#assert 'Компания-клиент' in df.columns, "Колонки нет"
 
 #print(txtdata)
 #print(archive)
 #print(xtx)
 print(txt_data)
 
-print(txt_fin)
+#print(txt_fin)
 
 #print('txt_check = '  + str(txt_check))
 
@@ -167,8 +170,8 @@ print(txt_fin)
 #export_paymentorder_talkbank_20230607.002247.zip
 
 
-path = pathlib.Path('C:\\1')
-abc = path.glob('export_paymentorder_talkbank_20230607.161708.zip')
+#path = pathlib.Path('C:\\1')
+#abc = path.glob('export_paymentorder_talkbank_20230607.161708.zip')
 #def_ = path.glob('export_paymentorder_talkbank_[0-9].png')
 
 # Veter = Veter[0].rsplit(".", 1)[0]

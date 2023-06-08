@@ -61,6 +61,29 @@ sd = (date_time.strftime('%H:%M'))
 
 print(sd)
 
+
+
+
+def smpl(c1 = None, c2 = None , c3=None):
+    d = "12345 Werty fghj !@!"
+    assert c1 in d, "wwwwww"
+    assert c2 in d, "ddddd"
+    if c3 == None:
+        pass
+    else:
+        assert c3 in d, "ddddd"
+
+    return True
+
+s1 = "12345"
+s2 = "fg"
+s3 = "!"
+
+
+
+z = smpl(s1, s2, s3)
+print("z = " + str(z))
+
 #
 # # print(date.strftime('%H:%M'))
 #

@@ -65,11 +65,14 @@ class TestOutsourcing_57(WebBase):
         fin_int = json.loads(scr)
         assert fin_ex == fin_int, "Скрипт для 807 не корректен"
 
+
         sp = "input"
         tx = 'value'
         txx = "Запустить экспорт"
         outsourcing.click_only_class(sp, tx,  txx)
         outsourcing.small_time()
+
+
 
         sp = "a"
         tx = "[↗]"
@@ -91,7 +94,35 @@ class TestOutsourcing_57(WebBase):
         outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
 
-        #time.sleep(22222)
+        c1 = "Онбординг АБ"
+        c2 = "ИНН"
+        c3 = "Фамилия"
+        c4 = "Имя"
+        c5 = "Отчество"
+        c6 = "Дата рождения"
+        c7 = "Место рождения"
+        c8 = "Гражданство"
+        c9 = "Паспорт серия"
+        c10 = "Паспорт номер"
+        c11 = "Кем выдан паспорт"
+        c12 = "Код подразделения"
+        c13 = "Номер телефона"
+        c14 = "Адрес проживания"
+        c15 = "Email"
+        c16 = "Дата выдачи"
+        c17 = "Дата окончания"
+        c18 = "Описание статуса"
+        # c19 = ""
+        # c20 = ""
+        # c21 = ""
+        # c22 = ""
+        # c23 = ""
+        # c24 = ""
+
+        outsourcing.get_xlsxfile_only(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18)
+
+        time.sleep(22222)
+
         # print(fin)
 
 
