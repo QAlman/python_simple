@@ -112,12 +112,15 @@ class TestOutsourcing_64(WebBase):
         nb = "1"
         outsourcing.click_field_agency(ch, nb)
         outsourcing.small_time()
-        outsourcing.small_time()
 
-        sp = "div"
-        tx = "id"
-        txx = "__BVID__46"
-        outsourcing.click_only_class(sp, tx, txx)
+        # sp = "div"
+        # tx = "id"
+        # txx = "__BVID__46"
+        # outsourcing.click_only_class(sp, tx, txx)
+
+        sp = "span"
+        tx = "2023 г."
+        outsourcing.click_only_txt(sp, tx)
 
         sp = "td"
         tx = "data-month"
