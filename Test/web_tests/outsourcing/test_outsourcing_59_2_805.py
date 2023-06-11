@@ -77,6 +77,11 @@ class TestOutsourcing_59(WebBase):
 
         outsourcing.switch_to_new_tab()
 
+        time.sleep(1800)
+        outsourcing.ex_refresh()
+        outsourcing.small_time()
+
+
         sp = "div"
         tx = "class"
         txx = "readonly"
@@ -85,10 +90,37 @@ class TestOutsourcing_59(WebBase):
         fin = outsourcing.get_text_only(sp, tx, txx, txxx)
         assert fin == st, "Статус не корректен"
 
+        dt_1 = outsourcing.get_time_only()
+
         sp = "a"
         tx = "Скачать"
         outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
 
-        # time.sleep(22222)
+        fl = "export_alfa_"
+        c1 = "Онбординг АБ"
+        c2 = "ИНН"
+        c3 = "Фамилия"
+        c4 = "Имя"
+        c5 = "Отчество"
+        # c6 = "Дата рождения"
+        # c7 = "Место рождения"
+        # c8 = "Гражданство"
+        # c9 = "Паспорт серия"
+        # c10 = "Паспорт номер"
+        # c11 = "Кем выдан паспорт"
+        # c12 = "Код подразделения"
+        c13 = "Номер телефона"
+        # c14 = "Адрес проживания"
+        # c15 = "Email"
+        # c16 = "Дата выдачи"
+        # c17 = "Дата окончания"
+        c18 = "Описание статуса"
+        c19 = "ФИО"
+        # c20 = ""
+        # c21 = ""
+        # c22 = ""
+        # c23 = ""
+        # c24 = ""
 
+        outsourcing.get_xlsxfile_only(fl, dt_1, c1, c2, c3, c4, c5, c13, c18, c19)
