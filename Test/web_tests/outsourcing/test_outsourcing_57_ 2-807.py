@@ -89,6 +89,8 @@ class TestOutsourcing_57(WebBase):
         fin = outsourcing.get_text_only(sp, tx, txx, txxx)
         assert fin == st, "Статус не корректен"
 
+        dt_1 = outsourcing.get_time_only()
+
         sp = "a"
         tx = "Скачать"
         outsourcing.click_only_txt(sp, tx)
@@ -119,7 +121,7 @@ class TestOutsourcing_57(WebBase):
         # c23 = ""
         # c24 = ""
 
-        outsourcing.get_xlsxfile_only(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18)
+        outsourcing.get_xlsxfile_only(dt_1, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18)
 
         #time.sleep(22222)
 
