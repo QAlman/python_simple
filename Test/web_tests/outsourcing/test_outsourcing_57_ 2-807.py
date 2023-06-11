@@ -72,7 +72,7 @@ class TestOutsourcing_57(WebBase):
         outsourcing.click_only_class(sp, tx,  txx)
         outsourcing.small_time()
 
-
+        dt_1 = outsourcing.get_time_only()
 
         sp = "a"
         tx = "[↗]"
@@ -80,6 +80,7 @@ class TestOutsourcing_57(WebBase):
         outsourcing.click_only_txt_next(sp, tx, txx)
 
         outsourcing.switch_to_new_tab()
+        outsourcing.small_time()
 
         sp = "div"
         tx = "class"
@@ -88,8 +89,6 @@ class TestOutsourcing_57(WebBase):
         st = "Готов"
         fin = outsourcing.get_text_only(sp, tx, txx, txxx)
         assert fin == st, "Статус не корректен"
-
-        dt_1 = outsourcing.get_time_only()
 
         sp = "a"
         tx = "Скачать"

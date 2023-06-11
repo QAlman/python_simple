@@ -70,6 +70,8 @@ class TestOutsourcing_59(WebBase):
         outsourcing.click_only_class(sp, tx, txx)
         outsourcing.small_time()
 
+        dt_1 = outsourcing.get_time_only()
+
         sp = "a"
         tx = "[↗]"
         txx = "1"
@@ -81,7 +83,6 @@ class TestOutsourcing_59(WebBase):
         outsourcing.ex_refresh()
         outsourcing.small_time()
 
-
         sp = "div"
         tx = "class"
         txx = "readonly"
@@ -90,32 +91,30 @@ class TestOutsourcing_59(WebBase):
         fin = outsourcing.get_text_only(sp, tx, txx, txxx)
         assert fin == st, "Статус не корректен"
 
-        dt_1 = outsourcing.get_time_only()
-
         sp = "a"
         tx = "Скачать"
         outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
 
-        fl = "export_alfa_"
-        c1 = "Онбординг АБ"
-        c2 = "ИНН"
-        c3 = "Фамилия"
-        c4 = "Имя"
-        c5 = "Отчество"
-        # c6 = "Дата рождения"
-        # c7 = "Место рождения"
-        # c8 = "Гражданство"
-        # c9 = "Паспорт серия"
-        # c10 = "Паспорт номер"
-        # c11 = "Кем выдан паспорт"
-        # c12 = "Код подразделения"
-        c13 = "Номер телефона"
+        fl = "export_employee_docs_"
+        c1 = "Документ"
+        c2 = "Статус проверки"
+        c3 = "С"
+        c4 = "По"
+        c5 = "Ссылка"
+        c6 = "Реквизиты"
+        c7 = "Загружен / Обработан"
+        c8 = "Наличие файла"
+        c9 = "Причина отказа"
+        c10 = "Телефон"
+        c11 = "Дата рождения"
+        c12 = "Регион"
+        c13 = "Адрес"
         # c14 = "Адрес проживания"
         # c15 = "Email"
         # c16 = "Дата выдачи"
         # c17 = "Дата окончания"
-        c18 = "Описание статуса"
+        #c18 = "Описание статуса"
         c19 = "ФИО"
         # c20 = ""
         # c21 = ""
@@ -123,4 +122,4 @@ class TestOutsourcing_59(WebBase):
         # c23 = ""
         # c24 = ""
 
-        outsourcing.get_xlsxfile_only(fl, dt_1, c1, c2, c3, c4, c5, c13, c18, c19)
+        outsourcing.get_xlsxfile_only(fl, dt_1, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12,  c13, c19)

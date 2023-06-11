@@ -70,6 +70,8 @@ class TestOutsourcing_58(WebBase):
         outsourcing.click_only_class(sp, tx, txx)
         outsourcing.small_time()
 
+        dt_1 = outsourcing.get_time_only()
+
         sp = "a"
         tx = "[↗]"
         txx = "1"
@@ -88,12 +90,14 @@ class TestOutsourcing_58(WebBase):
         fin = outsourcing.get_text_only(sp, tx, txx, txxx)
         assert fin == st, "Статус не корректен"
 
-        dt_1 = outsourcing.get_time_only()
+
 
         sp = "a"
         tx = "Скачать"
         outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
+
+        print("время нажатия скачать = " + str(dt_1))
 
         fl = "export_alfa_"
         c1 = "Онбординг АБ"
