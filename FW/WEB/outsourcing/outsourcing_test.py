@@ -879,8 +879,6 @@ class outsourcing_create(AnyPage):
 
         self.allure_screenshot()
 
-        #print(df)
-
         return self
 
     @allure.step('Проверяем xlsx - открываем файл для чтения и проверки')
@@ -1020,7 +1018,6 @@ class outsourcing_create(AnyPage):
 
         self.allure_screenshot()
 
-        print(df)
 
         return df
 

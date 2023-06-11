@@ -123,4 +123,3 @@ class TestOutsourcing_58(WebBase):
 
         outsourcing.get_xlsxfile_only(fl, dt_1, c1, c2, c3, c4, c5, c13, c18, c19)
 
-        # time.sleep(22222)
