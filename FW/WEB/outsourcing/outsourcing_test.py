@@ -884,11 +884,12 @@ class outsourcing_create(AnyPage):
         return self
 
     @allure.step('Проверяем xlsx - открываем файл для чтения и проверки')
-    def get_xlsxfile_only(self, zz, c1=None, c2=None, c3=None, c4=None, c5=None, c6=None, c7=None, c8=None, c9=None,
+    def get_xlsxfile_only(self, fl, zz, c1=None, c2=None, c3=None, c4=None, c5=None, c6=None, c7=None, c8=None, c9=None,
                           c10=None, c11=None, c12=None, c13=None, c14=None, c15=None, c16=None, c17=None,
                           c18=None, c19=None, c20=None, c21=None, c22=None, c23=None, c24=None) -> object:
 
-        vv = f'export_selfemployed_alfabank_{zz}' + '*.xlsx'  # шаблон
+        #vv = f'export_selfemployed_alfabank_{zz}' + '*.xlsx'  # шаблон
+        vv = f'{fl}' + f'{zz}' + '*.xlsx'  # шаблон
         vvv = vv[:-6]
         ooo = glob.glob('./' + vvv + '*.xlsx')  # шаблон обработанный для lin
         path_1 = str(ooo)[2:-2]

@@ -76,7 +76,7 @@ class TestOutsourcing_58(WebBase):
         outsourcing.click_only_txt_next(sp, tx, txx)
 
         outsourcing.switch_to_new_tab()
-        time.sleep(900)
+        time.sleep(9000)
         outsourcing.ex_refresh()
         outsourcing.small_time()
 
@@ -95,6 +95,7 @@ class TestOutsourcing_58(WebBase):
         outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
 
+        fl = "export_alfa_"
         c1 = "Онбординг АБ"
         c2 = "ИНН"
         c3 = "Фамилия"
@@ -112,7 +113,7 @@ class TestOutsourcing_58(WebBase):
         #c15 = "Email"
         #c16 = "Дата выдачи"
         #c17 = "Дата окончания"
-        #c18 = "Описание статуса"
+        c18 = "Описание статуса"
         c19 = "ФИО"
         # c20 = ""
         # c21 = ""
@@ -120,6 +121,6 @@ class TestOutsourcing_58(WebBase):
         # c23 = ""
         # c24 = ""
 
-        outsourcing.get_xlsxfile_only(dt_1, c1, c2, c3, c4, c5, c13, c19)
+        outsourcing.get_xlsxfile_only(fl, dt_1, c1, c2, c3, c4, c5, c13, c18, c19)
 
         # time.sleep(22222)
