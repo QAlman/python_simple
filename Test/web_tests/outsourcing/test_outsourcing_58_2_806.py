@@ -77,6 +77,13 @@ class TestOutsourcing_58(WebBase):
 
         outsourcing.switch_to_new_tab()
         outsourcing.more_time()
+        outsourcing.more_time()
+        outsourcing.more_time()
+        outsourcing.more_time()
+        outsourcing.more_time()
+        outsourcing.more_time()
+        outsourcing.ex_refresh()
+        outsourcing.small_time()
 
         sp = "div"
         tx = "class"
