@@ -79,7 +79,7 @@ class TestOutsourcing_59(WebBase):
 
         outsourcing.switch_to_new_tab()
 
-        time.sleep(1800)
+        time.sleep(1500)
         outsourcing.ex_refresh()
         outsourcing.small_time()
 
@@ -123,3 +123,4 @@ class TestOutsourcing_59(WebBase):
         # c24 = ""
 
         outsourcing.get_xlsxfile_only(fl, dt_1, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12,  c13, c19)
+
