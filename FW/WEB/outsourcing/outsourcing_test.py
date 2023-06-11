@@ -830,14 +830,14 @@ class outsourcing_create(AnyPage):
     @allure.step('Проверяем zip -  открываем файл для чтения и проверки')
     def get_zipfile_only(self, zz) -> object:
 
-        vv = f'export_paymentorder_talkbank_{zz}08.zip'  # шаблон
+        vv = f'export_paymentorder_talkbank_{zz}' + '*.zip'  # шаблон
         vvv = vv[:-6]
 
         # ooo = glob.glob('C:\\1\\' + vvv + '*.zip') # шаблон обработанный win
         ooo = glob.glob('./' + vvv + '*.zip')  # шаблон обработанный lin
         path_1 = str(ooo)[2:-2]
         # print("ooo = " + str(ooo))
-        # print("path_1 = " + path_1)
+        print("path_1 = " + path_1)
         archive = zipfile.ZipFile(path_1, 'r')
         # archive = zipfile.ZipFile(f'C:\\1\\export_paymentorder_talkbank_20230607.161708.zip', 'r')
         archive1 = archive.namelist()
@@ -879,7 +879,7 @@ class outsourcing_create(AnyPage):
 
         self.allure_screenshot()
 
-        print(df)
+        #print(df)
 
         return self
 
