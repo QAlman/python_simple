@@ -125,7 +125,7 @@ print("zov = " + str(zov))
 zz = '20230611.1157'
 
 #vv = f'export_paymentorder_talkbank_{zz}08.zip'
-vv = f'export_selfemployed_alfabank_{zz}12.xlsx'
+vv = f'export_selfemployed_alfabank_{zz}' + '*.xlsx'
 vvv = vv[:-6]
 # print("vvv = " + vvv)
 ooo = glob.glob('C:\\1\\' + vvv + '*.xlsx')

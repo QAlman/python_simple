@@ -888,7 +888,7 @@ class outsourcing_create(AnyPage):
                           c10=None, c11=None, c12=None, c13=None, c14=None, c15=None, c16=None, c17=None,
                           c18=None, c19=None, c20=None, c21=None, c22=None, c23=None, c24=None) -> object:
 
-        vv = f'export_selfemployed_alfabank_{zz}12.xlsx'  # шаблон
+        vv = f'export_selfemployed_alfabank_{zz}' + '*.xlsx'  # шаблон
         vvv = vv[:-6]
         ooo = glob.glob('./' + vvv + '*.xlsx')  # шаблон обработанный для lin
         path_1 = str(ooo)[2:-2]
