@@ -42,8 +42,6 @@ class TestOutsourcing_58(WebBase):
         outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
 
-         
-
         outsourcing.click_search_celery()
         z = '101. Статус регистрации в АБ'
         outsourcing.send_login(z)
@@ -78,6 +76,7 @@ class TestOutsourcing_58(WebBase):
         outsourcing.click_only_txt_next(sp, tx, txx)
 
         outsourcing.switch_to_new_tab()
+        outsourcing.more_time()
 
         sp = "div"
         tx = "class"
@@ -87,9 +86,38 @@ class TestOutsourcing_58(WebBase):
         fin = outsourcing.get_text_only(sp, tx, txx, txxx)
         assert fin == st, "Статус не корректен"
 
+        dt_1 = outsourcing.get_time_only()
+
         sp = "a"
         tx = "Скачать"
         outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
 
+        c1 = "Онбординг АБ"
+        c2 = "ИНН"
+        c3 = "Фамилия"
+        c4 = "Имя"
+        c5 = "Отчество"
+        #c6 = "Дата рождения"
+        #c7 = "Место рождения"
+        #c8 = "Гражданство"
+        #c9 = "Паспорт серия"
+        #c10 = "Паспорт номер"
+        #c11 = "Кем выдан паспорт"
+        #c12 = "Код подразделения"
+        c13 = "Номер телефона"
+        #c14 = "Адрес проживания"
+        #c15 = "Email"
+        #c16 = "Дата выдачи"
+        #c17 = "Дата окончания"
+        #c18 = "Описание статуса"
+        c19 = "ФИО"
+        # c20 = ""
+        # c21 = ""
+        # c22 = ""
+        # c23 = ""
+        # c24 = ""
 
+        outsourcing.get_xlsxfile_only(dt_1, c1, c2, c3, c4, c5, c13, c19)
+
+        # time.sleep(22222)
