@@ -70,12 +70,17 @@ class TestOutsourcing_60(WebBase):
         outsourcing.click_only_class(sp, tx, txx)
         outsourcing.small_time()
 
+        dt_1 = outsourcing.get_time_only()
+
         sp = "a"
         tx = "[↗]"
         txx = "1"
         outsourcing.click_only_txt_next(sp, tx, txx)
 
         outsourcing.switch_to_new_tab()
+        time.sleep(1800)
+        outsourcing.ex_refresh()
+        outsourcing.small_time()
 
         sp = "div"
         tx = "class"
@@ -90,74 +95,30 @@ class TestOutsourcing_60(WebBase):
         outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
 
-        #time.sleep(22222)
+        fl = "export_selfemployed_amo_"
+        c1 = "Документ"
+        c2 = "Статус проверки"
+        c3 = "С"
+        c4 = "По"
+        c5 = "Ссылка"
+        c6 = "Реквизиты"
+        c7 = "Загружен / Обработан"
+        c8 = "Наличие файла"
+        c9 = "Причина отказа"
+        c10 = "Телефон"
+        c11 = "Дата рождения"
+        c12 = "Регион"
+        c13 = "Адрес"
+        # c14 = "Адрес проживания"
+        # c15 = "Email"
+        # c16 = "Дата выдачи"
+        # c17 = "Дата окончания"
+        # c18 = "Описание статуса"
+        c19 = "ФИО"
+        # c20 = ""
+        # c21 = ""
+        # c22 = ""
+        # c23 = ""
+        # c24 = ""
 
-        # ch = "Директ Кредит_РГКП24"
-        # nb = "1"
-        # outsourcing.click_field_agency(ch, nb)
-        # outsourcing.small_time()
-        #
-        # sp = "button"
-        # tx = "Действия"
-        # outsourcing.click_only_txt(sp, tx)
-        # outsourcing.small_time()
-        #
-        # sp = "span"
-        # tx = "Расширенный отчёт"
-        # outsourcing.click_only_txt(sp, tx)
-        # outsourcing.small_time()
-        #
-        # ur = "https://outsourcing-auto.verme.ru/admin/reports/reportitem/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.more_time()
-        # outsourcing.ex_refresh()
-        # outsourcing.small_time()
-        # outsourcing.click_only_download()
-        #
-        # """
-        # Необходимо уточнить по выгрузке отчета и полям
-        #
-        # """
-
-        # c = "9"
-        # outsourcing.outsourcing_click_cell(c)
-
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # #outsourcing.click_sort_fio()
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/employees/supervisors/agency/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-employees-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-shifts-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/client-reports/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/promo-employees-list/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
-        # outsourcing.small_time()
-        # ur = "https://outsourcing-auto.verme.ru/promo-reports/"
-        # outsourcing.goto_employees_all_page(ur)
-        # outsourcing.small_time()
-        # dt = "1"
-        # outsourcing.click_sort_all(dt)
+        outsourcing.get_xlsxfile_only(fl, dt_1, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c19)

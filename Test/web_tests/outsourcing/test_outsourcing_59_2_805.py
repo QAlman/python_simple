@@ -78,7 +78,6 @@ class TestOutsourcing_59(WebBase):
         outsourcing.click_only_txt_next(sp, tx, txx)
 
         outsourcing.switch_to_new_tab()
-
         time.sleep(1500)
         outsourcing.ex_refresh()
         outsourcing.small_time()
@@ -95,6 +94,8 @@ class TestOutsourcing_59(WebBase):
         tx = "Скачать"
         outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
+        outsourcing.small_time()
+        print("dt_1 = " + str(dt_1))
 
         fl = "export_employee_docs_"
         c1 = "Документ"

@@ -1,4 +1,5 @@
 import glob
+import re
 import zipfile
 import pandas as pd
 import pathlib
@@ -122,14 +123,16 @@ print("zov = " + str(zov))
 
 #zz = x.strftime("%Y%m%d.%H%M")
 
-zz = '20230611.1157'
+zz = '20230611.2146'
 
 #vv = f'export_paymentorder_talkbank_{zz}08.zip'
-vv = f'export_selfemployed_alfabank_{zz}' + '*.xlsx'
-vvv = vv[:-6]
+vv = f'export_employee_docs_{zz}'
+#vvv = vv[:-6]
 # print("vvv = " + vvv)
-ooo = glob.glob('C:\\1\\' + vvv + '*.xlsx')
+#res = re.search(str(zz))
+ooo = glob.glob('C:\\1\\' + vv + '*.xlsx', recursive=True)
 path_1 = str(ooo)[2:-2]
+#path_1 = ('C:\\1\\' + ooo)
 #print("ooo = " + str(ooo))
 print("path_1 = " + path_1)
 #archive = zipfile.ZipFile(path_1, 'r')
@@ -156,6 +159,7 @@ df = pd.DataFrame(txt_data)
 #print(archive)
 #print(xtx)
 print(txt_data)
+#print(df)
 
 #print(txt_fin)
 

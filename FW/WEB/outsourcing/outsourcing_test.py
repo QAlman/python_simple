@@ -887,13 +887,13 @@ class outsourcing_create(AnyPage):
                           c18=None, c19=None, c20=None, c21=None, c22=None, c23=None, c24=None) -> object:
 
         #vv = f'export_selfemployed_alfabank_{zz}' + '*.xlsx'  # шаблон
-        vv = f'{fl}' + f'{zz}' + '*.xlsx'  # шаблон
-        vvv = vv[:-6]
-        ooo = glob.glob('./' + vvv + '*.xlsx')  # шаблон обработанный для lin
+        vv = f'{fl}' + f'{zz}' # шаблон
+        #vvv = vv[:-6]
+        ooo = glob.glob('./' + vv + '*.xlsx')  # шаблон обработанный для lin
         path_1 = str(ooo)[2:-2]
 
         print("path_1 = " + path_1)
-
+        time.sleep(2)
         txt_data = pd.read_excel(path_1)
         df = pd.DataFrame(txt_data)
         if c1 == None:
