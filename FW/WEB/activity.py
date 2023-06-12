@@ -15,6 +15,8 @@ class Locator:
     shifts_dev_url = "https://shifts-dev.verme.ru/auth"
     ousourcing_auto = "https://outsourcing-auto.verme.ru/"
 
+    integral_wb = "https://www.wildberries.ru/"
+
 
 
 
@@ -54,6 +56,14 @@ class Activity(AnyPage):
         # Переходим на целевую страницу теста
         #self.goto_page(Locator.verme_url)
         self.goto_page(Locator.verme_url)
+        time.sleep(1)
+        return self.manager.web_outsourcing
+
+    @allure.step('Работа c URL wb')
+    def button_to_integral_wb(self):
+        # Переходим на целевую страницу теста
+        #self.goto_page(Locator.verme_url)
+        self.goto_page(Locator.integral_wb)
         time.sleep(1)
         return self.manager.web_outsourcing
 

@@ -711,7 +711,7 @@ class outsourcing_create(AnyPage):
 
     @allure.step(' Кликаем  {txt_2}')
     def click_only_class_next(self, txt: str, txt_1: str, txt_2: str, txt_3) -> Type[object]:
-        el = (By.XPATH, f"//{txt}[contains(@{txt_1},'{txt_2}')]['{txt_3}']")
+        el = (By.XPATH, f"(//{txt}[contains(@{txt_1},'{txt_2}')])['{txt_3}']")
         self.click_element_my(el)
         self.allure_screenshot()
 
@@ -1063,6 +1063,27 @@ class outsourcing_create(AnyPage):
 
 
         return df
+
+
+
+    @allure.step('Отправляем данные в {txt}')
+    def send_only(self, txt):
+        el = (By.XPATH, f"(//input[contains(@class,'input-item')])[1]")
+        #el = (//input[contains(@class,'input-item')])[1]
+        self.send_keys_slow(el, txt, 100)
+        self.allure_screenshot()
+
+        return self
+
+
+
+    @allure.step(' Отправляем  {txt_2}')
+    def send_only_class(self, dt: str,  txt: str, txt_1: str, txt_2: str) -> Type[object]:
+        el = (By.XPATH, f"//{txt}[contains(@{txt_1},'{txt_2}')]")
+        self.send_keys_slow(el, dt, 100 )
+        self.allure_screenshot()
+
+        return object
 
     # @allure.step('Передаем   Login')
     # def send_login(self, txt):
