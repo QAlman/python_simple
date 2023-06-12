@@ -22,9 +22,9 @@ class Locator:
 
     shifts_next = (By.XPATH, "//*[contains(@data-test ,'next-button')]")
     shifts_done = (By.XPATH, "//*[contains(@data-test ,'done-button')]")
-    shifts_phone = (By.XPATH, "//*[contains(@class ,'v-text-field__slot')][contains(.,'Номер телефона')]")
-    shifts_phone_send = (By.XPATH, "(//*[contains(@id ,'input-')])[1]")
-    shifts_call_phone = (By.XPATH, "//*[contains(@class ,'v-input__append-outer')]")
+    shifts_phone = (By.XPATH, "//*[contains(@type,'tel')]")
+    shifts_phone_send = (By.XPATH, "//*[contains(@type,'tel')]")
+    shifts_call_phone = (By.XPATH, "//*[contains(@data-test ,'outer-append-icon')]")
     celery_button_signin = (By.XPATH, "//input[@type='submit']")
 
     shifts_registration_calendar = (By.XPATH, "//*[contains(@class ,'vi-calendar')]")

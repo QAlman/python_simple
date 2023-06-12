@@ -200,6 +200,21 @@ class WebBase(FWBase):
         except StaleElementReferenceException as e:
             self.allure_StaleElementReferenceException(e)
 
+    @allure.step('Send keys {txt}')
+    def send_keys_my(self, txt, txt_1):
+            actions_3 = ActionChains(self.GetDriver())
+            actions_3.key_down(txt)
+            actions_3.send_keys(txt_1)
+            actions_3.perform()
+            return self
+
+    @allure.step('Send keys {txt}')
+    def send_keys_once(self, txt):
+            actions_3 = ActionChains(self.GetDriver())
+            actions_3.send_keys(txt)
+            actions_3.perform()
+            return self
+
     def get_tag_text(self, locator):
         try:
             text = self.find_element(locator).text
@@ -340,22 +355,29 @@ class WebBase(FWBase):
     @allure.step("move_to_element")
     def move_to_element(self, locator):
         actions = ActionChains(self.GetDriver())
-        element = self.find_element(locator)
+        element = self.find_element_my_dp(locator)
         actions.move_to_element(element)
         actions.perform()
 
     @allure.step("send_page_up")
-    def send_page_up(self, locator):
+    def send_page_up(self):
 
         actions = ActionChains(self.GetDriver())
         actions.send_keys(Keys.PAGE_UP)
         actions.perform()
 
     @allure.step("send_page_down")
-    def send_page_down(self, locator):
+    def send_page_down(self):
 
         actions = ActionChains(self.GetDriver())
         actions.send_keys(Keys.PAGE_DOWN)
+        actions.perform()
+
+    @allure.step("send_Esc")
+    def send_esc(self):
+
+        actions = ActionChains(self.GetDriver())
+        actions.send_keys(Keys.ESCAPE)
         actions.perform()
 
     @allure.step('Выбираем чекбокс terms ')
@@ -423,9 +445,9 @@ class WebBase(FWBase):
     def find_elements(self, locator):
         return WebDriverWait(self.GetDriver(), self.manager.settings.time_element_Wait).until(EC.presence_of_all_elements_located(locator))
 
-    def find_elements_my(self, locator):
-        return self.GetDriver().find_elements()
-
+    # def find_elements_my(self, locator):
+    #     return self.GetDriver().find_elements()
+    #
 
 
     @allure.step("send_keys")
@@ -439,16 +461,37 @@ class WebBase(FWBase):
         is_displayed = self.find_element(locator).is_displayed()
         return is_displayed
 
+    @allure.step("get_property")
+    def get_prop(self, locator, txt):
+        get_prop = self.find_element(locator).get_property(txt)
+
+        return get_prop
+
 
     def find_element_my(self, locator):
         return WebDriverWait(self.GetDriver(), self.manager.settings.time_element_Wait).until(EC.element_to_be_clickable(locator))
 
-
+    # dp - для простых устаревших методов
+    def find_element_my_dp(self, locator):
+        return self.GetDriver().find_element(By.XPATH, locator)
 
     @allure.step('click my')
     def click_element_my(self, locator):
         try:
             web_element = self.find_element_my(locator)
+            web_element.click()
+
+        except ElementNotVisibleException as e:
+            self.allure_ElementNotVisibleException(e)
+        except NoSuchElementException as e:
+            self.allure_NoSuchElementException(e)
+        except StaleElementReferenceException as e:
+            self.allure_StaleElementReferenceException(e)
+
+    @allure.step('click my dp')
+    def click_element_my_dp(self, locator):
+        try:
+            web_element = self.GetDriver().find_element(By.XPATH, locator)
             web_element.click()
 
         except ElementNotVisibleException as e:

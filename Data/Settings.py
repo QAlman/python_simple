@@ -4,7 +4,6 @@ class Settings:
     path_to_project = ''
     time_element_Wait = 30
 
-
     branch = 'pvp-at'
     mobile_stand_name = 'Android_emulator_Pixel2'
 
@@ -14,11 +13,11 @@ class Settings:
     use_internal_link_in_api = False
 
     # WEB
-    selenium_server = 'http://127.0.0.1:4445/wd/hub'
+    selenium_server = 'http://selenoid:4444/wd/hub'
     Browser = {
-        'Name': 'chrome',
-        'headless': False,
-        #'headless': True,
+         'Name': 'chrome',
+        #'headless': False,
+        'headless': True,
         #'Remote': True
         'Remote': False
     }
@@ -26,13 +25,13 @@ class Settings:
     GLOBAL = {
         'pvp-at': {
             'Name': 'Catalog',
-            'main_page': 'https://verme.ru/',
-            'Internal_Link': 'https://verme.ru/',
+            'main_page': 'https://outsourcing-auto.verme.ru',
+            'Internal_Link': 'https://outsourcing-auto.verme.ru',
         },
         'python_verme_stage': {
             'Name': 'Catalog',
-            'main_page': 'https://outsourcing-dev.verme.ru/',
-            'Internal_Link': 'https://outsourcing-dev.verme.ru/',
+            'main_page': 'https://outsourcing-auto.verme.ru/',
+            'Internal_Link': 'https://outsourcing-auto.verme.ru/',
 
 
 

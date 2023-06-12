@@ -11,12 +11,12 @@ class TestVerme_7(WebBase):
 
     @allure.title('7:  2-1027 : Авторизация в МС - Версия1')
     @allure.severity(allure.severity_level.CRITICAL)
-    @allure.link(name="2-974 : Регистрации на Shifts-dev - Version 1", url="https://testlink.verme.ru/index.php?caller=login&viewer=")
+    @allure.link(name="2-1027 : Регистрации на Shifts-dev - Version 1", url="https://testlink.verme.ru/index.php?caller=login&viewer=")
 
     @allure.description("Позитивный тест 2-1027 : Авторизация в МС - Версия1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
-    #@pytest.mark.skip
+    @pytest.mark.skip
     def test_verme_7(self):
 
         verme = self.APP.web_activity.button_to_shifts()
