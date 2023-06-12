@@ -78,7 +78,7 @@ class TestOutsourcing_62(WebBase):
         outsourcing.click_only_txt_next(sp, tx, txx)
 
         outsourcing.switch_to_new_tab()
-        time.sleep(90)
+        time.sleep(120)
         outsourcing.ex_refresh()
         outsourcing.small_time()
 

@@ -39,15 +39,20 @@ class TestOutsourcing_63(WebBase):
         outsourcing.small_time()
 
 
-        sp = "div"
-        tx = "id"
-        txx = "__BVID__47"
-        outsourcing.click_only_class(sp, tx, txx)
+        # sp = "div"
+        # tx = "id"
+        # txx = "__BVID__47"
+        # outsourcing.click_only_class(sp, tx, txx)
+        #
+        sp = "span"
+        tx = "2023 г."
+        outsourcing.click_only_txt(sp, tx)
 
         sp = "td"
         tx = "data-month"
         txx = "4"
         outsourcing.click_only_class(sp, tx, txx)
+        outsourcing.small_time()
 
         sp = "button"
         tx = "Действия"
@@ -59,12 +64,54 @@ class TestOutsourcing_63(WebBase):
         outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
 
+        dt_1 = outsourcing.get_time_only()
+
         ur = "https://outsourcing-auto.verme.ru/client-reports/"
         outsourcing.goto_employees_all_page(ur)
         outsourcing.small_time()
 
         outsourcing.click_only_download()
         outsourcing.small_time()
+        outsourcing.small_time()
+
+
+        fl = "export_org_references_"
+        c1 = "Код"
+        c2 = "Название"
+        # c3 = "Клиент"
+        # c4 = "Макрорегион"
+        # c5 = "Дивизион"
+        # c6 = "Кластер"
+        # c7 = "Магазин"
+        # c8 = "Адрес магазина"
+        # c9 = "Сотрудник"
+        # c10 = "Телефон"
+        # c11 = "Адрес фактического проживания СЗ"
+        # c12 = "Ближайшее метро"
+        # c13 = "Статус"
+        # c14 = "Дата смены"
+        # c15 = "Функция"
+        # c16 = "Стоимость Клиент"
+        # c17 = "Начало смены"
+        # c18 = "Конец смены"
+        # c19 = "Стоимость Сотрудник"
+        # c20 = "Рабочее время в минутах"
+        # c21 = "Задача"
+        # c22 = "Часовой план"
+        # c23 = "Рабочий план"
+        # c24 = "ФИО менеджера"
+        # c25 = "Кол-во часов с момента заказа до старта смены"
+        # c26 = "Цвет функции"
+        # c27 = "Внешний ID"
+        # c28 = "Код завода"
+        # c29 = "Дата последнего назначения"
+        # c30 = "Адм. территориальная единица"
+        # c31 = "Дата создания торговой точки"
+        # c32 = "Дата создания первой смены"
+        # c32 = "ФИО менеджера"
+        # c33 = "ФИО менеджера"
+
+        outsourcing.get_xlsxfile_only(fl, dt_1, c1, c2)
 
 
 
