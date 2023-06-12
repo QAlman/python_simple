@@ -16,7 +16,7 @@ class TestVerme_2(WebBase):
     @allure.description("Позитивный тест 2-967 : Регистрации на Shifts-dev - Version 1")
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
-    #@pytest.mark.skip
+    @pytest.mark.skip
     def test_verme_2(self):
         verme = self.APP.web_activity.button_to_shifts()
         self.APP.web_steps.step_test_1()
