@@ -94,6 +94,7 @@ class TestOutsourcing_62(WebBase):
         tx = "Скачать"
         outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
+        time.sleep(20)
 
         fl = "export_shifts.outsourcingshift_"
         c1 = "Дата заказа смены"
