@@ -884,7 +884,7 @@ class outsourcing_create(AnyPage):
     @allure.step('Проверяем xlsx - открываем файл для чтения и проверки')
     def get_xlsxfile_only(self, fl, zz, c1=None, c2=None, c3=None, c4=None, c5=None, c6=None, c7=None, c8=None, c9=None,
                           c10=None, c11=None, c12=None, c13=None, c14=None, c15=None, c16=None, c17=None,
-                          c18=None, c19=None, c20=None, c21=None, c22=None, c23=None, c24=None) -> object:
+                          c18=None, c19=None, c20=None, c21=None, c22=None, c23=None, c24=None, c25=None, c26=None, c27=None, c28=None, c29=None, c30=None, c31=None, c32=None) -> object:
 
         #vv = f'export_selfemployed_alfabank_{zz}' + '*.xlsx'  # шаблон
         vv = f'{fl}' + f'{zz}' # шаблон
@@ -989,32 +989,75 @@ class outsourcing_create(AnyPage):
         if c19 == None:
             pass
         else:
-            assert c19 in df.columns, f"1 Колонки {c19} нет"
+            assert c19 in df.columns, f"19 Колонки {c19} нет"
 
         if c20 == None:
             pass
         else:
-            assert c20 in df.columns, f"1 Колонки {c20} нет"
+            assert c20 in df.columns, f"20 Колонки {c20} нет"
 
         if c21 == None:
             pass
         else:
-            assert c21 in df.columns, f"1 Колонки {c21} нет"
+            assert c21 in df.columns, f"21 Колонки {c21} нет"
 
         if c22 == None:
             pass
         else:
-            assert c22 in df.columns, f"1 Колонки {c22} нет"
+            assert c22 in df.columns, f"22 Колонки {c22} нет"
 
         if c23 == None:
             pass
         else:
-            assert c23 in df.columns, f"1 Колонки {c23} нет"
+            assert c23 in df.columns, f"23 Колонки {c23} нет"
 
         if c24 == None:
             pass
         else:
-            assert c24 in df.columns, f"1 Колонки {c24} нет"
+            assert c24 in df.columns, f"24 Колонки {c24} нет"
+
+        if c25 == None:
+            pass
+        else:
+            assert c25 in df.columns, f"25 Колонки {c25} нет"
+
+        if c26 == None:
+            pass
+        else:
+            assert c26 in df.columns, f"26 Колонки {c26} нет"
+
+        if c27 == None:
+            pass
+        else:
+            assert c27 in df.columns, f"27 Колонки {c27} нет"
+
+        if c28 == None:
+            pass
+        else:
+            assert c28 in df.columns, f"28 Колонки {c28} нет"
+
+        if c29 == None:
+            pass
+        else:
+            assert c29 in df.columns, f"29 Колонки {c29} нет"
+
+        if c30 == None:
+            pass
+        else:
+            assert c30 in df.columns, f"30 Колонки {c30} нет"
+
+        if c31 == None:
+            pass
+        else:
+            assert c31 in df.columns, f"31 Колонки {c31} нет"
+
+        if c32 == None:
+            pass
+        else:
+            assert c32 in df.columns, f"32 Колонки {c32} нет"
+
+
+
 
         self.allure_screenshot()
 

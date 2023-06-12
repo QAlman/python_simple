@@ -78,7 +78,7 @@ class TestOutsourcing_60(WebBase):
         outsourcing.click_only_txt_next(sp, tx, txx)
 
         outsourcing.switch_to_new_tab()
-        time.sleep(1800)
+        time.sleep(2200)
         outsourcing.ex_refresh()
         outsourcing.small_time()
 
@@ -96,29 +96,29 @@ class TestOutsourcing_60(WebBase):
         outsourcing.small_time()
 
         fl = "export_selfemployed_amo_"
-        c1 = "Документ"
-        c2 = "Статус проверки"
-        c3 = "С"
-        c4 = "По"
-        c5 = "Ссылка"
-        c6 = "Реквизиты"
-        c7 = "Загружен / Обработан"
-        c8 = "Наличие файла"
-        c9 = "Причина отказа"
-        c10 = "Телефон"
-        c11 = "Дата рождения"
-        c12 = "Регион"
-        c13 = "Адрес"
-        # c14 = "Адрес проживания"
-        # c15 = "Email"
+        c1 = "Имя"
+        c2 = "Дата приёма в агентство"
+        c3 = "Телефон"
+        c4 = "Дата рождения"
+        c5 = "Гражданство"
+        c6 = "Города"
+        c7 = "Адрес"
+        c8 = "Ближайшее метро"
+        c9 = "Ветка метро"
+        c10 = "Статус СЗ"
+        c11 = "Статус в Альфа"
+        c12 = "Пол"
+        c13 = "Ограничение по сетям"
+        c14 = "Количество блокировок"
+        c15 = "Описание статуса"
         # c16 = "Дата выдачи"
         # c17 = "Дата окончания"
         # c18 = "Описание статуса"
-        c19 = "ФИО"
+        # c19 = "ФИО"
         # c20 = ""
         # c21 = ""
         # c22 = ""
         # c23 = ""
         # c24 = ""
 
-        outsourcing.get_xlsxfile_only(fl, dt_1, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c19)
+        outsourcing.get_xlsxfile_only(fl, dt_1, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15)

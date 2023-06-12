@@ -81,6 +81,9 @@ class TestOutsourcing_57(WebBase):
 
         outsourcing.switch_to_new_tab()
         outsourcing.small_time()
+        time.sleep(60)
+        outsourcing.ex_refresh()
+        outsourcing.small_time()
 
         sp = "div"
         tx = "class"
@@ -94,6 +97,7 @@ class TestOutsourcing_57(WebBase):
         tx = "Скачать"
         outsourcing.click_only_txt(sp, tx)
         outsourcing.small_time()
+
         fl = "export_selfemployed_alfabank_"
         c1 = "Онбординг АБ"
         c2 = "ИНН"
