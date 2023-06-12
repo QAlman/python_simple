@@ -10,14 +10,14 @@ from selenium.webdriver.common.keys import Keys
 
 
 @allure.feature('Web - Outsourcing')
-@allure.story('59: 2-805 : Проверка формирования отчета 119 ')
+@allure.story('61: 2-766 : Проверка формирования отчетов ')
 class TestOutsourcing_61(WebBase):
 
-    @allure.title('59:2-805 : Проверка формирования отчета 119 - Версия1')
+    @allure.title('61: 2-766 : Проверка формирования отчетов - Версия1')
     @allure.severity(allure.severity_level.CRITICAL)
-    @allure.link(name='2-805 : Проверка формирования отчета 119 - Версия1',
-                 url="https://testlink.verme.ru/linkto.php?tprojectPrefix=2&item=testcase&id=2-805")
-    @allure.description('Позитивный тест 2-805 : Проверка формирования отчета 119 - Версия1')
+    @allure.link(name='2-766 : Проверка формирования отчетов - Версия1',
+                 url="https://testlink.verme.ru/linkto.php?tprojectPrefix=2&item=testcase&id=2-766")
+    @allure.description('Позитивный тест 2-766 : Проверка формирования отчетов - Версия1')
     @pytest.mark.CRITICAL
     @pytest.mark.WebTest
     @pytest.mark.test2_766
