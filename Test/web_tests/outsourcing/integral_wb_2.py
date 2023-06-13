@@ -40,36 +40,36 @@ class TestIntegral_2(WebBase):
         # outsourcing.click_only_txt(sp, tx)
         # outsourcing.more_time()
 
-        #---------------------------
-        sp = "input"
-        tx = "id"
-        txx = "searchInput"
-        outsourcing.click_only_class(sp, tx, txx)
-        outsourcing.small_time()
-
-        dt = "Kenko Бинокль"
-        outsourcing.send_only_class(dt, sp, tx, txx)
-
-        sp = "span"
-        tx = "Kenko Бинокль"
-        outsourcing.click_only_txt(sp, tx)
-        outsourcing.small_time()
-        #-----------------------------
-
-        sp = "div"
-        tx = "class"
-        txx = "product-card__wrapper"
-        txxx = "1"
-        outsourcing.click_only_class_next(sp, tx, txx, txxx)
-        outsourcing.small_time()
-
-        sp = "span"
-        tx = "class"
-        txx = "price-block__price"
-        txxx = "2"
-        fin = outsourcing.get_text_only(sp, tx, txx, txxx)
-
-        print("Kenko Бинокль = " + fin)
+        # #---------------------------
+        # sp = "input"
+        # tx = "id"
+        # txx = "searchInput"
+        # outsourcing.click_only_class(sp, tx, txx)
+        # outsourcing.small_time()
+        #
+        # dt = "Kenko Бинокль"
+        # outsourcing.send_only_class(dt, sp, tx, txx)
+        #
+        # sp = "span"
+        # tx = "Kenko Бинокль"
+        # outsourcing.click_only_txt(sp, tx)
+        # outsourcing.small_time()
+        # #-----------------------------
+        #
+        # sp = "div"
+        # tx = "class"
+        # txx = "product-card__wrapper"
+        # txxx = "1"
+        # outsourcing.click_only_class_next(sp, tx, txx, txxx)
+        # outsourcing.small_time()
+        #
+        # sp = "span"
+        # tx = "class"
+        # txx = "price-block__price"
+        # txxx = "2"
+        # fin = outsourcing.get_text_only(sp, tx, txx, txxx)
+        #
+        # print("Kenko Бинокль = " + fin)
 
         #---------------------------
         sp = "input"
@@ -102,8 +102,88 @@ class TestIntegral_2(WebBase):
 
         print("nikon бинокль = " + fin)
 
+        outsourcing.small_time()
 
-        #time.sleep(22222)
+        sp = "span"
+        tx = "Добавить в корзину"
+        txx = "2"
+        outsourcing.click_only_txt_next(sp, tx, txx)
+        outsourcing.small_time()
+
+        sp = "span"
+        tx = "class"
+        txx = "basket"
+        txxx = "1"
+        outsourcing.click_only_class_next(sp, tx, txx, txxx)
+        outsourcing.small_time()
+        # -----------------------------
+
+        sp = "div"
+        tx = "class"
+        txx = "j-btn-choose-address"
+        txxx = "1"
+        outsourcing.click_only_class_next(sp, tx, txx, txxx)
+        outsourcing.small_time()
+
+        sp = "input"
+        tx = "placeholder"
+        txx = "Введите адрес"
+        txxx = "1"
+        outsourcing.click_only_class_next(sp, tx, txx, txxx)
+        outsourcing.small_time()
+
+
+        dt = "Петропавловск-Камчатский "
+        sp = "input"
+        tx = "placeholder"
+        txx = "Введите адрес"
+        txxx = "1"
+        outsourcing.send_only_class_next(dt, sp, tx, txx, txxx)
+        outsourcing.small_time()
+
+        sp = "ymaps"
+        tx = "class"
+        txx = "searchbox__button-cell"
+        txxx = "1"
+        outsourcing.click_only_class_next(sp, tx, txx, txxx)
+        outsourcing.small_time()
+
+
+        sp = "ymaps"
+        tx = "class"
+        txx = "islets__first"
+        txxx = "1"
+        outsourcing.click_only_class_next(sp, tx, txx, txxx)
+        outsourcing.small_time()
+
+
+        sp = "span"
+        tx = "class"
+        txx = "address-item__name-text"
+        txxx = "1"
+        outsourcing.click_only_class_next(sp, tx, txx, txxx)
+        outsourcing.small_time()
+
+        sp = "button"
+        tx = "class"
+        txx = "details-self__btn"
+
+        outsourcing.click_only_class(sp, tx, txx)
+        outsourcing.small_time()
+
+        #Камчатский край, Петропавловск-Камчатский
+
+        sp = "h3"
+        tx = "Недоступны для заказа"
+        txx = "1"
+        fin = outsourcing.check_message_txt(sp, tx, txx)
+        assert fin == 0, "Товар - Недоступны для заказа"
+        outsourcing.small_time()
+
+
+
+        time.sleep(22222)
+
         #
         #
         # v = "freftTRHTRH!@#13564"
