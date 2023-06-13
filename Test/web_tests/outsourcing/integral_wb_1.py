@@ -25,7 +25,7 @@ class TestIntegral_1(WebBase):
     def test_integral_1(self):
         outsourcing = self.APP.web_activity.button_to_integral_wb()
 
-
+        time.sleep(22222)
         sp = "a"
         tx = "Войти"
         outsourcing.click_only_txt(sp, tx)

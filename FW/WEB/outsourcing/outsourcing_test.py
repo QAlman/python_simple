@@ -12,8 +12,11 @@ import pathlib
 import openpyxl
 
 from selenium.webdriver.common.by import By
+
+import FW.WEB.outsourcing.city_test
 from FW.WEB.AnyPage import AnyPage
 from selenium.webdriver.common.keys import Keys
+from pandas import ExcelWriter
 
 
 class Locator:
@@ -711,7 +714,7 @@ class outsourcing_create(AnyPage):
 
     @allure.step(' Кликаем  {txt_2}')
     def click_only_class_next(self, txt: str, txt_1: str, txt_2: str, txt_3) -> Type[object]:
-        el = (By.XPATH, f"(//{txt}[contains(@{txt_1},'{txt_2}')])['{txt_3}']")
+        el = (By.XPATH, f"(//{txt}[contains(@{txt_1},'{txt_2}')])[{txt_3}]")
         self.click_element_my(el)
         self.allure_screenshot()
 
@@ -824,6 +827,14 @@ class outsourcing_create(AnyPage):
         # x = datetime.datetime.now()
         x = datetime.datetime.now(tz=datetime.timezone(datetime.timedelta(seconds=1)))
         zz = x.strftime("%Y%m%d.%H%M")
+
+        return zz
+
+    @allure.step('Фиксируем время формирования отчета')
+    def get_time_only_day(self) -> str:
+        # x = datetime.datetime.now()
+        x = datetime.datetime.now(tz=datetime.timezone(datetime.timedelta(seconds=1)))
+        zz = x.strftime("%Y.%m.%d")
 
         return zz
 
@@ -1084,6 +1095,54 @@ class outsourcing_create(AnyPage):
         self.allure_screenshot()
 
         return object
+
+    @allure.step(' Отправляем  в {txt_2}')
+    def send_only_class_next(self, dt: str,  txt: str, txt_1: str, txt_2: str , txt_3: str) -> Type[object]:
+        el = (By.XPATH, f"(//{txt}[contains(@{txt_1},'{txt_2}')])[{txt_3}]")
+        self.send_keys_slow(el, dt, 100 )
+        self.allure_screenshot()
+
+        return object
+
+
+    @allure.step('Проверяем  наличие  -  {txt_1}')
+    def check_message_txt(self, txt: str, txt_1: str, txt_2: str) -> Type[object]:
+        el = f"(//{txt}[contains(.,'{txt_1}')])[{txt_2}]"
+        fin = self.get_count_elements_my(el)
+
+        return fin
+
+    @allure.step('Записываем файл xlsx')
+    def write_xlsx_only(self, txt, txt_1, txt_2, txt_3, txt_4):
+        # ooo = glob.glob('C:\\1\\' + vvv + '*.zip') # шаблон обработанный win
+        # ooo = glob.glob('./' + vvv + '*.zip')  # шаблон обработанный lin
+        # path_1 = str(ooo)[2:-2]
+
+        path = 'C:\\3\\report.xlsx'
+
+        dfs = pd.read_excel(path)
+        df = pd.DataFrame(dfs)
+
+        newDict = {'Товар': f'{txt}', 'Цена': f'{txt_1}', 'Статус': f'{txt_2}', 'Город': f'{txt_3}', 'Дата': f'{txt_4}'}
+
+        df2 = df._append(newDict, ignore_index=True)
+
+
+        with ExcelWriter(path, mode="w" if os.path.exists(path) else "a+") as writer:
+            df2.to_excel(writer, index=False, engine="openpyxl")
+
+        return self
+
+
+
+    @allure.step('Получаем список городов')
+    def load_city_txt(self):
+
+        #fin = len(FW.WEB.outsourcing.city_test.CityTest.cities)
+        fin = FW.WEB.outsourcing.city_test.CityTest.cities
+
+        return  fin
+
 
     # @allure.step('Передаем   Login')
     # def send_login(self, txt):
