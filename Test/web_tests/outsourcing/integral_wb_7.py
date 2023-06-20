@@ -102,7 +102,7 @@ class TestIntegral_7(WebBase):
             # tx = "class"
             # txx = "address-item__wrap"
             # txxx = "1"
-            # outsourcing.click_only_class_next(sp, tx, txx, txxx)
+            # outsourcing.click_only_class_next(sp, tx, txx, txxx) # как вариант выбора первой строки пункта
             # outsourcing.small_time()
 
             sp = "ymaps"
