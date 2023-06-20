@@ -1,4 +1,4 @@
-# pvp-at
+# integral
 
 Папка с тестами для WB
 
