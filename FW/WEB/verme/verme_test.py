@@ -11,7 +11,8 @@ import zipfile
 import pandas as pd
 import pathlib
 import openpyxl
-
+import pyautogui as pyautogui
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 
 import FW.WEB.outsourcing.city_test
@@ -1157,9 +1158,43 @@ class verme_create(AnyPage):
 
 
     @allure.step('Получаем список городов')
-    def load_city_txt(self):
+    def load_city_txt(self) -> object:
 
         #fin = len(FW.WEB.outsourcing.city_test.CityTest.cities)
         fin = FW.WEB.outsourcing.city_test.CityTest.cities
 
         return  fin
+
+    @allure.step('Открываем devtools and mobile view')
+    def open_devtools(self) -> object:
+
+        time.sleep(1)
+        pyautogui.keyDown('ctrl')
+        pyautogui.keyDown('shift')
+        pyautogui.keyDown('I')
+        pyautogui.keyUp('ctrl')
+        pyautogui.keyUp('shift')
+        pyautogui.keyUp('I')
+        time.sleep(1)
+        pyautogui.keyDown('ctrl')
+        pyautogui.keyDown('shift')
+        pyautogui.keyDown('M')
+        pyautogui.keyUp('ctrl')
+        pyautogui.keyUp('shift')
+        pyautogui.keyUp('M')
+        time.sleep(1)
+
+        return  self
+
+
+
+    @allure.step('Открываем devtools and mobile view')
+    def click_coordinate(self) -> object:
+
+        time.sleep(1)
+        actions = ActionChains(self.GetDriver())
+        actions.move_by_offset(762, 865).perform() #{'x': 24, 'y': 778}  PASSED [100%]{'x': 762, 'y': 865}
+        #time.sleep(5)
+        actions.click().perform()
+
+        return  self

@@ -25,13 +25,13 @@ class Settings:
     GLOBAL = {
         'pvp-at': {
             'Name': 'Catalog',
-            'main_page': 'https://outsourcing-auto.verme.ru',
-            'Internal_Link': 'https://outsourcing-auto.verme.ru',
+            'main_page': 'https://github.com/QAlman/',
+            'Internal_Link': 'https://github.com/QAlman/',
         },
         'python_verme_stage': {
             'Name': 'Catalog',
-            'main_page': 'https://outsourcing-auto.verme.ru/',
-            'Internal_Link': 'https://outsourcing-auto.verme.ru/',
+            'main_page': 'https://github.com/QAlman/',
+            'Internal_Link': 'https://github.com/QAlman/',
 
 
 
@@ -40,9 +40,9 @@ class Settings:
                 'Token_url': "",
                 'Client_id': '',
                 'Client_secret': '',
-                'Internal_Link': 'https://outsourcing-dev.verme.ru/',
-                'External_Link': 'https://outsourcing-dev.verme.ru/',
-                'AUTH_URL': 'https://outsourcing-dev.verme.ru/',
+                'Internal_Link': 'https://github.com/QAlman/',
+                'External_Link': 'https://github.com/QAlman/',
+                'AUTH_URL': 'https://github.com/QAlman/',
                 'CERT_FILE': '',
                 'client_id': '',
                 'realm_name': '',

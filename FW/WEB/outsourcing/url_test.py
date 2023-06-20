@@ -6,8 +6,7 @@ class UrlTest:
 
 
 
-    url_1 = "https://www.wildberries.ru/catalog/86094673/detail.aspx" # бинокль
-    url_2 = "https://www.wildberries.ru/catalog/60021712/detail.aspx"  # бинокль
+    url_1 = "https://www.ozon.ru/product/kraska-tikkurila-44939-bystrosohnushchaya-do-85-akrilatno-lateksnaya-matovoe-pokrytie-9-kg-belyy-823085083/?avtc=1&avte=2&avts=1687291648&sh=QAyjYhW3vA" # Краска Tikkurila
     url_3 = "https://www.wildberries.ru/catalog/66524448/detail.aspx"  #
     url_4 = "https://www.wildberries.ru/catalog/160992325/detail.aspx"  #
     url_5 = "https://www.wildberries.ru/catalog/86096509/detail.aspx"  #
