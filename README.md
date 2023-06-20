@@ -1,5 +1,5 @@
 # pvp-at
 
-Папка с тестами 
+Папка с тестами для Ozone
 
-\pvp-at\Test\web_tests\outsourcing
+Test\web_tests\outsourcing
