@@ -22,6 +22,8 @@ datetime
 pytest-rerunfailures
 allure-pytest
 requests
+keyboard
+
 
 
 
